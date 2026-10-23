@@ -167,12 +167,6 @@
 .cva .clasif tr.me td{background:rgba(47,198,83,.14);color:#fff;font-weight:700}
 .cva .fuente{color:var(--c-muted);font-size:.8rem;margin-top:.8rem}
 .cva .fuente a{color:var(--c-accent)}
-/* Noticias */
-.cva .news .card{padding:0}
-.cva .news .thumb{aspect-ratio:16/10;background:linear-gradient(135deg,var(--c-bg2),#173019);display:grid;place-items:center;color:var(--c-muted);font-size:.8rem}
-.cva .news .body{padding:1.5rem}
-.cva .news time{font-size:.74rem;color:var(--c-accent);letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-.cva .news h3{font-size:1.5rem;margin:.5rem 0}
 
 /* CTA */
 .cva .join{text-align:center;overflow:hidden;background:linear-gradient(135deg,#1f8f3e,#0b4a1c)}
@@ -185,8 +179,9 @@
 /* Patrocinadores */
 .cva .spons{padding:3.5rem 0;border-block:1px solid var(--c-line)}
 .cva .spons p{text-align:center;color:var(--c-muted);text-transform:uppercase;letter-spacing:.25em;font-size:.74rem;margin-bottom:1.6rem}
+.cva .logos .sp{background:#fff;border-radius:14px;width:150px;height:78px;padding:.55rem .9rem;display:grid;place-items:center}
+.cva .logos .sp img{display:block;max-width:100%;max-height:58px;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply}
 .cva .logos{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center}
-.cva .logos div{min-width:150px;padding:0 1rem;text-align:center;line-height:1.25;height:64px;border:1px dashed var(--c-line);border-radius:12px;display:grid;place-items:center;color:var(--c-muted);font-size:.78rem;letter-spacing:.1em}
 
 /* Contacto */
 .cva .contact{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
@@ -249,7 +244,6 @@
       <a href="#club">El club</a>
       <a href="#equipos">Equipos</a>
       <a href="#partidos">Partidos</a>
-      <a href="#noticias">Noticias</a>
       <a href="#contacto">Contacto</a>
       <a href="#unete" class="btn btn-primary">Únete</a>
     </nav>
@@ -358,19 +352,6 @@
   </div>
 </section>
 
-<!-- NOTICIAS -->
-<section class="alt news" id="noticias">
-  <div class="wrap">
-    <div class="eyebrow">Actualidad</div>
-    <h2>Últimas noticias</h2>
-    <div class="cards" style="margin-top:2.5rem">
-      <article class="card rv"><div class="thumb">[ Imagen ]</div><div class="body"><time>23 Oct 2026</time><h3>Título de la noticia</h3><p>Resumen breve de la noticia del club. Texto genérico de ejemplo.</p></div></article>
-      <article class="card rv d1"><div class="thumb">[ Imagen ]</div><div class="body"><time>15 Oct 2026</time><h3>Otra noticia destacada</h3><p>Resumen breve de la noticia del club. Texto genérico de ejemplo.</p></div></article>
-      <article class="card rv d2"><div class="thumb">[ Imagen ]</div><div class="body"><time>02 Oct 2026</time><h3>Novedades de temporada</h3><p>Resumen breve de la noticia del club. Texto genérico de ejemplo.</p></div></article>
-    </div>
-  </div>
-</section>
-
 <!-- ÚNETE -->
 <section class="join" id="unete">
   <div class="wrap rv">
@@ -384,9 +365,9 @@
 <div class="spons" id="patrocinadores">
   <div class="wrap rv">
     <p>Instituciones</p>
-    <div class="logos"><div>ESVóley</div><div>FedExVB · Federación Extremeña</div><div>Fundación Jóvenes y Deporte · Junta de Extremadura</div><div>Diputación de Badajoz</div><div>Junta de Extremadura</div><div>Ayuntamiento de Almendralejo</div><div>Caja Almendralejo</div></div>
+    <div class="logos"><div class="sp"><img src="assets/logos/esvoley.webp" alt="ESVóley" loading="lazy"></div><div class="sp"><img src="assets/logos/fedexvb.webp" alt="Federación Extremeña de Voleibol" loading="lazy"></div><div class="sp"><img src="assets/logos/fundacion-jovenes-y-deporte.webp" alt="Fundación Jóvenes y Deporte · Junta de Extremadura" loading="lazy"></div><div class="sp"><img src="assets/logos/diputacion-badajoz.webp" alt="Diputación de Badajoz" loading="lazy"></div><div class="sp"><img src="assets/logos/junta-extremadura.webp" alt="Junta de Extremadura" loading="lazy"></div><div class="sp"><img src="assets/logos/ayuntamiento-almendralejo.webp" alt="Ayuntamiento de Almendralejo" loading="lazy"></div><div class="sp"><img src="assets/logos/caja-almendralejo.webp" alt="Caja Almendralejo" loading="lazy"></div></div>
     <p style="margin-top:2.2rem">Patrocinadores</p>
-    <div class="logos"><div>Ondupet</div><div>Ondupack</div><div>Tránsitos Suroeste</div><div>Natuyser</div><div>Pevicor PVC</div><div>Nissan NS Maven</div><div>Jumapa Carrasco</div><div>Premier</div><div>San Roque</div><div>OVB</div><div>Lavado Correduría</div><div>Telepizza</div><div>El Jato</div><div>Barrios</div><div>Balance</div><div>Diestro</div><div>Imagina Terapia</div></div>
+    <div class="logos"><div class="sp"><img src="assets/logos/transitos-suroeste.webp" alt="Tránsitos Suroeste" loading="lazy"></div><div class="sp"><img src="assets/logos/ondupet.webp" alt="Ondupet" loading="lazy"></div><div class="sp"><img src="assets/logos/ondupack.webp" alt="Ondupack" loading="lazy"></div><div class="sp"><img src="assets/logos/natuyser.webp" alt="Natuyser" loading="lazy"></div><div class="sp"><img src="assets/logos/pevicor.webp" alt="Pevicor PVC" loading="lazy"></div><div class="sp"><img src="assets/logos/nissan.webp" alt="Nissan NS Maven" loading="lazy"></div><div class="sp"><img src="assets/logos/jumapa.webp" alt="Jumapa Carrasco" loading="lazy"></div><div class="sp"><img src="assets/logos/premier.webp" alt="Premier Alquiler de Apartamentos" loading="lazy"></div><div class="sp"><img src="assets/logos/ramacpol.webp" alt="RaMacPol Academia" loading="lazy"></div><div class="sp"><img src="assets/logos/san-roque.webp" alt="San Roque" loading="lazy"></div><div class="sp"><img src="assets/logos/ovb.webp" alt="OVB" loading="lazy"></div><div class="sp"><img src="assets/logos/colaborador.webp" alt="Colaborador" loading="lazy"></div><div class="sp"><img src="assets/logos/lavado.webp" alt="Lavado Correduría" loading="lazy"></div><div class="sp"><img src="assets/logos/telepizza.webp" alt="Telepizza" loading="lazy"></div><div class="sp"><img src="assets/logos/el-jato.webp" alt="El Jato" loading="lazy"></div><div class="sp"><img src="assets/logos/barrios.webp" alt="Barrios" loading="lazy"></div><div class="sp"><img src="assets/logos/balance.webp" alt="Balance" loading="lazy"></div><div class="sp"><img src="assets/logos/epsa.webp" alt="Colaborador" loading="lazy"></div><div class="sp"><img src="assets/logos/diestro.webp" alt="Diestro" loading="lazy"></div><div class="sp"><img src="assets/logos/vehiculos.webp" alt="Vehículos" loading="lazy"></div><div class="sp"><img src="assets/logos/imagina-terapia.webp" alt="Imagina Terapia" loading="lazy"></div><div class="sp"><img src="assets/logos/carrex.webp" alt="Carrex" loading="lazy"></div></div>
   </div>
 </div>
 
