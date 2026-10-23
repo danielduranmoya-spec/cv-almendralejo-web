@@ -139,6 +139,21 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
 .cva .match .r{font-family:var(--f-display);font-size:1.5rem}
 .cva .match .r.win{color:#4ade80}.cva .match .r.lose{color:#ff6b6b}
 
+/* Calendario y clasificación */
+.cva .matches{margin-top:2.5rem}
+.cva .match.proximo{border-color:var(--c-accent);background:linear-gradient(90deg,rgba(47,198,83,.14),var(--c-card))}
+.cva .match .r{font-size:1.1rem;text-align:right;min-width:90px}
+.cva .match .r.sede{color:var(--c-muted);font-family:var(--f-body);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.cva .sub-h{font-size:2rem;margin:4rem 0 1.2rem}
+.cva .table-wrap{overflow-x:auto;border:1px solid var(--c-line);border-radius:16px}
+.cva .clasif{width:100%;border-collapse:collapse;font-size:.95rem;min-width:420px}
+.cva .clasif th,.cva .clasif td{padding:.75rem 1rem;text-align:center;border-bottom:1px solid var(--c-line)}
+.cva .clasif th{color:var(--c-muted);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;background:var(--c-card)}
+.cva .clasif td:nth-child(2),.cva .clasif th:nth-child(2){text-align:left}
+.cva .clasif tr:last-child td{border-bottom:0}
+.cva .clasif tr.me td{background:rgba(47,198,83,.14);color:#fff;font-weight:700}
+.cva .fuente{color:var(--c-muted);font-size:.8rem;margin-top:.8rem}
+.cva .fuente a{color:var(--c-accent)}
 /* Noticias */
 .cva .news .card{padding:0}
 .cva .news .thumb{aspect-ratio:16/10;background:linear-gradient(135deg,var(--c-bg2),#173019);display:grid;place-items:center;color:var(--c-muted);font-size:.8rem}
@@ -176,6 +191,7 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
 .cva .rv.d1{transition-delay:.1s}.cva .rv.d2{transition-delay:.2s}.cva .rv.d3{transition-delay:.3s}
 
 @media(max-width:900px){
+  .cva .match .r{grid-column:2;text-align:left}
   .cva .hero-grid,.cva .about,.cva .contact{grid-template-columns:1fr}
   
   .cva .ball{opacity:.35;right:-30vw}
@@ -228,7 +244,7 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="badge"><i></i>Temporada 2026 · 2027 abierta</span>
+        <span class="badge"><i></i>Superliga Masculina 2 · Grupo A</span>
         <h1>
           <span class="line"><span>Salta.</span></span>
           <span class="line"><span>Remata.</span></span>
@@ -242,8 +258,8 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
       </div>
       <aside class="next">
         <small>Próximo partido</small>
-        <div class="vs">CVA Ext. Tránsitos Suroeste<br>vs. CV Textil Santanderina</div>
-        <p class="where">Sáb 24 oct · 18:00 h · Pabellón San Roque</p>
+        <div class="vs" id="nx-vs">CVA Ext. Tránsitos Suroeste<br>vs. CV Textil Santanderina</div>
+        <p class="where" id="nx-where">Sáb 24 oct · 18:00 h · Pabellón San Roque</p>
         <div class="count" id="count">
           <div><b id="cd">00</b><span>Días</span></div>
           <div><b id="ch">00</b><span>Horas</span></div>
@@ -269,11 +285,11 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
     <div class="rv d1">
       <div class="eyebrow">El club · Extremadura</div>
       <h2>Más que un deporte, una familia</h2>
-      <p class="lead">Nacidos en la Tierra de Barros, en el corazón de Extremadura, somos un club comprometido con la formación deportiva y en valores. Texto genérico: aquí irá la historia, la filosofía y los objetivos del club.</p>
+      <p class="lead">Desde Almendralejo, en el corazón de Extremadura, el CVA compite en la Superliga Masculina 2, la segunda categoría del voleibol nacional. Texto genérico: aquí irá la historia, la filosofía y los objetivos del club.</p>
       <div class="stats">
-        <div><b data-to="2005">0</b><span>Fundación</span></div>
-        <div><b data-to="12">0</b><span>Equipos</span></div>
-        <div><b data-to="180">0</b><span>Jugadores/as</span></div>
+        <div><b data-to="22">0</b><span>Jornadas</span></div>
+        <div><b data-to="12">0</b><span>Equipos en el grupo</span></div>
+        <div><b data-to="11">0</b><span>Partidos en casa</span></div>
       </div>
     </div>
   </div>
@@ -290,7 +306,7 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
       <article class="card rv"><div class="n">01</div><h3>Escuela</h3><p>Iniciación al voleibol para los más pequeños, jugando y aprendiendo.</p><span class="tag">Benjamín · Alevín</span></article>
       <article class="card rv d1"><div class="n">02</div><h3>Base</h3><p>Formación técnica y táctica, competición escolar y federada.</p><span class="tag">Infantil · Cadete</span></article>
       <article class="card rv d2"><div class="n">03</div><h3>Juvenil</h3><p>El salto a la competición exigente con proyección al primer equipo.</p><span class="tag">Juvenil · Junior</span></article>
-      <article class="card rv d3"><div class="n">04</div><h3>Senior</h3><p>Nuestros equipos de máxima categoría, masculino y femenino.</p><span class="tag">Femenino · Masculino</span></article>
+      <article class="card rv d3"><div class="n">04</div><h3>Senior</h3><p>Nuestros equipos de máxima categoría, masculino y femenino.</p><span class="tag">Superliga Masculina 2</span></article>
     </div>
   </div>
 </section>
@@ -298,12 +314,13 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
 <!-- PARTIDOS -->
 <section id="partidos">
   <div class="wrap">
-    <div class="eyebrow">Competición</div>
+    <div class="eyebrow">Superliga Masculina 2 · Grupo A</div>
     <h2>Partidos</h2>
-    <div style="margin-top:2.5rem">
-      <div class="match rv"><div class="d">24 OCT<small>18:00 H</small></div><div class="t">CVA Ext. Tránsitos Suroeste vs. CV Textil Santanderina<small>Pabellón San Roque · Almendralejo</small></div><div class="r">Día de partido</div></div>
-      <!-- Añadir aquí el resto de jornadas: copiar la fila anterior. Resultado ganado: <div class="r win">3 – 1</div> · perdido: <div class="r lose">2 – 3</div> -->
-    </div>
+    <div class="matches" id="lista-partidos"></div>
+    <button class="btn btn-ghost" id="ver-todos" type="button" style="margin-top:1.2rem">Ver calendario completo →</button>
+    <h3 class="sub-h">Clasificación</h3>
+    <div class="table-wrap"><table class="clasif" id="clasif"></table></div>
+    <p class="fuente" id="clasif-nota"></p>
   </div>
 </section>
 
@@ -362,6 +379,7 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
 <footer><div class="wrap"><span>© 2026 CV Almendralejo. Todos los derechos reservados.</span><span>Aviso legal · Privacidad</span></div></footer>
 </div>
 
+<script src="assets/partidos.js"></script>
 <script>
 (function(){
   var root=document.getElementById('cva');
@@ -376,8 +394,25 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
   document.getElementById('burger').onclick=function(){menu.classList.toggle('open')};
   menu.addEventListener('click',function(e){if(e.target.tagName==='A')menu.classList.remove('open')});
 
-  /* Cuenta atrás: cambiar la fecha del próximo partido */
-  var target=new Date('2026-10-24T18:00:00+02:00').getTime();
+  /* Calendario: datos en assets/partidos.js · horas en horario de España */
+  var MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],DIA=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  function lastSun(y,m){var d=new Date(Date.UTC(y,m+1,0));d.setUTCDate(d.getUTCDate()-d.getUTCDay());return d.getTime()}
+  function isDst(t,y){return t>=lastSun(y,2)+36e5&&t<lastSun(y,9)+36e5}
+  function kickoff(f,h){
+    var a=f.split('-').map(Number),t=h.split(':').map(Number),asUTC=Date.UTC(a[0],a[1]-1,a[2],t[0],t[1]),k=asUTC-72e5;
+    return isDst(k,a[0])?k:asUTC-36e5;
+  }
+  var P=(window.CVA_PARTIDOS||[]).map(function(m){m.t=kickoff(m.f,m.h);return m});
+  var CLUB=window.CVA_CLUB||'CVA Extremadura Tránsitos Suroeste';
+  var next=P.filter(function(m){return m.t+108e5>Date.now()})[0];
+  function titulo(m){return m.casa?CLUB+' vs. '+m.rival:m.rival+' vs. '+CLUB}
+  function fecha(m){var y=+m.f.slice(0,4),d=new Date(m.t+(isDst(m.t,y)?72e5:36e5));return{dia:DIA[d.getUTCDay()],n:d.getUTCDate(),mes:MES[d.getUTCMonth()]}}
+  var target=next?next.t:Date.now();
+  if(next){
+    var f0=fecha(next);
+    document.getElementById('nx-vs').innerHTML=next.casa?'CVA Ext. Tránsitos Suroeste<br>vs. '+next.rival:next.rival+'<br>vs. CVA Ext. Tránsitos Suroeste';
+    document.getElementById('nx-where').textContent=f0.dia+' '+f0.n+' '+f0.mes+' · '+next.h+' h · '+next.sede;
+  }
   function tick(){
     var d=Math.max(0,target-Date.now()),p=function(n){return String(n).padStart(2,'0')};
     document.getElementById('cd').textContent=p(Math.floor(d/864e5));
@@ -386,6 +421,19 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
     document.getElementById('cs').textContent=p(Math.floor(d%6e4/1e3));
   }
   tick();setInterval(tick,1000);
+  var lista=document.getElementById('lista-partidos'),btn=document.getElementById('ver-todos'),todos=false;
+  function pinta(){
+    var idx=next?P.indexOf(next):P.length,vis=todos?P:P.slice(Math.max(0,idx-1),idx+4);
+    lista.innerHTML=vis.map(function(m){
+      var f=fecha(m),r=m.res==='G'?'<div class="r win">Ganado</div>':m.res==='P'?'<div class="r lose">Perdido</div>':(m===next?'<div class="r">Próximo</div>':'<div class="r sede">'+(m.casa?'En casa':'Fuera')+'</div>');
+      return '<div class="match'+(m===next?' proximo':'')+'"><div class="d">'+f.n+' '+f.mes.toUpperCase()+'<small>J'+m.j+' · '+m.h+' H</small></div><div class="t">'+titulo(m)+'<small>'+m.sede+'</small></div>'+r+'</div>';
+    }).join('');
+    btn.textContent=todos?'Ver menos ↑':'Ver calendario completo ('+P.length+' jornadas) →';
+  }
+  btn.onclick=function(){todos=!todos;pinta()};pinta();
+  var C=window.CVA_CLASIF||[];
+  document.getElementById('clasif').innerHTML='<thead><tr><th>#</th><th>Equipo</th><th>Pts</th><th>PJ</th><th>PG</th></tr></thead><tbody>'+C.map(function(r,i){return '<tr'+(/Extremadura/i.test(r[0])?' class="me"':'')+'><td>'+(i+1)+'</td><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td></tr>'}).join('')+'</tbody>';
+  document.getElementById('clasif-nota').innerHTML='Clasificación tras la jornada '+(window.CVA_CLASIF_J||'')+'. Fuente: <a href="https://esvoley.es/voleibol/competiciones-masculinas/superliga-masculina-2/grupo-a" target="_blank" rel="noopener">RFEVB</a>.';
 
   /* Reveal + contadores */
   function count(el){
