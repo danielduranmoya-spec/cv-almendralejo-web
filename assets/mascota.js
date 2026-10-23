@@ -105,12 +105,30 @@
     }
   }
 
+  // Móvil: sin animación; medio cuerpo con zoom asomando sobre la tarjeta, a la derecha y sin tapar los botones
+  function fija() {
+    outer.style.display = 'none';
+    var clip = document.createElement('div'), pic = new Image();
+    clip.style.cssText = 'position:absolute;right:6px;width:150px;overflow:hidden;pointer-events:none';
+    pic.alt = ''; pic.src = S.frontal.src;
+    pic.style.cssText = 'position:absolute;left:50%;top:0;transform:translateX(-50%);max-width:none;width:' + Math.round(S.frontal.w / S.frontal.h * 250) + 'px';
+    clip.appendChild(pic); stage.appendChild(clip);
+    function colocar() {
+      var hr = hero.getBoundingClientRect(), card = hero.querySelector('.next'), cr = card && card.getBoundingClientRect();
+      var bottom = cr ? cr.top - hr.top + 2 : hr.height - 90, h = 125;
+      clip.style.height = h + 'px'; clip.style.top = (bottom - h) + 'px';
+    }
+    colocar(); addEventListener('resize', colocar); addEventListener('load', colocar);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(colocar);
+  }
+
   NAMES.forEach(function (n) {
     var im = new Image();
     im.onload = function () {
       S[n] = { src: im.src, w: im.naturalWidth, h: im.naturalHeight };
       if (++loaded === NAMES.length) {
         measure();
+        if (innerWidth < 760) { fija(); return; }
         if (reduced) { pose('frontal'); place(CX, false); outer.style.visibility = 'visible'; }
         else loop();
       }
