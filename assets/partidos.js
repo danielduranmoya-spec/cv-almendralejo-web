@@ -11,9 +11,9 @@ window.CVA_EQUIPOS = {
     fuenteNombre: 'RFEVB',
     clasifNota: 'tras la jornada 3',
     partidos: [
-      { j: 1,  f: '2026-10-03', h: '18:00', casa: true,  rival: 'Arona Spring In Motion',  sede: 'Pabellón San Roque', res: 'G' },
-      { j: 2,  f: '2026-10-10', h: '16:00', casa: false, rival: 'Bus Leader San Roque',    sede: 'Pol. Municipal El Batán', res: 'G' },
-      { j: 3,  f: '2026-10-17', h: '20:00', casa: false, rival: 'Indescar Zaragoza',       sede: 'CDM Siglo XXI', res: 'P' },
+      { j: 1,  f: '2026-10-03', h: '18:00', casa: true,  rival: 'Arona Spring In Motion',  sede: 'Pabellón San Roque', res: 'G', marc: '3-0' },
+      { j: 2,  f: '2026-10-10', h: '16:00', casa: false, rival: 'Bus Leader San Roque',    sede: 'Pol. Municipal El Batán', res: 'G', marc: '3-1' },
+      { j: 3,  f: '2026-10-17', h: '20:00', casa: false, rival: 'Indescar Zaragoza',       sede: 'CDM Siglo XXI', res: 'P', marc: '0-3' },
       { j: 4,  f: '2026-10-24', h: '18:00', casa: true,  rival: 'CV Textil Santanderina',  sede: 'Pabellón San Roque' },
       { j: 5,  f: '2026-10-31', h: '18:00', casa: false, rival: 'Club Voleibol Vigo',      sede: 'Pabellón Municipal de Coia' },
       { j: 6,  f: '2026-11-07', h: '18:00', casa: true,  rival: 'Barça Voleibol',          sede: 'Pabellón San Roque' },
