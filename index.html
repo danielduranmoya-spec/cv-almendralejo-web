@@ -168,6 +168,18 @@
 .cva .fuente{color:var(--c-muted);font-size:.8rem;margin-top:.8rem}
 .cva .fuente a{color:var(--c-accent)}
 
+/* Redes */
+.cva .redes{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.cva .social-links{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
+.cva .fb-box{max-width:500px;margin-inline:auto;border-radius:20px;overflow:hidden;background:#fff;border:1px solid var(--c-line);line-height:0}
+.cva .fb-box iframe{width:100%;height:680px;border:0}
+.cva .posts{display:grid;gap:1rem}
+.cva .post{display:grid;grid-template-columns:120px 1fr;gap:1rem;background:var(--c-card);border:1px solid var(--c-line);border-radius:16px;overflow:hidden;transition:border-color .3s,transform .3s}
+.cva .post:hover{border-color:var(--c-accent);transform:translateX(6px)}
+.cva .post .th{background:var(--c-bg2)}.cva .post .th img{width:100%;height:100%;object-fit:cover}
+.cva .post .bd{padding:1rem 1rem 1rem 0}
+.cva .post time{font-size:.72rem;color:var(--c-accent);letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.cva .post p{color:var(--c-muted);font-size:.9rem;margin-top:.4rem}
 /* CTA */
 .cva .join{text-align:center;overflow:hidden;background:linear-gradient(135deg,#1f8f3e,#0b4a1c)}
 .cva .join::before{content:"VOLEIBOL";position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-display);font-size:clamp(6rem,24vw,22rem);color:rgba(255,255,255,.07);line-height:1;pointer-events:none}
@@ -208,7 +220,7 @@
   .cva .menu.open{transform:none}
   .cva .menu a{white-space:nowrap}
 }
-@media(max-width:1000px){.cva .duo{grid-template-columns:1fr}}
+@media(max-width:1000px){.cva .duo,.cva .redes{grid-template-columns:1fr}}
 @media(max-width:600px){
   .cva .brand span.nm{display:none}.cva .nav-logos img{height:20px}.cva .nav-logos{gap:.5rem;padding:.3rem .5rem}
 }
@@ -244,6 +256,7 @@
       <a href="#club">El club</a>
       <a href="#equipos">Equipos</a>
       <a href="#partidos">Partidos</a>
+      <a href="#redes">Redes</a>
       <a href="#contacto">Contacto</a>
       <a href="#unete" class="btn btn-primary">Únete</a>
     </nav>
@@ -347,6 +360,28 @@
         <h4 class="sub-h">Clasificación</h4>
         <div class="table-wrap"><table class="clasif"></table></div>
         <p class="fuente"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REDES -->
+<section class="alt" id="redes">
+  <div class="wrap redes">
+    <div class="rv">
+      <div class="eyebrow">Redes sociales</div>
+      <h2>Lo último del club</h2>
+      <p class="lead">Las publicaciones más recientes del CVA, siempre al día: convocatorias, resultados y mucho vóley.</p>
+      <div class="social-links">
+        <a class="btn btn-primary" href="https://www.instagram.com/cvalmendralejo" target="_blank" rel="noopener">Instagram →</a>
+        <a class="btn btn-ghost" href="https://www.facebook.com/ClubVoleibolAlmendralejo" target="_blank" rel="noopener">Facebook →</a>
+      </div>
+    </div>
+    <div class="rv d1">
+      <div class="posts" id="redes-feed" hidden></div>
+      <div class="fb-box" id="redes-fb">
+        <iframe title="Publicaciones del Club Voleibol Almendralejo en Facebook" loading="lazy" allow="encrypted-media" scrolling="no"
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FClubVoleibolAlmendralejo&tabs=timeline&width=500&height=680&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false"></iframe>
       </div>
     </div>
   </div>
@@ -491,5 +526,6 @@
 })();
 </script>
 <script src="assets/mascota.js?v=3"></script>
+<script src="assets/redes.js?v=1"></script>
 </body>
 </html>
