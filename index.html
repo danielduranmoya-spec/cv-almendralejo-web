@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV Almendralejo · Club de Voleibol</title>
+<meta name="description" content="Club de Voleibol Almendralejo. Equipos, partidos, noticias e inscripciones. ¡Únete al club!">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#060906">
+<meta property="og:title" content="CV Almendralejo · Club de Voleibol">
+<meta property="og:image" content="assets/escudo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== CV Almendralejo · todo scoped bajo .cva ===== */
+.cva{
+  /* >>> CAMBIAR AQUÍ los colores del club <<< */
+  --c-bg:#060906; --c-bg2:#0c130d; --c-card:#121b13;
+  --c-text:#f4f6ff; --c-muted:#9fb0a2;
+  --c-accent:#2fc653; --c-accent2:#ffffff;
+  --c-line:rgba(255,255,255,.1);
+  --f-display:'Anton',Impact,sans-serif; --f-body:'Inter',system-ui,sans-serif;
+  background:var(--c-bg); color:var(--c-text); font-family:var(--f-body);
+  line-height:1.6; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+.cva *,.cva *::before,.cva *::after{box-sizing:border-box}
+.cva img{max-width:100%;display:block}
+.cva a{color:inherit;text-decoration:none}
+.cva h1,.cva h2,.cva h3{font-family:var(--f-display);font-weight:400;text-transform:uppercase;line-height:1;margin:0;letter-spacing:.01em}
+.cva p{margin:0}
+.cva .wrap{width:min(1180px,100% - 2rem);margin-inline:auto}
+.cva section{padding:clamp(4rem,9vw,7.5rem) 0;position:relative}
+.cva .eyebrow{color:var(--c-accent);font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.cva .eyebrow::before{content:"";width:32px;height:2px;background:var(--c-accent)}
+.cva h2{font-size:clamp(2.4rem,6vw,4.4rem);margin-bottom:1.2rem}
+.cva .lead{color:var(--c-muted);max-width:60ch;font-size:1.08rem}
+
+/* Botones */
+.cva .btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.8rem;border-radius:999px;font-weight:700;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;border:2px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s}
+.cva .btn-primary{background:var(--c-accent);color:#04120a;box-shadow:0 10px 30px -8px rgba(47,198,83,.55)}
+.cva .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 36px -8px rgba(47,198,83,.7)}
+.cva .btn-ghost{border-color:var(--c-line);color:var(--c-text);background:rgba(255,255,255,.04);backdrop-filter:blur(6px)}
+.cva .btn-ghost:hover{border-color:var(--c-accent);color:var(--c-accent);transform:translateY(-3px)}
+
+/* Balón 3D (efecto scroll) */
+#fx-obj{position:fixed;inset:0;z-index:20;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 1.2s ease}
+#fx-obj.ready{opacity:1}
+body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
+/* Header */
+.cva .nav{position:fixed;inset:0 0 auto 0;z-index:50;padding:1.1rem 0;transition:background .3s,padding .3s,border-color .3s;border-bottom:1px solid transparent}
+.cva .nav.solid{background:rgba(6,9,6,.88);backdrop-filter:blur(14px);padding:.7rem 0;border-color:var(--c-line)}
+.cva .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.cva .brand{display:flex;align-items:center;gap:.7rem;font-family:var(--f-display);font-size:1.4rem;text-transform:uppercase;letter-spacing:.03em}
+.cva .brand .logo{width:44px;height:44px;display:grid;place-items:center}
+.cva .brand .logo img{width:100%;height:100%;object-fit:contain}
+.cva .menu{display:flex;gap:1.8rem;align-items:center;font-size:.88rem;font-weight:500}
+.cva .menu a:not(.btn){opacity:.8;transition:opacity .2s,color .2s}
+.cva .menu a:not(.btn):hover{opacity:1;color:var(--c-accent)}
+.cva .menu .btn{padding:.6rem 1.3rem;font-size:.8rem}
+.cva .burger{display:none;background:none;border:0;color:var(--c-text);font-size:1.7rem;cursor:pointer}
+
+/* HERO */
+.cva .hero{min-height:100svh;display:flex;align-items:center;padding:7rem 0 5rem;overflow:hidden;isolation:isolate;
+  background:radial-gradient(1200px 700px at 80% 20%,rgba(47,198,83,.26),transparent 60%),radial-gradient(900px 600px at 10% 90%,rgba(47,198,83,.12),transparent 60%),var(--c-bg)}
+.cva .hero::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
+  background-image:linear-gradient(var(--c-line) 1px,transparent 1px),linear-gradient(90deg,var(--c-line) 1px,transparent 1px);
+  background-size:70px 70px;mask-image:radial-gradient(ellipse at center,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000 20%,transparent 75%)}
+.cva .ball{position:absolute;right:-6vw;top:50%;width:min(62vw,720px);aspect-ratio:1;z-index:-1;transform:translateY(-50%);opacity:.95;will-change:transform}
+.cva .ball svg{width:100%;height:100%;animation:cva-spin 40s linear infinite}
+@keyframes cva-spin{to{transform:rotate(360deg)}}
+.cva .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:end}
+.cva .hero h1{font-size:clamp(3.6rem,13vw,10.5rem);line-height:.88}
+.cva .hero h1 .line{display:block;overflow:hidden}
+.cva .hero h1 .line span{display:block;transform:translateY(110%);animation:cva-up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.cva .hero h1 .line:nth-child(2) span{animation-delay:.12s}
+.cva .hero h1 .line:nth-child(3) span{animation-delay:.24s}
+.cva .hero h1 .hl{color:transparent;-webkit-text-stroke:2px var(--c-accent)}
+@keyframes cva-up{to{transform:none}}
+.cva .hero .sub{margin:1.8rem 0 2.2rem;font-size:clamp(1.05rem,2vw,1.3rem);color:var(--c-muted);max-width:46ch;opacity:0;animation:cva-fade .8s .5s forwards}
+.cva .hero .cta{display:flex;flex-wrap:wrap;gap:1rem;opacity:0;animation:cva-fade .8s .7s forwards}
+@keyframes cva-fade{to{opacity:1}}
+.cva .badge{display:inline-flex;align-items:center;gap:.6rem;padding:.45rem 1rem;border:1px solid var(--c-line);border-radius:999px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:1.6rem;background:rgba(255,255,255,.04);opacity:0;animation:cva-fade .8s .1s forwards}
+.cva .badge i{width:8px;height:8px;border-radius:50%;background:var(--c-accent2);box-shadow:0 0 0 0 rgba(47,198,83,.7);animation:cva-pulse 1.8s infinite}
+@keyframes cva-pulse{70%{box-shadow:0 0 0 12px rgba(47,198,83,0)}100%{box-shadow:0 0 0 0 rgba(47,198,83,0)}}
+.cva .next{background:rgba(18,27,19,.78);backdrop-filter:blur(14px);border:1px solid var(--c-line);border-radius:22px;padding:1.6rem;opacity:0;animation:cva-fade .8s .9s forwards}
+.cva .next small{color:var(--c-accent);letter-spacing:.2em;text-transform:uppercase;font-weight:700;font-size:.72rem}
+.cva .next .vs{font-family:var(--f-display);font-size:1.7rem;text-transform:uppercase;margin:.6rem 0 1.1rem;line-height:1.1}
+.cva .next .where{color:var(--c-muted);font-size:.85rem;margin:-.6rem 0 1.1rem}
+.cva .count{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;text-align:center}
+.cva .count div{background:var(--c-bg);border-radius:12px;padding:.7rem 0}
+.cva .count b{display:block;font-family:var(--f-display);font-size:1.9rem;font-weight:400;color:var(--c-accent)}
+.cva .count span{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c-muted)}
+.cva .scroll{position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--c-muted)}
+.cva .scroll i{width:22px;height:36px;border:2px solid var(--c-muted);border-radius:12px;position:relative}
+.cva .scroll i::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--c-accent);animation:cva-wheel 1.6s infinite}
+@keyframes cva-wheel{0%{opacity:1;transform:translateY(0)}80%,100%{opacity:0;transform:translateY(12px)}}
+
+.cva .ex{height:6px;background:linear-gradient(#2fc653 0 33.3%,#fff 33.3% 66.6%,#000 66.6%)}
+.cva .ex.thick{height:18px;border-radius:0}
+.cva .ex-badge{display:inline-flex;align-items:center;gap:.6rem}
+.cva .ex-badge i{width:26px;height:16px;border-radius:2px;background:linear-gradient(#2fc653 0 33.3%,#fff 33.3% 66.6%,#000 66.6%)}
+/* Cinta */
+.cva .ticker{background:var(--c-accent);color:#04120a;overflow:hidden;padding:.9rem 0;transform:rotate(-1.2deg);margin:1.6rem -2rem 0;position:relative;z-index:2}
+.cva .ticker div{display:flex;gap:3rem;width:max-content;animation:cva-marq 28s linear infinite;font-family:var(--f-display);font-size:1.5rem;text-transform:uppercase;white-space:nowrap}
+.cva .ticker span::after{content:"✦";margin-left:3rem}
+@keyframes cva-marq{to{transform:translateX(-50%)}}
+
+/* Club */
+.cva .about{display:grid;grid-template-columns:1.15fr .85fr;gap:4rem;align-items:center}
+.cva .about .pic{aspect-ratio:1127/700;border-radius:24px;background:linear-gradient(160deg,var(--c-card),var(--c-bg2));border:1px solid var(--c-line);position:relative;overflow:hidden;display:grid;place-items:center;color:var(--c-muted);font-size:.85rem}
+.cva .about .pic{background:#fff}
+.cva .about .pic::before{display:none;content:"";position:absolute;inset:-30%;background:conic-gradient(from 0deg,transparent,rgba(47,198,83,.25),transparent 40%);animation:cva-spin 12s linear infinite}
+.cva .about .pic img{position:relative;width:100%;height:100%;object-fit:cover;object-position:center}
+.cva .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.2rem}
+.cva .stats b{display:block;font-family:var(--f-display);font-size:3rem;font-weight:400;color:var(--c-accent);line-height:1}
+.cva .stats span{font-size:.8rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.1em}
+
+/* Tarjetas */
+.cva .alt{background:var(--c-bg2)}
+.cva .head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:3rem}
+.cva .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.3rem}
+.cva .card{background:var(--c-card);border:1px solid var(--c-line);border-radius:20px;padding:1.8rem;transition:transform .3s,border-color .3s;position:relative;overflow:hidden}
+.cva .card:hover{transform:translateY(-6px);border-color:var(--c-accent)}
+.cva .card .n{font-family:var(--f-display);font-size:4.5rem;color:transparent;-webkit-text-stroke:1px var(--c-muted);line-height:1;opacity:.5}
+.cva .card h3{font-size:1.8rem;margin:.6rem 0 .5rem}
+.cva .card p{color:var(--c-muted);font-size:.95rem}
+.cva .tag{display:inline-block;margin-top:1rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c-accent);font-weight:700}
+
+/* Partidos */
+.cva .match{display:grid;grid-template-columns:110px 1fr auto;gap:1.5rem;align-items:center;padding:1.3rem 1.6rem;background:var(--c-card);border:1px solid var(--c-line);border-radius:16px;margin-bottom:.9rem;transition:border-color .3s,transform .3s}
+.cva .match:hover{border-color:var(--c-accent);transform:translateX(6px)}
+.cva .match .d{font-family:var(--f-display);font-size:1.5rem;color:var(--c-accent);line-height:1.1}
+.cva .match .d small{display:block;font-family:var(--f-body);font-size:.72rem;color:var(--c-muted);letter-spacing:.1em}
+.cva .match .t{font-weight:700;font-size:1.05rem}
+.cva .match .t small{display:block;color:var(--c-muted);font-weight:400}
+.cva .match .r{font-family:var(--f-display);font-size:1.5rem}
+.cva .match .r.win{color:#4ade80}.cva .match .r.lose{color:#ff6b6b}
+
+/* Noticias */
+.cva .news .card{padding:0}
+.cva .news .thumb{aspect-ratio:16/10;background:linear-gradient(135deg,var(--c-bg2),#173019);display:grid;place-items:center;color:var(--c-muted);font-size:.8rem}
+.cva .news .body{padding:1.5rem}
+.cva .news time{font-size:.74rem;color:var(--c-accent);letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.cva .news h3{font-size:1.5rem;margin:.5rem 0}
+
+/* CTA */
+.cva .join{text-align:center;overflow:hidden;background:linear-gradient(135deg,#1f8f3e,#0b4a1c)}
+.cva .join::before{content:"VOLEIBOL";position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-display);font-size:clamp(6rem,24vw,22rem);color:rgba(255,255,255,.07);line-height:1;pointer-events:none}
+.cva .join .wrap{position:relative}
+.cva .join h2{font-size:clamp(2.8rem,8vw,6rem)}
+.cva .join p{max-width:52ch;margin:0 auto 2rem;opacity:.9}
+.cva .join .btn-primary{background:#fff;color:#0b4a1c;box-shadow:0 14px 40px -10px rgba(0,0,0,.5)}
+
+/* Patrocinadores */
+.cva .spons{padding:3.5rem 0;border-block:1px solid var(--c-line)}
+.cva .spons p{text-align:center;color:var(--c-muted);text-transform:uppercase;letter-spacing:.25em;font-size:.74rem;margin-bottom:1.6rem}
+.cva .logos{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center}
+.cva .logos div{min-width:150px;padding:0 1rem;text-align:center;line-height:1.25;height:64px;border:1px dashed var(--c-line);border-radius:12px;display:grid;place-items:center;color:var(--c-muted);font-size:.78rem;letter-spacing:.1em}
+
+/* Contacto */
+.cva .contact{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.cva .info li{list-style:none;padding:1rem 0;border-bottom:1px solid var(--c-line);display:flex;gap:1rem}
+.cva .info{padding:0;margin:2rem 0 0}
+.cva .info a:hover{color:var(--c-accent)}
+.cva .info b{min-width:90px;color:var(--c-accent);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+.cva .map{border-radius:22px;border:1px solid var(--c-line);min-height:320px;background:var(--c-card);display:grid;place-items:center;color:var(--c-muted);font-size:.85rem}
+.cva footer{padding:2rem 0;border-top:1px solid var(--c-line);color:var(--c-muted);font-size:.82rem}
+.cva footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+/* Reveal */
+.cva .rv{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.cva .rv.in{opacity:1;transform:none}
+.cva .rv.d1{transition-delay:.1s}.cva .rv.d2{transition-delay:.2s}.cva .rv.d3{transition-delay:.3s}
+
+@media(max-width:900px){
+  .cva .hero-grid,.cva .about,.cva .contact{grid-template-columns:1fr}
+  
+  .cva .ball{opacity:.35;right:-30vw}
+  .cva .burger{display:block}
+  .cva .menu{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--c-bg2);flex-direction:column;justify-content:center;gap:1.6rem;font-size:1.1rem;transform:translateX(100%);transition:transform .35s;border-left:1px solid var(--c-line)}
+  .cva .menu.open{transform:none}
+  .cva .match{grid-template-columns:80px 1fr;}
+  .cva .match .r{grid-column:2}
+}
+@media(prefers-reduced-motion:reduce){
+  .cva *{animation:none!important;transition:none!important}
+  .cva .rv,.cva .hero h1 .line span,.cva .hero .sub,.cva .hero .cta,.cva .badge,.cva .next{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="cva" id="cva">
+<canvas id="fx-obj" aria-hidden="true" data-model="assets/balon.glb"></canvas>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#inicio" class="brand">
+      <span class="logo"><img src="assets/escudo.png" alt="Escudo CV Almendralejo"></span>
+      CV Almendralejo
+    </a>
+    <button class="burger" id="burger" aria-label="Abrir menú">☰</button>
+    <nav class="menu" id="menu">
+      <a href="#club">El club</a>
+      <a href="#equipos">Equipos</a>
+      <a href="#partidos">Partidos</a>
+      <a href="#noticias">Noticias</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#unete" class="btn btn-primary">Únete</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="ball" id="ball" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" stroke="#2fc653" stroke-width="2">
+      <circle cx="100" cy="100" r="96" opacity=".9"/>
+      <path d="M100 4c-30 30-30 62 0 96s30 66 0 96" opacity=".7"/>
+      <path d="M12 60c36 4 68 20 88 40s52 36 88 40" opacity=".7"/>
+      <path d="M12 140c36-4 68-20 88-40s52-36 88-40" opacity=".7"/>
+      <path d="M40 20c8 38 28 62 60 80" opacity=".4"/><path d="M160 180c-8-38-28-62-60-80" opacity=".4"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="badge"><i></i>Temporada 2026 · 2027 abierta</span>
+        <h1>
+          <span class="line"><span>Salta.</span></span>
+          <span class="line"><span>Remata.</span></span>
+          <span class="line"><span class="hl">Vive el vóley.</span></span>
+        </h1>
+        <p class="sub">Club de Voleibol Almendralejo. Pasión, esfuerzo y equipo desde la base hasta el primer equipo. Orgullo de Almendralejo y de Extremadura.</p>
+        <div class="cta">
+          <a href="#unete" class="btn btn-primary">Hazte del club →</a>
+          <a href="#club" class="btn btn-ghost">Conoce el club</a>
+        </div>
+      </div>
+      <aside class="next">
+        <small>Próximo partido</small>
+        <div class="vs">CVA Ext. Tránsitos Suroeste<br>vs. CV Textil Santanderina</div>
+        <p class="where">Sáb 24 oct · 18:00 h · Pabellón San Roque</p>
+        <div class="count" id="count">
+          <div><b id="cd">00</b><span>Días</span></div>
+          <div><b id="ch">00</b><span>Horas</span></div>
+          <div><b id="cm">00</b><span>Min</span></div>
+          <div><b id="cs">00</b><span>Seg</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <div class="scroll"><i></i>Scroll</div>
+</section>
+
+<div class="ex thick" aria-hidden="true"></div>
+<div class="ticker" aria-hidden="true"><div>
+  <span>Juega</span><span>Compite</span><span>Crece</span><span>Equipo</span><span>Pasión</span><span>Extremadura</span><span>Almendralejo</span>
+  <span>Juega</span><span>Compite</span><span>Crece</span><span>Equipo</span><span>Pasión</span><span>Extremadura</span><span>Almendralejo</span>
+</div></div>
+
+<!-- CLUB -->
+<section id="club">
+  <div class="wrap about">
+    <div class="pic rv"><img src="img/equipo.webp" alt="Plantilla del CV Almendralejo" loading="lazy"></div>
+    <div class="rv d1">
+      <div class="eyebrow">El club · Extremadura</div>
+      <h2>Más que un deporte, una familia</h2>
+      <p class="lead">Nacidos en la Tierra de Barros, en el corazón de Extremadura, somos un club comprometido con la formación deportiva y en valores. Texto genérico: aquí irá la historia, la filosofía y los objetivos del club.</p>
+      <div class="stats">
+        <div><b data-to="2005">0</b><span>Fundación</span></div>
+        <div><b data-to="12">0</b><span>Equipos</span></div>
+        <div><b data-to="180">0</b><span>Jugadores/as</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPOS -->
+<section class="alt" id="equipos">
+  <div class="wrap">
+    <div class="head rv">
+      <div><div class="eyebrow">Equipos</div><h2 style="margin:0">Una categoría para cada etapa</h2></div>
+      <a href="#unete" class="btn btn-ghost">Inscríbete</a>
+    </div>
+    <div class="cards">
+      <article class="card rv"><div class="n">01</div><h3>Escuela</h3><p>Iniciación al voleibol para los más pequeños, jugando y aprendiendo.</p><span class="tag">Benjamín · Alevín</span></article>
+      <article class="card rv d1"><div class="n">02</div><h3>Base</h3><p>Formación técnica y táctica, competición escolar y federada.</p><span class="tag">Infantil · Cadete</span></article>
+      <article class="card rv d2"><div class="n">03</div><h3>Juvenil</h3><p>El salto a la competición exigente con proyección al primer equipo.</p><span class="tag">Juvenil · Junior</span></article>
+      <article class="card rv d3"><div class="n">04</div><h3>Senior</h3><p>Nuestros equipos de máxima categoría, masculino y femenino.</p><span class="tag">Femenino · Masculino</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- PARTIDOS -->
+<section id="partidos">
+  <div class="wrap">
+    <div class="eyebrow">Competición</div>
+    <h2>Partidos</h2>
+    <div style="margin-top:2.5rem">
+      <div class="match rv"><div class="d">24 OCT<small>18:00 H</small></div><div class="t">CVA Ext. Tránsitos Suroeste vs. CV Textil Santanderina<small>Pabellón San Roque · Almendralejo</small></div><div class="r">Día de partido</div></div>
+      <!-- Añadir aquí el resto de jornadas: copiar la fila anterior. Resultado ganado: <div class="r win">3 – 1</div> · perdido: <div class="r lose">2 – 3</div> -->
+    </div>
+  </div>
+</section>
+
+<!-- NOTICIAS -->
+<section class="alt news" id="noticias">
+  <div class="wrap">
+    <div class="eyebrow">Actualidad</div>
+    <h2>Últimas noticias</h2>
+    <div class="cards" style="margin-top:2.5rem">
+      <article class="card rv"><div class="thumb">[ Imagen ]</div><div class="body"><time>23 Oct 2026</time><h3>Título de la noticia</h3><p>Resumen breve de la noticia del club. Texto genérico de ejemplo.</p></div></article>
+      <article class="card rv d1"><div class="thumb">[ Imagen ]</div><div class="body"><time>15 Oct 2026</time><h3>Otra noticia destacada</h3><p>Resumen breve de la noticia del club. Texto genérico de ejemplo.</p></div></article>
+      <article class="card rv d2"><div class="thumb">[ Imagen ]</div><div class="body"><time>02 Oct 2026</time><h3>Novedades de temporada</h3><p>Resumen breve de la noticia del club. Texto genérico de ejemplo.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ÚNETE -->
+<section class="join" id="unete">
+  <div class="wrap rv">
+    <h2>¿Te unes al equipo?</h2>
+    <p>Inscripciones abiertas para todas las categorías. Ven a probar una sesión gratuita y descubre el voleibol.</p>
+    <a href="#contacto" class="btn btn-primary">Quiero apuntarme →</a>
+  </div>
+</section>
+
+<!-- PATROCINADORES -->
+<div class="spons">
+  <div class="wrap rv">
+    <p>Instituciones</p>
+    <div class="logos"><div>ESVóley</div><div>FedExVB · Federación Extremeña</div><div>Fundación Jóvenes y Deporte · Junta de Extremadura</div><div>Diputación de Badajoz</div><div>Junta de Extremadura</div><div>Ayuntamiento de Almendralejo</div><div>Caja Almendralejo</div></div>
+    <p style="margin-top:2.2rem">Patrocinadores</p>
+    <div class="logos"><div>Ondupet</div><div>Ondupack</div><div>Tránsitos Suroeste</div><div>Natuyser</div><div>Pevicor PVC</div><div>Nissan NS Maven</div><div>Jumapa Carrasco</div><div>Premier</div><div>San Roque</div><div>OVB</div><div>Lavado Correduría</div><div>Telepizza</div><div>El Jato</div><div>Barrios</div><div>Balance</div><div>Diestro</div><div>Imagina Terapia</div></div>
+  </div>
+</div>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="wrap contact">
+    <div class="rv">
+      <div class="eyebrow">Contacto</div>
+      <h2>Hablemos</h2>
+      <p class="lead">¿Dudas sobre inscripciones, horarios o patrocinios? Escríbenos.</p>
+      <ul class="info">
+        <li><b>Email</b><span><a href="mailto:cvalmendralejo@hotmail.com">cvalmendralejo@hotmail.com</a></span></li>
+        <li><b>Teléfono</b><span><a href="tel:+34622796721">622 79 67 21</a></span></li>
+        <li><b>Pabellón</b><span>Pabellón Municipal San Roque, 06200 Almendralejo (Badajoz)</span></li>
+        <li><b>Redes</b><span><a href="https://www.instagram.com/cvalmendralejo" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/ClubVoleibolAlmendralejo" target="_blank" rel="noopener">Facebook</a></span></li>
+      </ul>
+    </div>
+    <div class="map rv d1"><iframe title="Mapa Pabellón San Roque" loading="lazy" style="border:0;width:100%;height:100%;min-height:320px;border-radius:22px" src="https://www.google.com/maps?q=Pabell%C3%B3n+Municipal+San+Roque+Almendralejo&output=embed"></iframe></div>
+  </div>
+</section>
+</main>
+
+<div class="ex" aria-hidden="true"></div>
+<footer><div class="wrap"><span>© 2026 CV Almendralejo. Todos los derechos reservados.</span><span>Aviso legal · Privacidad</span></div></footer>
+</div>
+
+<script>
+(function(){
+  var root=document.getElementById('cva');
+  var nav=document.getElementById('nav');
+  window.addEventListener('scroll',function(){
+    nav.classList.toggle('solid',window.scrollY>40);
+    var b=document.getElementById('ball');
+    if(b&&window.scrollY<window.innerHeight)b.style.transform='translateY(calc(-50% + '+(window.scrollY*.18)+'px))';
+  },{passive:true});
+
+  var menu=document.getElementById('menu');
+  document.getElementById('burger').onclick=function(){menu.classList.toggle('open')};
+  menu.addEventListener('click',function(e){if(e.target.tagName==='A')menu.classList.remove('open')});
+
+  /* Cuenta atrás: cambiar la fecha del próximo partido */
+  var target=new Date('2026-10-24T18:00:00+02:00').getTime();
+  function tick(){
+    var d=Math.max(0,target-Date.now()),p=function(n){return String(n).padStart(2,'0')};
+    document.getElementById('cd').textContent=p(Math.floor(d/864e5));
+    document.getElementById('ch').textContent=p(Math.floor(d%864e5/36e5));
+    document.getElementById('cm').textContent=p(Math.floor(d%36e5/6e4));
+    document.getElementById('cs').textContent=p(Math.floor(d%6e4/1e3));
+  }
+  tick();setInterval(tick,1000);
+
+  /* Reveal + contadores */
+  function count(el){
+    var to=+el.dataset.to,t0=null;
+    (function step(t){t0=t0||t;var k=Math.min((t-t0)/1400,1);
+      el.textContent=Math.round(to*(1-Math.pow(1-k,3)));
+      if(k<1)requestAnimationFrame(step)})(performance.now());
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting)return;
+        e.target.classList.add('in');
+        e.target.querySelectorAll('[data-to]').forEach(count);
+        io.unobserve(e.target);
+      });
+    },{threshold:.15});
+    root.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  }else{
+    root.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+    root.querySelectorAll('[data-to]').forEach(function(el){el.textContent=el.dataset.to});
+  }
+  document.documentElement.style.scrollBehavior='smooth';
+})();
+</script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module" src="assets/efecto-balon.js"></script>
+</body>
+</html>
