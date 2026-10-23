@@ -45,10 +45,10 @@
 .cva .btn-ghost{border-color:var(--c-line);color:var(--c-text);background:rgba(255,255,255,.04);backdrop-filter:blur(6px)}
 .cva .btn-ghost:hover{border-color:var(--c-accent);color:var(--c-accent);transform:translateY(-3px)}
 
-/* Balón 3D (efecto scroll) */
-#fx-obj{position:fixed;inset:0;z-index:20;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 1.2s ease}
-#fx-obj.ready{opacity:1}
-body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
+/* Mascota (hero) */
+.cva .mascota{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.cva .masc{position:absolute;left:0;top:0;width:0;height:0;visibility:hidden;will-change:transform}
+.cva .masc img{position:absolute;left:0;bottom:0;max-width:none;transform-origin:50% 100%;filter:drop-shadow(0 14px 16px rgba(0,0,0,.5))}
 /* Header */
 .cva .nav{position:fixed;inset:0 0 auto 0;z-index:50;padding:1.1rem 0;transition:background .3s,padding .3s,border-color .3s;border-bottom:1px solid transparent}
 .cva .nav.solid{background:rgba(6,9,6,.88);backdrop-filter:blur(14px);padding:.7rem 0;border-color:var(--c-line)}
@@ -68,8 +68,6 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
 .cva .hero::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
   background-image:linear-gradient(var(--c-line) 1px,transparent 1px),linear-gradient(90deg,var(--c-line) 1px,transparent 1px);
   background-size:70px 70px;mask-image:radial-gradient(ellipse at center,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000 20%,transparent 75%)}
-.cva .ball{position:absolute;right:-6vw;top:50%;width:min(62vw,720px);aspect-ratio:1;z-index:-1;transform:translateY(-50%);opacity:.95;will-change:transform}
-.cva .ball svg{width:100%;height:100%;animation:cva-spin 40s linear infinite}
 @keyframes cva-spin{to{transform:rotate(360deg)}}
 .cva .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:end}
 .cva .hero h1{font-size:clamp(3.6rem,13vw,10.5rem);line-height:.88}
@@ -194,7 +192,6 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
   .cva .match .r{grid-column:2;text-align:left}
   .cva .hero-grid,.cva .about,.cva .contact{grid-template-columns:1fr}
   
-  .cva .ball{opacity:.35;right:-30vw}
   .cva .burger{display:block}
   .cva .menu{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--c-bg2);flex-direction:column;justify-content:center;gap:1.6rem;font-size:1.1rem;transform:translateX(100%);transition:transform .35s;border-left:1px solid var(--c-line)}
   .cva .menu.open{transform:none}
@@ -209,7 +206,6 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
 </head>
 <body>
 <div class="cva" id="cva">
-<canvas id="fx-obj" aria-hidden="true" data-model="assets/balon.glb"></canvas>
 
 <header class="nav" id="nav">
   <div class="wrap">
@@ -232,15 +228,7 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
 <main>
 <!-- HERO -->
 <section class="hero" id="inicio">
-  <div class="ball" id="ball" aria-hidden="true">
-    <svg viewBox="0 0 200 200" fill="none" stroke="#2fc653" stroke-width="2">
-      <circle cx="100" cy="100" r="96" opacity=".9"/>
-      <path d="M100 4c-30 30-30 62 0 96s30 66 0 96" opacity=".7"/>
-      <path d="M12 60c36 4 68 20 88 40s52 36 88 40" opacity=".7"/>
-      <path d="M12 140c36-4 68-20 88-40s52-36 88-40" opacity=".7"/>
-      <path d="M40 20c8 38 28 62 60 80" opacity=".4"/><path d="M160 180c-8-38-28-62-60-80" opacity=".4"/>
-    </svg>
-  </div>
+  <div class="mascota" id="mascota" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-grid">
       <div>
@@ -386,8 +374,6 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
   var nav=document.getElementById('nav');
   window.addEventListener('scroll',function(){
     nav.classList.toggle('solid',window.scrollY>40);
-    var b=document.getElementById('ball');
-    if(b&&window.scrollY<window.innerHeight)b.style.transform='translateY(calc(-50% + '+(window.scrollY*.18)+'px))';
   },{passive:true});
 
   var menu=document.getElementById('menu');
@@ -459,12 +445,6 @@ body.fx-3d .cva .ball{opacity:0;transition:opacity .8s}
   document.documentElement.style.scrollBehavior='smooth';
 })();
 </script>
-<script type="importmap">
-{ "imports": {
-  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-} }
-</script>
-<script type="module" src="assets/efecto-balon.js"></script>
+<script src="assets/mascota.js"></script>
 </body>
 </html>
