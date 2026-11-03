@@ -4,528 +4,1123 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CV Almendralejo · Club de Voleibol</title>
-<meta name="description" content="Club de Voleibol Almendralejo. Equipos, partidos, noticias e inscripciones. ¡Únete al club!">
+<meta name="description" content="Club de Voleibol Almendralejo. Superliga Masculina 2, Senior Femenino y cantera. Inscripciones, partidos, clasificación y camisetas del club.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="theme-color" content="#060906">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
 <meta property="og:title" content="CV Almendralejo · Club de Voleibol">
+<meta property="og:description" content="Salta. Remata. Vive el vóley. Inscripciones, partidos y clasificación del Club de Voleibol Almendralejo.">
 <meta property="og:image" content="assets/escudo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SportsClub","name":"Club de Voleibol Almendralejo","sport":"Volleyball","email":"cvalmendralejo@hotmail.com","telephone":"+34622796721","logo":"assets/escudo.png","address":{"@type":"PostalAddress","streetAddress":"Pabellón Municipal San Roque","postalCode":"06200","addressLocality":"Almendralejo","addressRegion":"Badajoz","addressCountry":"ES"},"sameAs":["https://www.instagram.com/cvalmendralejo","https://www.facebook.com/ClubVoleibolAlmendralejo"]}
+</script>
+<script type="application/ld+json" id="ld-events">{}</script>
+
 <style>
-/* ===== CV Almendralejo · todo scoped bajo .cva ===== */
+/* =========================================================
+   CV Almendralejo · todo scoped bajo .cva
+   Estilo: limpio y nítido. Blanco · negro · verde del club.
+   >>> Los colores se cambian solo en las variables de abajo <<<
+   ========================================================= */
 .cva{
-  /* >>> CAMBIAR AQUÍ los colores del club <<< */
-  --c-bg:#060906; --c-bg2:#0c130d; --c-card:#121b13;
-  --c-text:#f4f6ff; --c-muted:#9fb0a2;
-  --c-accent:#2fc653; --c-accent2:#ffffff;
-  --c-line:rgba(255,255,255,.1);
-  --f-display:'Anton',Impact,sans-serif; --f-body:'Inter',system-ui,sans-serif;
-  background:var(--c-bg); color:var(--c-text); font-family:var(--f-body);
-  line-height:1.6; overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  --green:#3b823e; --green-deep:#14421d; --green-hi:#66c76d;
+  --ink:#0b0f0b; --grey:#586058; --tint:#f2f7f2; --line:#dde5dd;
+  --r:16px; --sh:0 1px 2px rgba(0,0,0,.05),0 10px 30px rgba(0,0,0,.08);
+  --f:'Archivo','Helvetica Neue',Arial,sans-serif;
+  background:#fff;color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;
 }
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff}
 .cva *,.cva *::before,.cva *::after{box-sizing:border-box}
-.cva img{max-width:100%;display:block}
 .cva a{color:inherit;text-decoration:none}
-.cva h1,.cva h2,.cva h3{font-family:var(--f-display);font-weight:400;text-transform:uppercase;line-height:1;margin:0;letter-spacing:.01em}
+.cva img{max-width:100%;display:block}
 .cva p{margin:0}
-.cva .wrap{width:min(1180px,100% - 2rem);margin-inline:auto}
-.cva section{padding:clamp(4rem,9vw,7.5rem) 0;position:relative}
-.cva .eyebrow{color:var(--c-accent);font-weight:700;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
-.cva .eyebrow::before{content:"";width:32px;height:2px;background:var(--c-accent)}
-.cva h2{font-size:clamp(2.4rem,6vw,4.4rem);margin-bottom:1.2rem}
-.cva .lead{color:var(--c-muted);max-width:60ch;font-size:1.08rem}
+.cva [id]{scroll-margin-top:84px}
+.cva [hidden]{display:none!important}
+.cva :focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+.cva h1,.cva h2,.cva h3,.cva h4{font-family:var(--f);font-weight:800;line-height:1.08;letter-spacing:-.025em;margin:0}
+.cva h2{font-size:clamp(2rem,4.2vw,3.1rem);margin-bottom:1rem}
+.cva h3{font-size:1.4rem}
+.cva .wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto;position:relative;z-index:2}
+.cva section{padding:clamp(4rem,8vw,6.5rem) 0;position:relative}
+.cva .tint{background:var(--tint)}
+.cva .lead{color:var(--grey);max-width:60ch;font-size:1.1rem}
+.cva .kicker{display:inline-block;color:var(--green);font-weight:700;font-size:1rem;margin-bottom:.7rem}
+.cva .sec-head{max-width:720px;margin-bottom:2.6rem}
 
 /* Botones */
-.cva .btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.8rem;border-radius:999px;font-weight:700;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;border:2px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s}
-.cva .btn-primary{background:var(--c-accent);color:#04120a;box-shadow:0 10px 30px -8px rgba(47,198,83,.55)}
-.cva .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 36px -8px rgba(47,198,83,.7)}
-.cva .btn-ghost{border-color:var(--c-line);color:var(--c-text);background:rgba(255,255,255,.04);backdrop-filter:blur(6px)}
-.cva .btn-ghost:hover{border-color:var(--c-accent);color:var(--c-accent);transform:translateY(-3px)}
+.cva .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.9rem 1.5rem;border-radius:999px;border:2px solid transparent;font:700 1rem/1 var(--f);cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,color .2s,border-color .2s}
+.cva .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.16)}
+.cva .btn:active{transform:none}
+.cva .btn-primary{background:var(--green);color:#fff}
+.cva .btn-primary:hover{background:#2f6d32}
+.cva .btn-ghost{background:#fff;color:var(--ink);border-color:var(--ink)}
+.cva .btn-ghost:hover{background:var(--ink);color:#fff}
+.cva .btn-dark{background:var(--ink);color:#fff}
+.cva .btn-light{background:#fff;color:var(--ink)}
+.cva .btn-sm{padding:.65rem 1.15rem;font-size:.92rem}
+.cva .btn svg{width:18px;height:18px;fill:currentColor;flex:none}
 
-/* Mascota (hero) */
-.cva .mascota{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
-.cva .masc{position:absolute;left:0;top:0;width:0;height:0;visibility:hidden;will-change:transform}
-.cva .masc img{position:absolute;left:0;bottom:0;max-width:none;transform-origin:50% 100%;filter:drop-shadow(0 14px 16px rgba(0,0,0,.5))}
-/* Header */
-.cva .nav{position:fixed;inset:0 0 auto 0;z-index:50;padding:1.1rem 0;transition:background .3s,padding .3s,border-color .3s;border-bottom:1px solid transparent}
-.cva .nav.solid{background:rgba(6,9,6,.88);backdrop-filter:blur(14px);padding:.7rem 0;border-color:var(--c-line)}
-.cva .nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;width:min(1400px,100% - 2rem)}
-.cva .nav-logos{justify-self:start;display:flex;align-items:center;gap:1rem;background:#fff;border-radius:14px;padding:.4rem .9rem;min-width:0}
+/* Aparición suave (solo si hay JS) */
+.cva.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.cva.js .rv.in{opacity:1;transform:none}
+
+/* ---------- Cabecera ---------- */
+.cva .nav{position:fixed;inset:0 0 auto 0;z-index:60;padding:.9rem 0;transition:background .3s,padding .3s,box-shadow .3s}
+.cva .nav.solid{background:rgba(255,255,255,.96);backdrop-filter:blur(8px);padding:.5rem 0;box-shadow:0 1px 0 var(--line),0 6px 20px rgba(0,0,0,.05)}
+.cva .nav .wrap{display:flex;align-items:center;gap:1.4rem;width:min(1320px,100% - 2rem)}
+.cva .brand{display:flex;align-items:center;gap:.65rem;font-weight:800;font-size:1.2rem;letter-spacing:-.02em;line-height:1.1;white-space:nowrap}
+.cva .brand img{width:44px;height:44px;object-fit:contain}
+.cva .nav-logos{display:flex;align-items:center;gap:.9rem;padding:.35rem .8rem;border:1px solid var(--line);border-radius:12px;background:#fff;min-width:0}
 .cva .nav-logos a{display:block;line-height:0}
-.cva .nav-logos img{height:32px;width:auto;mix-blend-mode:multiply}
-.cva .nav .brand{justify-self:center}
-.cva .nav .menu,.cva .nav .burger{justify-self:end}
-.cva .brand{display:flex;align-items:center;gap:.7rem;font-family:var(--f-display);font-size:1.4rem;text-transform:uppercase;letter-spacing:.03em}
-.cva .brand .logo{width:44px;height:44px;display:grid;place-items:center}
-.cva .brand .logo img{width:100%;height:100%;object-fit:contain}
-.cva .menu{display:flex;gap:1.3rem;align-items:center;font-size:.88rem;font-weight:500}
-.cva .menu a{white-space:nowrap}
-.cva .menu a:not(.btn){opacity:.8;transition:opacity .2s,color .2s}
-.cva .menu a:not(.btn):hover{opacity:1;color:var(--c-accent)}
-.cva .menu .btn{padding:.6rem 1.3rem;font-size:.8rem}
-.cva .burger{display:none;background:none;border:0;color:var(--c-text);font-size:1.7rem;cursor:pointer}
+.cva .nav-logos img{height:30px;width:auto;mix-blend-mode:multiply}
+.cva .menu{margin-left:auto;display:flex;gap:1.5rem;align-items:center;font-weight:600;font-size:.97rem}
+.cva .menu a:not(.btn){position:relative;padding:.25rem 0;white-space:nowrap;color:#2a312a}
+.cva .menu a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.cva .menu a:not(.btn):hover::after,.cva .menu a.on::after{transform:scaleX(1)}
+.cva .burger{display:none;margin-left:auto;background:#fff;border:1px solid var(--line);border-radius:12px;width:46px;height:46px;font-size:1.35rem;cursor:pointer}
 
-/* HERO */
-.cva .hero{min-height:100svh;display:flex;align-items:center;padding:7rem 0 5rem;overflow:hidden;isolation:isolate;
-  background:radial-gradient(1200px 700px at 80% 20%,rgba(47,198,83,.26),transparent 60%),radial-gradient(900px 600px at 10% 90%,rgba(47,198,83,.12),transparent 60%),var(--c-bg)}
-.cva .hero::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;
-  background-image:linear-gradient(var(--c-line) 1px,transparent 1px),linear-gradient(90deg,var(--c-line) 1px,transparent 1px);
-  background-size:70px 70px;mask-image:radial-gradient(ellipse at center,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000 20%,transparent 75%)}
-@keyframes cva-spin{to{transform:rotate(360deg)}}
-.cva .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:end}
-.cva .hero h1{font-size:clamp(3.4rem,min(11vw,17vh),9.5rem);line-height:.88}
-.cva .hero h1 .line{display:block;overflow:hidden}
-.cva .hero h1 .line span{display:block;transform:translateY(110%);animation:cva-up .9s cubic-bezier(.2,.8,.2,1) forwards}
-.cva .hero h1 .line:nth-child(2) span{animation-delay:.12s}
-.cva .hero h1 .line:nth-child(3) span{animation-delay:.24s}
-.cva .hero h1 .hl{color:transparent;-webkit-text-stroke:2px var(--c-accent)}
-@keyframes cva-up{to{transform:none}}
-.cva .hero .sub{margin:1.8rem 0 2.2rem;font-size:clamp(1.05rem,2vw,1.3rem);color:var(--c-muted);max-width:46ch;opacity:0;animation:cva-fade .8s .5s forwards}
-.cva .hero .cta{display:flex;flex-wrap:wrap;gap:1rem;opacity:0;animation:cva-fade .8s .7s forwards}
-@keyframes cva-fade{to{opacity:1}}
-.cva .badge{display:inline-flex;align-items:center;gap:.6rem;padding:.45rem 1rem;border:1px solid var(--c-line);border-radius:999px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c-muted);margin-bottom:1.6rem;background:rgba(255,255,255,.04);opacity:0;animation:cva-fade .8s .1s forwards}
-.cva .badge i{width:8px;height:8px;border-radius:50%;background:var(--c-accent2);box-shadow:0 0 0 0 rgba(47,198,83,.7);animation:cva-pulse 1.8s infinite}
-@keyframes cva-pulse{70%{box-shadow:0 0 0 12px rgba(47,198,83,0)}100%{box-shadow:0 0 0 0 rgba(47,198,83,0)}}
-.cva .next{background:rgba(18,27,19,.78);backdrop-filter:blur(14px);border:1px solid var(--c-line);border-radius:22px;padding:1.3rem 1.5rem;opacity:0;animation:cva-fade .8s .9s forwards}
-.cva .next .nx+.nx{border-top:1px solid var(--c-line);margin-top:1.1rem;padding-top:1.1rem}
-.cva .next .eq{display:block;color:var(--c-accent);letter-spacing:.2em;text-transform:uppercase;font-weight:700;font-size:.72rem}
-.cva .next small{color:var(--c-accent);letter-spacing:.2em;text-transform:uppercase;font-weight:700;font-size:.72rem}
-.cva .next .vs{font-family:var(--f-display);font-size:1.35rem;text-transform:uppercase;margin:.45rem 0 .9rem;line-height:1.1}
-.cva .next .where{color:var(--c-muted);font-size:.8rem;margin:-.5rem 0 .8rem}
-.cva .count{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;text-align:center}
-.cva .count div{background:var(--c-bg);border-radius:10px;padding:.45rem 0}
-.cva .count b{display:block;font-family:var(--f-display);font-size:1.45rem;font-weight:400;color:var(--c-accent)}
-.cva .count span{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c-muted)}
-.cva .scroll{position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--c-muted)}
-.cva .scroll i{width:22px;height:36px;border:2px solid var(--c-muted);border-radius:12px;position:relative}
-.cva .scroll i::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--c-accent);animation:cva-wheel 1.6s infinite}
-@keyframes cva-wheel{0%{opacity:1;transform:translateY(0)}80%,100%{opacity:0;transform:translateY(12px)}}
+/* ---------- Portada ---------- */
+.cva .hero{padding:8.2rem 0 6rem;background:
+  radial-gradient(900px 500px at 90% 0%,rgba(59,130,62,.12),transparent 60%),
+  radial-gradient(600px 400px at 0% 100%,rgba(59,130,62,.07),transparent 60%),#fff;overflow:hidden}
+.cva .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:4rem;align-items:center}
+.cva .badge{display:inline-flex;align-items:center;gap:.6rem;padding:.4rem 1rem;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:.92rem;font-weight:600;margin-bottom:1.5rem;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.cva .badge i{width:9px;height:9px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(59,130,62,.55)}70%,100%{box-shadow:0 0 0 10px rgba(59,130,62,0)}}
+.cva .hero h1{font-size:clamp(2.7rem,6.2vw,5rem);line-height:1.02;letter-spacing:-.035em}
+.cva .hero h1 em{font-style:normal;color:var(--green)}
+.cva .hero h1 span{display:block;opacity:0;transform:translateY(.4em);animation:up .8s cubic-bezier(.2,.8,.2,1) forwards}
+.cva .hero h1 span:nth-child(2){animation-delay:.1s}.cva .hero h1 span:nth-child(3){animation-delay:.2s}
+@keyframes up{to{opacity:1;transform:none}}
+.cva .hero .sub{margin:1.5rem 0 2rem;font-size:clamp(1.05rem,1.8vw,1.25rem);color:var(--grey);max-width:46ch;opacity:0;animation:fade .8s .4s forwards}
+.cva .hero .cta{display:flex;flex-wrap:wrap;gap:.9rem;opacity:0;animation:fade .8s .55s forwards}
+.cva .facts{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin-top:2.2rem;padding-top:1.4rem;border-top:1px solid var(--line);opacity:0;animation:fade .8s .7s forwards;font-weight:600;font-size:.95rem;color:#2a312a}
+.cva .facts span{display:inline-flex;align-items:center;gap:.5rem}
+.cva .facts span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+@keyframes fade{to{opacity:1}}
 
-.cva .ex{height:6px;background:linear-gradient(#2fc653 0 33.3%,#fff 33.3% 66.6%,#000 66.6%)}
-.cva .ex.thick{height:18px;border-radius:0}
-.cva .ex-badge{display:inline-flex;align-items:center;gap:.6rem}
-.cva .ex-badge i{width:26px;height:16px;border-radius:2px;background:linear-gradient(#2fc653 0 33.3%,#fff 33.3% 66.6%,#000 66.6%)}
-/* Cinta */
-.cva .ticker{background:var(--c-accent);color:#04120a;overflow:hidden;padding:.9rem 0;transform:rotate(-1.2deg);margin:1.6rem -2rem 0;position:relative;z-index:2}
-.cva .ticker div{display:flex;gap:3rem;width:max-content;animation:cva-marq 28s linear infinite;font-family:var(--f-display);font-size:1.5rem;text-transform:uppercase;white-space:nowrap}
-.cva .ticker span::after{content:"✦";margin-left:3rem}
-@keyframes cva-marq{to{transform:translateX(-50%)}}
+/* Fotos de portada (proporción natural, sin recortes) */
+.cva .hero-media{position:relative;padding:0 0 3rem 2.5rem}
+.cva .ph{position:relative;margin:0;overflow:hidden;border-radius:var(--r);background:linear-gradient(135deg,var(--green-deep),#000);cursor:zoom-in;box-shadow:var(--sh)}
+.cva .ph img{width:100%;height:auto;transition:transform .7s ease}
+.cva .ph:hover img{transform:scale(1.035)}
+.cva .ph figcaption{position:absolute;left:.8rem;bottom:.8rem;background:rgba(0,0,0,.78);backdrop-filter:blur(4px);color:#fff;font-weight:600;font-size:.85rem;padding:.4rem .85rem;border-radius:999px;pointer-events:none}
+.cva .ph .zoom{position:absolute;top:.8rem;right:.8rem;background:#fff;color:var(--ink);font-size:.8rem;font-weight:700;padding:.25rem .7rem;border-radius:999px;opacity:0;transition:opacity .25s;pointer-events:none}
+.cva .ph:hover .zoom{opacity:1}
+.cva .ph.noimg{aspect-ratio:3/2}
+.cva .ph.noimg img{display:none}
+.cva .ph.noimg::before{content:"";position:absolute;inset:0;background:url(assets/escudo.png) center/34% no-repeat;opacity:.45}
+.cva .hm.b{position:absolute;left:0;bottom:0;width:58%;border:5px solid #fff;animation:float 7s ease-in-out infinite}
+.cva .hm.a{width:100%}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.cva .seal{position:absolute;right:-.6rem;top:-1.2rem;width:84px;height:84px;border-radius:50%;background:#fff;box-shadow:var(--sh);display:grid;place-items:center;z-index:3}
+.cva .seal img{width:62px;height:62px;object-fit:contain}
 
-/* Club */
-.cva .about{display:grid;grid-template-columns:1.15fr .85fr;gap:4rem;align-items:center}
-.cva .about .pics{display:grid;gap:1.1rem}
-.cva .about .pic{margin:0;border-radius:22px;background:#fff;border:1px solid var(--c-line);position:relative;overflow:hidden}
-.cva .about .pic img{display:block;width:100%;height:auto}
-.cva .about .pic figcaption{position:absolute;left:0;right:0;bottom:0;padding:2rem 1.1rem .8rem;background:linear-gradient(transparent,rgba(0,0,0,.78));color:#fff;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+/* ---------- Próximos partidos ---------- */
+.cva .strip{margin-top:-3.2rem;padding:0;z-index:6}
+.cva .strip-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.cva .nm{background:var(--ink);color:#fff;border-radius:var(--r);padding:1.5rem 1.7rem;box-shadow:0 14px 40px rgba(0,0,0,.18);transition:transform .25s}
+.cva .nm:hover{transform:translateY(-3px)}
+.cva .nm-h{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem}
+.cva .pill{background:var(--green);color:#fff;font-weight:700;font-size:.88rem;padding:.25rem .85rem;border-radius:999px}
+.cva .jor{font-size:.9rem;color:#c3c8c3;font-weight:600}
+.cva .nm-body{display:grid;gap:1rem}
+.cva .vs{font-weight:800;font-size:clamp(1.4rem,2.5vw,1.85rem);line-height:1.12;letter-spacing:-.02em}
+.cva .vs em{font-style:normal;color:var(--green-hi);margin:0 .25rem;font-weight:600}
+.cva .where{color:#c3c8c3;font-size:.95rem;margin-top:.45rem}
+.cva .count{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;max-width:370px}
+.cva .count div{background:rgba(255,255,255,.08);border-radius:10px;padding:.5rem .3rem .4rem;text-align:center}
+.cva .count b{display:block;font-weight:800;font-size:1.7rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.cva .count span{font-size:.72rem;color:var(--green-hi);font-weight:600}
+.cva .livebox{display:inline-flex;align-items:center;gap:.6rem;background:var(--green);color:#fff;font-weight:700;padding:.6rem 1.1rem;border-radius:999px;width:fit-content}
+.cva .livebox i,.cva .match .r.live i{width:10px;height:10px;border-radius:50%;background:#fff;display:inline-block;animation:pulse2 1.2s infinite}
+@keyframes pulse2{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}70%,100%{box-shadow:0 0 0 10px rgba(255,255,255,0)}}
+.cva .nm .last{margin-top:1.1rem;padding-top:.85rem;border-top:1px solid rgba(255,255,255,.16);font-size:.9rem;color:#c3c8c3}
+.cva .nm .last b{color:#fff}
+.cva .nm .btn{background:#fff;color:var(--ink);width:fit-content}
+.cva .ics{display:inline-block;margin-top:.9rem;color:var(--green-hi);font-weight:700;text-decoration:underline;font-size:.92rem}
+.cva .nm a.oficial{display:inline-flex;width:fit-content;padding:.6rem 1.1rem;border-radius:999px;background:#fff;color:var(--ink);font-weight:700;font-size:.92rem}
+
+/* ---------- El club ---------- */
+.cva .about{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
 .cva .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.2rem}
-.cva .stats b{display:block;font-family:var(--f-display);font-size:3rem;font-weight:400;color:var(--c-accent);line-height:1}
-.cva .stats span{font-size:.8rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.1em}
+.cva .stat{padding:1.1rem 1.2rem;border-radius:var(--r);background:var(--tint)}
+.cva .stat b{display:block;font-weight:800;font-size:2.9rem;line-height:1;color:var(--green);letter-spacing:-.03em}
+.cva .stat span{font-size:.92rem;font-weight:600;color:var(--grey)}
+.cva .values{display:grid;gap:1rem}
+.cva .value{display:grid;grid-template-columns:52px 1fr;gap:1rem;padding:1.3rem 1.4rem;border:1px solid var(--line);border-radius:var(--r);background:#fff;transition:transform .25s,box-shadow .25s,border-color .25s}
+.cva .value:hover{transform:translateY(-3px);box-shadow:var(--sh);border-color:transparent}
+.cva .value .ic{width:52px;height:52px;border-radius:14px;background:var(--green);display:grid;place-items:center}
+.cva .value .ic svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.cva .value h3{font-size:1.3rem;margin-bottom:.25rem}
+.cva .value p{color:var(--grey);font-size:.98rem;line-height:1.55}
 
-/* Tarjetas */
-.cva .alt{background:var(--c-bg2)}
-.cva .head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:3rem}
-.cva .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.3rem}
-.cva .card{background:var(--c-card);border:1px solid var(--c-line);border-radius:20px;padding:1.8rem;transition:transform .3s,border-color .3s;position:relative;overflow:hidden}
-.cva .card:hover{transform:translateY(-6px);border-color:var(--c-accent)}
-.cva .card .n{font-family:var(--f-display);font-size:4.5rem;color:transparent;-webkit-text-stroke:1px var(--c-muted);line-height:1;opacity:.5}
-.cva .card h3{font-size:1.8rem;margin:.6rem 0 .5rem}
-.cva .card p{color:var(--c-muted);font-size:.95rem}
-.cva .tag{display:inline-block;margin-top:1rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c-accent);font-weight:700}
+/* ---------- Equipos ---------- */
+.cva .teams{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.cva .team{background:#fff;border-radius:20px;box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.cva .team:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(0,0,0,.05),0 18px 44px rgba(0,0,0,.12)}
+.cva .team .ph{border-radius:0;box-shadow:none}
+.cva .tb{padding:1.6rem 1.7rem 0;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.cva .tag{color:var(--green);font-weight:700;font-size:.95rem}
+.cva .tb h3{font-size:2.1rem}
+.cva .tb p{color:var(--grey);margin-bottom:1.3rem}
+.cva .chips{display:flex;flex-wrap:wrap;margin:auto -1.7rem 0;padding:0;list-style:none;border-top:1px solid var(--line);background:var(--tint)}
+.cva .chips:empty{display:none}
+.cva .chips li{flex:1 1 auto;padding:.85rem 1.1rem;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:.1rem}
+.cva .chips li:last-child{border-right:0}
+.cva .chips span{font-size:.78rem;font-weight:600;color:var(--grey)}
+.cva .chips b{font-weight:800;font-size:1.5rem;line-height:1.1;letter-spacing:-.02em}
+.cva .dots{display:inline-flex;gap:5px;padding-top:.45rem}
+.cva .dots i{width:13px;height:13px;border-radius:50%;background:var(--green)}
+.cva .dots i.l{background:#c9cfc9}
 
-/* Partidos */
-.cva .match{display:grid;grid-template-columns:110px 1fr auto;gap:1.5rem;align-items:center;padding:1.3rem 1.6rem;background:var(--c-card);border:1px solid var(--c-line);border-radius:16px;margin-bottom:.9rem;transition:border-color .3s,transform .3s}
-.cva .match:hover{border-color:var(--c-accent);transform:translateX(6px)}
-.cva .match .d{font-family:var(--f-display);font-size:1.5rem;color:var(--c-accent);line-height:1.1}
-.cva .match .d small{display:block;font-family:var(--f-body);font-size:.72rem;color:var(--c-muted);letter-spacing:.1em}
-.cva .match .t{font-weight:700;font-size:1.05rem}
-.cva .match .t small{display:block;color:var(--c-muted);font-weight:400}
-.cva .match .r{font-family:var(--f-display);font-size:1.5rem}
-.cva .match .r.win{color:#4ade80}.cva .match .r.lose{color:#ff6b6b}
+/* ---------- Inscripción ---------- */
+.cva .join{background:var(--ink);color:#fff;overflow:hidden}
+.cva .join::before{content:"";position:absolute;right:-12%;top:-30%;width:620px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(59,130,62,.55),transparent 65%)}
+.cva .join .grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.cva .join h2{color:#fff}
+.cva .join .lead{color:#d6dad6}
+.cva .join .kicker{color:var(--green-hi)}
+.cva .join .cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+.cva .join .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+.cva .join .btn-ghost:hover{background:#fff;color:var(--ink)}
+.cva .steps{list-style:none;padding:0;margin:0;display:grid;gap:1rem}
+.cva .steps li{display:grid;grid-template-columns:48px 1fr;gap:1.1rem;align-items:start;padding:1.2rem 1.3rem;border-radius:var(--r);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);transition:background .25s,transform .25s}
+.cva .steps li:hover{background:rgba(255,255,255,.12);transform:translateX(4px)}
+.cva .steps b{width:48px;height:48px;border-radius:50%;background:var(--green);display:grid;place-items:center;font-size:1.3rem;font-weight:800}
+.cva .steps strong{display:block;font-size:1.1rem;margin-bottom:.15rem}
+.cva .steps span{color:#d0d5d0;font-size:.97rem;line-height:1.5;display:block}
 
-/* Calendario y clasificación */
-.cva .duo{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.5rem;align-items:start}
-.cva .cat-h{font-size:2.2rem;margin-bottom:.3rem}
-.cva .cat-h small{display:block;font-family:var(--f-body);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c-accent);font-weight:700;margin-top:.5rem}
-.cva .matches{margin-top:1.5rem}
-.cva .cat .match{grid-template-columns:78px 1fr auto;gap:1rem;padding:1rem 1.1rem}
-.cva .cat .match .d{font-size:1.3rem}
-.cva .cat .match .t{font-size:.95rem}
-.cva .match .r small{display:block;font-family:var(--f-body);font-size:.78rem;color:var(--c-muted);margin-top:.15rem}
-.cva .match.proximo{border-color:var(--c-accent);background:linear-gradient(90deg,rgba(47,198,83,.14),var(--c-card))}
-.cva .match .r{font-size:1.1rem;text-align:right;min-width:90px}
-.cva .match .r.sede{color:var(--c-muted);font-family:var(--f-body);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-.cva .sub-h{font-size:1.6rem;margin:2.5rem 0 1rem}
-.cva .table-wrap{overflow-x:auto;border:1px solid var(--c-line);border-radius:16px}
-.cva .clasif{width:100%;border-collapse:collapse;font-size:.95rem;min-width:420px}
-.cva .clasif th,.cva .clasif td{padding:.75rem 1rem;text-align:center;border-bottom:1px solid var(--c-line)}
-.cva .clasif th{color:var(--c-muted);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;background:var(--c-card)}
+/* ---------- Camisetas ---------- */
+.cva .shirts-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
+.cva .shirt-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.cva .shirt{margin:0;background:#fff;border-radius:20px;box-shadow:var(--sh);overflow:hidden;transition:transform .3s,box-shadow .3s}
+.cva .shirt:hover{transform:translateY(-5px) rotate(-.6deg);box-shadow:0 18px 44px rgba(0,0,0,.14)}
+.cva .shirt .art{padding:1.4rem 1rem .6rem;background:radial-gradient(circle at 50% 45%,var(--tint) 0 58%,#fff 59%)}
+.cva .shirt svg{width:100%;height:auto;display:block}
+.cva .shirt .real{width:100%;height:auto;display:block}
+.cva .shirt.hasimg svg{display:none}
+.cva .shirt figcaption{padding:.8rem 1rem 1rem;font-weight:700;text-align:center}
+.cva .buy h2{font-size:clamp(1.9rem,3.6vw,2.6rem)}
+.cva .buy p{color:var(--grey)}
+.cva .buy p b{color:var(--ink)}
+.cva .buy-next{margin:1.5rem 0;padding:1rem 1.2rem;background:var(--tint);border-radius:14px;border-left:5px solid var(--green);display:flex;flex-direction:column;gap:.15rem}
+.cva .buy-next b{color:var(--green-deep);font-size:.9rem}
+.cva .buy-next span{font-weight:700;font-size:1.08rem;line-height:1.35}
+.cva .buy .cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.5rem}
+
+/* ---------- Partidos ---------- */
+.cva .duo{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.cva .cat-top{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap}
+.cva .cat-h{font-size:2rem}
+.cva .cat-h small{display:block;font-weight:600;font-size:.95rem;color:var(--green);margin-top:.3rem;letter-spacing:0}
+.cva .seg{display:inline-flex;background:var(--tint);border-radius:999px;padding:4px}
+.cva .seg button{font:600 .88rem var(--f);border:0;background:transparent;color:var(--ink);padding:.5rem .95rem;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+.cva .seg button:hover{background:#e3ede3}
+.cva .seg button.on{background:var(--ink);color:#fff}
+.cva .matches{margin-top:1.4rem;display:grid;gap:.8rem}
+.cva .match{display:grid;grid-template-columns:72px 1fr auto;align-items:stretch;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .25s,transform .25s}
+.cva .match:hover{box-shadow:var(--sh);transform:translateY(-2px)}
+.cva .match .d{background:var(--green-deep);color:#fff;text-align:center;padding:.6rem .3rem;display:flex;flex-direction:column;justify-content:center;line-height:1}
+.cva .match .d b{font-weight:800;font-size:1.8rem}
+.cva .match .d span{color:var(--green-hi);font-weight:700;font-size:.82rem;margin-top:.15rem;text-transform:lowercase}
+.cva .match .d small{font-size:.68rem;color:#c3d3c3;margin-top:.4rem;font-weight:600}
+.cva .match .t{padding:.85rem 1.1rem;align-self:center;font-weight:600;line-height:1.3}
+.cva .match .t b{font-weight:800}
+.cva .match .t small{display:block;color:var(--grey);font-weight:500;font-size:.85rem;margin-top:.3rem}
+.cva .match .r{min-width:104px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:.5rem .7rem;font-weight:800;font-size:1rem;line-height:1.15}
+.cva .match .r small{font-weight:600;font-size:.9rem;margin-top:.15rem}
+.cva .match .r.win{background:var(--green);color:#fff}
+.cva .match .r.lose{background:#eceeec;color:var(--ink)}
+.cva .match .r.live{background:var(--ink);color:#fff;flex-direction:row;gap:.5rem}
+.cva .match .r.sede{font-weight:600;font-size:.88rem;color:var(--grey)}
+.cva .match .r.next{background:var(--tint);color:var(--green-deep);font-size:.92rem}
+.cva .match.proximo{border-color:var(--green);box-shadow:0 0 0 3px rgba(59,130,62,.14)}
+.cva .match.vivo{border-color:var(--ink)}
+.cva .empty{background:var(--tint);border-radius:14px;padding:1.4rem;color:var(--grey)}
+.cva .empty a{color:var(--green-deep);font-weight:700;text-decoration:underline}
+.cva .sub-h{font-size:1.4rem;margin:2.4rem 0 .9rem}
+.cva .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+.cva .clasif{width:100%;border-collapse:collapse;font-size:.96rem;min-width:400px}
+.cva .clasif th,.cva .clasif td{padding:.65rem .9rem;text-align:center;border-bottom:1px solid var(--line)}
+.cva .clasif th{background:var(--tint);font-size:.82rem;font-weight:700;color:var(--grey)}
 .cva .clasif td:nth-child(2),.cva .clasif th:nth-child(2){text-align:left}
 .cva .clasif tr:last-child td{border-bottom:0}
-.cva .clasif tr.me td{background:rgba(47,198,83,.14);color:#fff;font-weight:700}
-.cva .fuente{color:var(--c-muted);font-size:.8rem;margin-top:.8rem}
-.cva .fuente a{color:var(--c-accent)}
+.cva .clasif tr.me td{background:var(--green);color:#fff;font-weight:700}
+.cva .fuente{color:var(--grey);font-size:.85rem;margin-top:.8rem}
+.cva .fuente a{color:var(--green-deep);text-decoration:underline}
+.cva .main-spons{display:flex;flex-direction:column;align-items:flex-end;margin-top:4rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.cva .main-spons small{font-size:.92rem;font-weight:700;color:var(--grey);margin-bottom:.9rem}
+.cva .main-spons .box{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.cva .main-spons .it{background:#fff;border:1px solid var(--line);border-radius:12px;padding:.6rem 1.1rem;display:flex;align-items:center;transition:box-shadow .25s,transform .25s}
+.cva .main-spons .it:hover{box-shadow:var(--sh);transform:translateY(-2px)}
+.cva .main-spons img{height:42px;width:auto;mix-blend-mode:multiply}
 
-/* Redes */
-.cva .redes{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.cva .social-links{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
-.cva .fb-box{max-width:500px;margin-inline:auto;border-radius:20px;overflow:hidden;background:#fff;border:1px solid var(--c-line);line-height:0}
-.cva .fb-box iframe{width:100%;height:680px;border:0}
+/* ---------- Galería (aparece sola si hay fotos en assets/galeria.json) ---------- */
+.cva .gal{columns:3;column-gap:1.2rem}
+.cva .gal .ph{break-inside:avoid;margin:0 0 1.2rem}
+
+/* ---------- Redes ---------- */
+.cva .redes{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.cva .social-links{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+/* Últimas publicaciones (assets/redes.js; si no hay feed se queda el plugin de Facebook) */
 .cva .posts{display:grid;gap:1rem}
-.cva .post{display:grid;grid-template-columns:120px 1fr;gap:1rem;background:var(--c-card);border:1px solid var(--c-line);border-radius:16px;overflow:hidden;transition:border-color .3s,transform .3s}
-.cva .post:hover{border-color:var(--c-accent);transform:translateX(6px)}
-.cva .post .th{background:var(--c-bg2)}.cva .post .th img{width:100%;height:100%;object-fit:cover}
+.cva .post{display:grid;grid-template-columns:120px 1fr;gap:1rem;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;transition:border-color .25s,transform .25s}
+.cva .post:hover{border-color:var(--green);transform:translateX(6px)}
+.cva .post .th{background:var(--tint)}.cva .post .th img{width:100%;height:100%;object-fit:cover}
 .cva .post .bd{padding:1rem 1rem 1rem 0}
-.cva .post time{font-size:.72rem;color:var(--c-accent);letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-.cva .post p{color:var(--c-muted);font-size:.9rem;margin-top:.4rem}
-/* CTA */
-.cva .join{text-align:center;overflow:hidden;background:linear-gradient(135deg,#1f8f3e,#0b4a1c)}
-.cva .join::before{content:"VOLEIBOL";position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-display);font-size:clamp(6rem,24vw,22rem);color:rgba(255,255,255,.07);line-height:1;pointer-events:none}
-.cva .join .wrap{position:relative}
-.cva .join h2{font-size:clamp(2.8rem,8vw,6rem)}
-.cva .join p{max-width:52ch;margin:0 auto 2rem;opacity:.9}
-.cva .join .btn-primary{background:#fff;color:#0b4a1c;box-shadow:0 14px 40px -10px rgba(0,0,0,.5)}
+.cva .post time{font-size:.78rem;color:var(--green);letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.cva .post p{color:var(--grey);font-size:.95rem;margin:.4rem 0 0}
+/* Mascota animada de la portada (assets/mascota.js) */
+.cva .mascota{position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden}
+.cva .masc{position:absolute;left:0;top:0;width:0;height:0;visibility:hidden;will-change:transform}
+.cva .masc img{position:absolute;left:0;bottom:0;max-width:none;transform-origin:50% 100%;filter:drop-shadow(0 12px 14px rgba(0,0,0,.28))}
+.cva .fb-box{max-width:500px;margin-inline:auto;background:#fff;border-radius:20px;box-shadow:var(--sh);overflow:hidden;line-height:0}
+.cva .fb-box iframe{width:100%;height:640px;border:0}
 
-/* Patrocinadores */
-.cva .spons{padding:3.5rem 0;border-block:1px solid var(--c-line)}
-.cva .spons p{text-align:center;color:var(--c-muted);text-transform:uppercase;letter-spacing:.25em;font-size:.74rem;margin-bottom:1.6rem}
-.cva .logos .sp{background:#fff;border-radius:14px;width:150px;height:78px;padding:.55rem .9rem;display:grid;place-items:center}
-.cva .logos .sp img{display:block;max-width:100%;max-height:58px;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply}
-.cva .logos{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center}
+/* ---------- Preguntas ---------- */
+.cva .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:4rem;align-items:start}
+.cva .faq details{border-bottom:1px solid var(--line)}
+.cva .faq details:first-child{border-top:1px solid var(--line)}
+.cva .faq summary{cursor:pointer;list-style:none;padding:1.2rem 3.2rem 1.2rem 0;font-weight:700;font-size:1.12rem;position:relative;transition:color .2s}
+.cva .faq summary:hover{color:var(--green)}
+.cva .faq summary::-webkit-details-marker{display:none}
+.cva .faq summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:var(--tint);font-size:1.3rem;font-weight:600;line-height:1;transition:background .25s,color .25s,transform .25s}
+.cva .faq details[open] summary::after{content:"–";background:var(--green);color:#fff;transform:translateY(-50%) rotate(180deg)}
+.cva .faq details p{padding:0 0 1.3rem;color:var(--grey);max-width:60ch;animation:open .35s ease}
+@keyframes open{from{opacity:0;transform:translateY(-6px)}}
+.cva .faq details a{color:var(--green-deep);font-weight:700;text-decoration:underline}
 
-/* Contacto */
-.cva .contact{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.cva .info li{list-style:none;padding:1rem 0;border-bottom:1px solid var(--c-line);display:flex;gap:1rem}
-.cva .info{padding:0;margin:2rem 0 0}
-.cva .info a:hover{color:var(--c-accent)}
-.cva .info b{min-width:90px;color:var(--c-accent);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
-.cva .map{border-radius:22px;border:1px solid var(--c-line);min-height:320px;background:var(--c-card);display:grid;place-items:center;color:var(--c-muted);font-size:.85rem}
-.cva footer{padding:2rem 0;border-top:1px solid var(--c-line);color:var(--c-muted);font-size:.82rem}
-.cva footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+/* ---------- Patrocinadores ---------- */
+.cva .spons-top{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.cva .spons h3{font-size:1.15rem;margin:0 0 1rem;color:var(--grey);font-weight:700;letter-spacing:0}
+.cva .logos{display:flex;gap:.9rem;flex-wrap:wrap}
+.cva .logos .sp{background:#fff;border:1px solid var(--line);border-radius:12px;width:158px;height:84px;padding:.6rem 1rem;display:grid;place-items:center;transition:transform .25s,box-shadow .25s}
+.cva .logos .sp:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+.cva .logos .sp img{max-width:100%;max-height:56px;width:auto;height:auto;object-fit:contain;mix-blend-mode:multiply}
+.cva .spons .gap{height:2.4rem}
 
-/* Reveal */
-.cva .rv{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
-.cva .rv.in{opacity:1;transform:none}
-.cva .rv.d1{transition-delay:.1s}.cva .rv.d2{transition-delay:.2s}.cva .rv.d3{transition-delay:.3s}
+/* ---------- Contacto ---------- */
+.cva .panel{display:grid;grid-template-columns:.95fr 1.05fr;background:#fff;border-radius:22px;box-shadow:0 2px 4px rgba(0,0,0,.05),0 20px 50px rgba(0,0,0,.1);overflow:hidden}
+.cva .panel-info{padding:2.3rem 2.3rem 2.5rem}
+.cva .info{list-style:none;padding:0;margin:1.6rem 0 0}
+.cva .info li{padding:.9rem 0;border-bottom:1px solid var(--line);display:flex;gap:1.2rem;align-items:center}
+.cva .info li:first-child{border-top:1px solid var(--line)}
+.cva .info a:hover{color:var(--green)}
+.cva .info b{min-width:92px;color:var(--green-deep);font-weight:700;font-size:.93rem}
+.cva .panel-info .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.cva .panel-map{position:relative;min-height:440px;background:url(assets/escudo.png) center 42%/90px no-repeat,var(--tint)}
+.cva .panel-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.cva .panel-map .cap{position:absolute;left:.9rem;bottom:.9rem;z-index:2;background:rgba(0,0,0,.8);color:#fff;font-weight:600;font-size:.88rem;padding:.45rem .95rem;border-radius:999px;pointer-events:none}
 
-@media(max-width:1200px){
-  .cva .nav-logos img{height:26px}.cva .nav-logos{gap:.7rem;padding:.35rem .7rem}
-  .cva .menu{gap:.9rem;font-size:.8rem}.cva .brand{font-size:1.2rem}
-}
-@media(max-width:1100px){
+/* ---------- Pie ---------- */
+.cva footer{background:var(--ink);color:#cfd4cf;font-size:.92rem;padding:3rem 0 2.2rem}
+.cva footer .top{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding-bottom:1.8rem;border-bottom:1px solid rgba(255,255,255,.14);margin-bottom:1.4rem}
+.cva footer .brand{color:#fff}
+.cva footer .cols{display:flex;gap:3rem;flex-wrap:wrap}
+.cva footer h4{color:#fff;font-size:.95rem;margin-bottom:.7rem;letter-spacing:0}
+.cva footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
+.cva footer a:hover{color:#fff;text-decoration:underline}
+.cva footer .bot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* ---------- Botón flotante ---------- */
+.cva .fab{position:fixed;right:1.1rem;bottom:1.1rem;z-index:70;display:flex;align-items:center;gap:.6rem;flex-direction:row-reverse;transition:transform .25s}
+.cva .fab:hover{transform:translateY(-3px)}
+.cva .fab .lg{width:68px;height:68px;border-radius:50%;background:#fff;box-shadow:0 6px 22px rgba(0,0,0,.25);border:2px solid var(--green);display:grid;place-items:center;overflow:hidden;animation:bob 2.4s ease-in-out infinite}
+.cva .fab .lg img{width:100%;height:100%;object-fit:contain;padding:5px}
+.cva .fab .tx{background:var(--green);color:#fff;font-weight:800;font-size:1.1rem;padding:.7rem 1.2rem;border-radius:999px;box-shadow:0 6px 22px rgba(0,0,0,.22);transition:background .2s}
+.cva .fab:hover .tx{background:var(--ink)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+/* ---------- Visor de fotos ---------- */
+.cva .lb{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.92);display:none;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:1.5rem;cursor:zoom-out}
+.cva .lb.open{display:flex;animation:fade2 .25s}
+@keyframes fade2{from{opacity:0}}
+.cva .lb img{max-width:min(1200px,100%);max-height:80vh;width:auto;height:auto;border-radius:10px}
+.cva .lb p{color:#fff;font-weight:600}
+.cva .lb button{position:absolute;top:1rem;right:1rem;background:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:1.2rem;cursor:pointer}
+
+/* ---------- Adaptación ---------- */
+@media(max-width:1320px){.cva .nav-logos img{height:26px}.cva .menu{gap:1.2rem;font-size:.92rem}}
+@media(max-width:1180px){
   .cva .burger{display:block}
-  .cva .menu{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--c-bg2);flex-direction:column;justify-content:center;gap:1.6rem;font-size:1.1rem;transform:translateX(100%);transition:transform .35s;border-left:1px solid var(--c-line)}
+  .cva .menu{position:fixed;inset:0 0 0 auto;width:min(82vw,330px);background:#fff;flex-direction:column;justify-content:center;align-items:flex-start;padding:2rem;gap:1.5rem;font-size:1.2rem;transform:translateX(100%);transition:transform .3s;box-shadow:-20px 0 50px rgba(0,0,0,.15);margin:0}
   .cva .menu.open{transform:none}
-  .cva .menu a{white-space:nowrap}
 }
-@media(max-width:1000px){.cva .duo,.cva .redes{grid-template-columns:1fr}}
+@media(max-width:1000px){
+  .cva .hero-grid,.cva .about,.cva .teams,.cva .strip-grid,.cva .shirts-grid,.cva .duo,.cva .redes,.cva .faq-grid,.cva .panel,.cva .join .grid{grid-template-columns:1fr}
+  .cva .hero-grid{gap:2.5rem}
+  .cva .hero-media{padding-left:0;max-width:560px}
+  .cva .about{gap:2.5rem}.cva .join .grid{gap:2.5rem}.cva .faq-grid{gap:1.5rem}.cva .shirts-grid{gap:2.5rem}
+  .cva .panel-map{min-height:340px}
+  .cva .gal{columns:2}
+  .cva .main-spons{align-items:flex-start}.cva .main-spons .box{justify-content:flex-start}
+}
 @media(max-width:600px){
-  .cva .brand span.nm{display:none}.cva .nav-logos img{height:20px}.cva .nav-logos{gap:.5rem;padding:.3rem .5rem}
-}
-@media(max-width:900px){
-  .cva .match .r{grid-column:2;text-align:left}
-  .cva .hero-grid,.cva .about,.cva .contact{grid-template-columns:1fr}
-  
-  .cva .match{grid-template-columns:80px 1fr;}
-  .cva .match .r{grid-column:2}
+  .cva{font-size:16px}
+  .cva .hero{padding:7rem 0 5rem}
+  .cva .brand span{display:none}.cva .nav-logos img{height:22px}.cva .nav-logos{gap:.5rem;padding:.3rem .55rem}
+  .cva .stats{grid-template-columns:1fr 1fr 1fr;gap:.6rem}.cva .stat{padding:.8rem .7rem}.cva .stat b{font-size:2.1rem}
+  .cva .match{grid-template-columns:64px 1fr}.cva .match .r{grid-column:1/-1;flex-direction:row;gap:.6rem;min-width:0;padding:.55rem}
+  .cva .fab .lg{width:58px;height:58px}.cva .fab .tx{font-size:1rem;padding:.6rem 1rem}
+  .cva .panel-info{padding:1.6rem 1.3rem 1.8rem}
+  .cva .info li{flex-direction:column;align-items:flex-start;gap:.1rem}
+  .cva .shirt-pair{gap:.9rem}
+  .cva .gal{columns:1}
+  .cva .hm.b{width:62%}
+  .cva .seal{width:68px;height:68px;right:0}.cva .seal img{width:50px;height:50px}
+  .cva .hero .cta .btn,.cva .join .cta .btn{flex:1 1 100%}
+  .cva .chips li{padding:.7rem .8rem}
 }
 @media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
   .cva *{animation:none!important;transition:none!important}
-  .cva .rv,.cva .hero h1 .line span,.cva .hero .sub,.cva .hero .cta,.cva .badge,.cva .next{opacity:1;transform:none}
+  .cva .hero h1 span,.cva .hero .sub,.cva .hero .cta,.cva .facts{opacity:1;transform:none}
+  .cva.js .rv{opacity:1;transform:none}
 }
 </style>
+<noscript><style>.cva .hero h1 span,.cva .hero .sub,.cva .hero .cta,.cva .facts{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 <div class="cva" id="cva">
 
+<a href="#unete" class="fab" aria-label="Apúntate: ir a inscripción">
+  <span class="lg"><img src="assets/escudo.png" alt=""></span>
+  <span class="tx">¡Apúntate!</span>
+</a>
+
 <header class="nav" id="nav">
   <div class="wrap">
+    <a href="#inicio" class="brand"><img src="assets/escudo.png" alt="Escudo CV Almendralejo"><span>CV Almendralejo</span></a>
     <div class="nav-logos">
       <a href="https://www.juntaex.es" target="_blank" rel="noopener" aria-label="Junta de Extremadura"><img src="assets/logos/junta-extremadura.webp" alt="Junta de Extremadura"></a>
       <a href="https://www.almendralejo.es" target="_blank" rel="noopener" aria-label="Ayuntamiento de Almendralejo"><img src="assets/logos/ayuntamiento-almendralejo.webp" alt="Ayuntamiento de Almendralejo"></a>
       <a href="#patrocinadores" aria-label="Tránsitos Suroeste"><img src="assets/logos/transitos-suroeste.webp" alt="Tránsitos Suroeste"></a>
     </div>
-    <a href="#inicio" class="brand">
-      <span class="logo"><img src="assets/escudo.png" alt="Escudo CV Almendralejo"></span>
-      <span class="nm">CV Almendralejo</span>
-    </a>
-    <button class="burger" id="burger" aria-label="Abrir menú">☰</button>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="menu" id="menu">
       <a href="#club">El club</a>
       <a href="#equipos">Equipos</a>
       <a href="#partidos">Partidos</a>
-      <a href="#redes">Redes</a>
+      <a href="#camisetas">Camisetas</a>
+      <a href="#preguntas">Preguntas</a>
       <a href="#contacto">Contacto</a>
-      <a href="#unete" class="btn btn-primary">Únete</a>
+      <a href="#unete" class="btn btn-primary btn-sm">Inscríbete</a>
     </nav>
   </div>
 </header>
 
 <main>
-<!-- HERO -->
+<!-- PORTADA -->
 <section class="hero" id="inicio">
   <div class="mascota" id="mascota" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="badge"><i></i>Equipo masculino y femenino · 2026-27</span>
-        <h1>
-          <span class="line"><span>Salta.</span></span>
-          <span class="line"><span>Remata.</span></span>
-          <span class="line"><span class="hl">Vive el vóley.</span></span>
-        </h1>
-        <p class="sub">Club de Voleibol Almendralejo. Dos equipos, un mismo escudo: pasión, esfuerzo y orgullo de Almendralejo y de Extremadura.</p>
+        <span class="badge"><i></i>Temporada <span data-temporada>2026-27</span> · Almendralejo</span>
+        <h1><span>Salta.</span><span>Remata.</span><span><em>Vive el vóley.</em></span></h1>
+        <p class="sub">Club de Voleibol Almendralejo: cantera, Superliga Masculina 2 y Senior Femenino. Un club para toda la familia, con el orgullo de Extremadura.</p>
         <div class="cta">
-          <a href="#unete" class="btn btn-primary">Hazte del club →</a>
-          <a href="#club" class="btn btn-ghost">Conoce el club</a>
+          <a href="#unete" class="btn btn-primary">Inscríbete en el club</a>
+          <a href="#partidos" class="btn btn-ghost">Ver partidos</a>
         </div>
+        <div class="facts"><span>Superliga Masculina 2</span><span>Senior Femenino</span><span>Cantera</span></div>
       </div>
-      <aside class="next">
-        <div class="nx" data-eq="masculino">
-          <span class="eq">Próximo partido · Masculino</span>
-          <div class="vs"></div><p class="where"></p>
-          <div class="count"><div><b data-u="d">00</b><span>Días</span></div><div><b data-u="h">00</b><span>Horas</span></div><div><b data-u="m">00</b><span>Min</span></div><div><b data-u="s">00</b><span>Seg</span></div></div>
-        </div>
-        <div class="nx" data-eq="femenino">
-          <span class="eq">Próximo partido · Femenino</span>
-          <div class="vs"></div><p class="where"></p>
-          <div class="count"><div><b data-u="d">00</b><span>Días</span></div><div><b data-u="h">00</b><span>Horas</span></div><div><b data-u="m">00</b><span>Min</span></div><div><b data-u="s">00</b><span>Seg</span></div></div>
-        </div>
-      </aside>
+      <div class="hero-media">
+        <figure class="ph hm a" data-zoom>
+          <img src="img/equipo.webp" alt="Plantilla masculina del CV Almendralejo" decoding="async">
+          <span class="zoom">Ampliar</span>
+          <figcaption>Equipo masculino</figcaption>
+        </figure>
+        <figure class="ph hm b" data-zoom>
+          <img src="img/equipo-femenino.webp" alt="Plantilla femenina del CV Almendralejo" decoding="async">
+          <span class="zoom">Ampliar</span>
+          <figcaption>Equipo femenino</figcaption>
+        </figure>
+        <span class="seal"><img src="assets/escudo.png" alt=""></span>
+      </div>
     </div>
   </div>
-  <div class="scroll"><i></i>Scroll</div>
 </section>
 
-<div class="ex thick" aria-hidden="true"></div>
-<div class="ticker" aria-hidden="true"><div>
-  <span>Juega</span><span>Compite</span><span>Crece</span><span>Equipo</span><span>Pasión</span><span>Extremadura</span><span>Almendralejo</span>
-  <span>Juega</span><span>Compite</span><span>Crece</span><span>Equipo</span><span>Pasión</span><span>Extremadura</span><span>Almendralejo</span>
-</div></div>
+<!-- PRÓXIMOS PARTIDOS (se rellena solo) -->
+<section class="strip" aria-label="Próximos partidos">
+  <div class="wrap">
+    <div class="strip-grid" id="strip"><noscript>Consulta el calendario en la sección Partidos.</noscript></div>
+  </div>
+</section>
 
-<!-- CLUB -->
+<!-- EL CLUB -->
 <section id="club">
   <div class="wrap about">
-    <div class="pics">
-      <figure class="pic rv"><img src="img/equipo.webp" alt="Plantilla masculina del CV Almendralejo" loading="lazy"><figcaption>Equipo masculino · Superliga Masculina 2</figcaption></figure>
-      <figure class="pic rv d1"><img src="img/equipo-femenino.webp" alt="Plantilla femenina del CV Almendralejo" loading="lazy"><figcaption>Equipo femenino · Senior Femenino Grupo Sur</figcaption></figure>
-    </div>
-    <div class="rv d1">
-      <div class="eyebrow">El club · Extremadura</div>
+    <div class="rv">
+      <span class="kicker">El club</span>
       <h2>Más que un deporte, una familia</h2>
-      <p class="lead">Desde Almendralejo, en el corazón de Extremadura, el CVA compite con su equipo masculino en la Superliga Masculina 2 y con el femenino en el Senior Femenino (Grupo Sur) de la Federación Extremeña. Texto genérico: aquí irá la historia, la filosofía y los objetivos del club.</p>
+      <p class="lead">Desde Almendralejo, en el corazón de Extremadura, el CVA compite con su equipo masculino en la Superliga Masculina 2 y con el femenino en el Senior Femenino de la Federación Extremeña. Nuestro objetivo va más allá de la red: formamos personas, impulsamos el deporte base y llevamos el nombre de nuestra tierra por todo el país.</p>
       <div class="stats">
-        <div><b data-to="2">0</b><span>Equipos senior</span></div>
-        <div><b data-to="12">0</b><span>Equipos · Superliga 2</span></div>
-        <div><b data-to="6">0</b><span>Equipos · Senior Fem. Sur</span></div>
+        <div class="stat"><b id="st-eq">0</b><span>Equipos senior</span></div>
+        <div class="stat"><b id="st-pj">0</b><span>Partidos jugados</span></div>
+        <div class="stat"><b id="st-pg">0</b><span>Victorias</span></div>
       </div>
+    </div>
+    <div class="values">
+      <div class="value rv"><span class="ic"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13"/><path d="M16 3C10 9 10 23 16 29M16 3C22 9 22 23 16 29M3 13c6 3 20 3 26 0M4 21c6 3 18 3 24 0"/></svg></span><div><h3>Cantera</h3><p>Apostamos por el deporte base. Creemos en la formación desde las edades más tempranas como pilar fundamental para el futuro del voleibol en Almendralejo.</p></div></div>
+      <div class="value rv" style="--d:.08s"><span class="ic"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M18 3 7 18h8l-2 11 12-16h-8z"/></svg></span><div><h3>Esfuerzo</h3><p>El trabajo duro innegociable. Cada entrenamiento es una oportunidad para mejorar, superar nuestros límites y luchar por cada punto hasta el pitido final.</p></div></div>
+      <div class="value rv" style="--d:.16s"><span class="ic"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28S4 20 4 11a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 9-12 17-12 17z"/></svg></span><div><h3>Compromiso</h3><p>Orgullo de pertenencia. Representamos los valores de nuestra ciudad y de Extremadura, fomentando el respeto, el compañerismo y el juego limpio.</p></div></div>
     </div>
   </div>
 </section>
 
 <!-- EQUIPOS -->
-<section class="alt" id="equipos">
+<section class="tint" id="equipos">
   <div class="wrap">
-    <div class="head rv">
-      <div><div class="eyebrow">Equipos</div><h2 style="margin:0">Dos equipos, un mismo escudo</h2></div>
-      <a href="#unete" class="btn btn-ghost">Inscríbete</a>
+    <div class="sec-head rv">
+      <span class="kicker">Nuestras plantillas</span>
+      <h2>Dos equipos, un solo escudo</h2>
+      <p class="lead">Las cifras de cada equipo se actualizan solas con la clasificación oficial.</p>
     </div>
-    <div class="cards duo-cards">
-      <article class="card rv"><div class="n">01</div><h3>Masculino</h3><p>Compite en la Superliga Masculina 2, Grupo A, la segunda categoría del voleibol nacional, con 22 jornadas de liga regular.</p><span class="tag">Superliga Masculina 2</span></article>
-      <article class="card rv d1"><div class="n">02</div><h3>Femenino</h3><p>Compite en el Senior Femenino, Grupo Sur, de la Federación Extremeña de Voleibol, con el pabellón de San Roque como casa.</p><span class="tag">Senior Femenino · Grupo Sur</span></article>
+    <div class="teams">
+      <article class="team rv" data-eq="masculino">
+        <figure class="ph" data-zoom>
+          <img src="img/equipo.webp" alt="Plantilla masculina del CV Almendralejo" decoding="async">
+          <span class="zoom">Ampliar</span>
+          <figcaption>Equipo masculino</figcaption>
+        </figure>
+        <div class="tb">
+          <span class="tag">Superliga Masculina 2 · Grupo A</span>
+          <h3>Masculino</h3>
+          <p>Compitiendo en la exigente Superliga Masculina 2, Grupo A. La segunda categoría del voleibol nacional nos exige dar el máximo en cada una de las 22 jornadas.</p>
+          <ul class="chips" data-chips></ul>
+        </div>
+      </article>
+      <article class="team rv" style="--d:.1s" data-eq="femenino">
+        <figure class="ph" data-zoom>
+          <img src="img/equipo-femenino.webp" alt="Plantilla femenina del CV Almendralejo" decoding="async">
+          <span class="zoom">Ampliar</span>
+          <figcaption>Equipo femenino</figcaption>
+        </figure>
+        <div class="tb">
+          <span class="tag">Senior Femenino · Grupo Sur</span>
+          <h3>Femenino</h3>
+          <p>Nuestro equipo femenino milita en la categoría Senior Femenino, Grupo Sur, de la Federación Extremeña de Voleibol. El pabellón de San Roque es nuestro fortín.</p>
+          <ul class="chips" data-chips></ul>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- PARTIDOS -->
-<section id="partidos">
-  <div class="wrap">
-    <div class="eyebrow">Competición</div>
-    <h2>Partidos y clasificación</h2>
-    <div class="duo">
-      <div class="cat" data-eq="masculino">
-        <h3 class="cat-h">Masculino<small>Superliga Masculina 2 · Grupo A</small></h3>
-        <div class="matches"></div>
-        <button class="btn btn-ghost ver" type="button" style="margin-top:.6rem">Ver calendario completo →</button>
-        <h4 class="sub-h">Clasificación</h4>
-        <div class="table-wrap"><table class="clasif"></table></div>
-        <p class="fuente"></p>
-      </div>
-      <div class="cat" data-eq="femenino">
-        <h3 class="cat-h">Femenino<small>Senior Femenino · Grupo Sur</small></h3>
-        <div class="matches"></div>
-        <button class="btn btn-ghost ver" type="button" style="margin-top:.6rem">Ver calendario completo →</button>
-        <h4 class="sub-h">Clasificación</h4>
-        <div class="table-wrap"><table class="clasif"></table></div>
-        <p class="fuente"></p>
+<!-- INSCRIPCIÓN -->
+<section class="join" id="unete">
+  <div class="wrap grid">
+    <div class="rv">
+      <span class="kicker">Inscripciones abiertas</span>
+      <h2>¿Te unes al equipo?</h2>
+      <p class="lead">Inscripciones abiertas para todas las categorías base. Ven a probar una sesión gratuita con nuestros entrenadores y descubre si el voleibol es tu deporte.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://wa.me/34622796721?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20inscribirme%20en%20el%20CV%20Almendralejo." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800 0-1.300.7-1.900.9-2.200.2-.3.5-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.400 0 .5l-.3.500-.4.400c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg>Escríbenos por WhatsApp</a>
+        <a class="btn btn-ghost" href="tel:+34622796721">Llamar</a>
+        <a class="btn btn-ghost" href="mailto:cvalmendralejo@hotmail.com?subject=Inscripci%C3%B3n%20CV%20Almendralejo&body=Hola%2C%20quiero%20informaci%C3%B3n%20para%20inscribirme.%0A%0ANombre%20del%20jugador%2Fa%3A%0AEdad%3A%0ATel%C3%A9fono%20de%20contacto%3A">Correo</a>
       </div>
     </div>
+    <ol class="steps">
+      <li class="rv"><b>1</b><div><strong>Escríbenos o llámanos</strong><span>Cuéntanos la edad y la experiencia. Si nunca ha jugado, no pasa nada.</span></div></li>
+      <li class="rv" style="--d:.1s"><b>2</b><div><strong>Prueba una sesión gratis</strong><span>Entrena con nuestros entrenadores y descubre el ambiente del club.</span></div></li>
+      <li class="rv" style="--d:.2s"><b>3</b><div><strong>Sé parte del CVA</strong><span>Entrena, compite y vive el vóley con nosotros.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- CAMISETAS -->
+<section id="camisetas">
+  <div class="wrap shirts-grid">
+    <div class="shirt-pair">
+      <figure class="shirt rv">
+        <div class="art"><svg viewBox="0 0 300 290" role="img" aria-label="Camiseta del CV Almendralejo">
+<path d="M104 14 L58 30 L8 96 L56 128 L78 104 L78 268 Q78 278 88 278 L212 278 Q222 278 222 268 L222 104 L244 128 L292 96 L242 30 L196 14 Q150 54 104 14 Z" fill="#3b823e" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+<path d="M8 96 L56 128 L66 113 L18 81 Z M292 96 L244 128 L234 113 L282 81 Z" fill="#000" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+<path d="M78 112 L94 112 L94 278 L88 278 Q78 278 78 268 Z M222 112 L206 112 L206 278 L212 278 Q222 278 222 268 Z" fill="#000"/>
+<rect x="94" y="262" width="112" height="9" fill="#000"/>
+<path d="M104 14 Q150 54 196 14" fill="none" stroke="#000" stroke-width="10" stroke-linecap="round"/>
+<circle cx="150" cy="106" r="34" fill="#fff" stroke="#000" stroke-width="3"/>
+<image href="assets/escudo.png" x="120" y="76" width="60" height="60" preserveAspectRatio="xMidYMid meet"/>
+<text x="150" y="190" text-anchor="middle" style="font-family:Archivo,Arial,sans-serif;font-weight:900;font-size:44px;letter-spacing:1px" fill="#fff">CVA</text>
+</svg>
+          <img class="real" src="img/camiseta.webp" alt="Camiseta verde del CV Almendralejo" hidden onload="this.hidden=false;this.closest('.shirt').classList.add('hasimg')">
+        </div>
+        <figcaption>Camiseta verde</figcaption>
+      </figure>
+      <figure class="shirt rv" style="--d:.12s">
+        <div class="art"><svg viewBox="0 0 300 290" role="img" aria-label="Camiseta del CV Almendralejo">
+<path d="M104 14 L58 30 L8 96 L56 128 L78 104 L78 268 Q78 278 88 278 L212 278 Q222 278 222 268 L222 104 L244 128 L292 96 L242 30 L196 14 Q150 54 104 14 Z" fill="#101010" stroke="#000" stroke-width="4" stroke-linejoin="round"/>
+<path d="M8 96 L56 128 L66 113 L18 81 Z M292 96 L244 128 L234 113 L282 81 Z" fill="#3b823e" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+<path d="M78 112 L94 112 L94 278 L88 278 Q78 278 78 268 Z M222 112 L206 112 L206 278 L212 278 Q222 278 222 268 Z" fill="#3b823e"/>
+<rect x="94" y="262" width="112" height="9" fill="#3b823e"/>
+<path d="M104 14 Q150 54 196 14" fill="none" stroke="#3b823e" stroke-width="10" stroke-linecap="round"/>
+<circle cx="150" cy="106" r="34" fill="#fff" stroke="#000" stroke-width="3"/>
+<image href="assets/escudo.png" x="120" y="76" width="60" height="60" preserveAspectRatio="xMidYMid meet"/>
+<text x="150" y="190" text-anchor="middle" style="font-family:Archivo,Arial,sans-serif;font-weight:900;font-size:44px;letter-spacing:1px" fill="#fff">CVA</text>
+</svg>
+          <img class="real" src="img/camiseta-2.webp" alt="Camiseta negra del CV Almendralejo" hidden onload="this.hidden=false;this.closest('.shirt').classList.add('hasimg')">
+        </div>
+        <figcaption>Camiseta negra</figcaption>
+      </figure>
+    </div>
+    <div class="buy rv">
+      <span class="kicker">Camisetas del club</span>
+      <h2>Llévate la del club</h2>
+      <p>Las camisetas del CV Almendralejo se pueden comprar <b>en cada partido del SM2 que jugamos en casa</b>, en el Pabellón San Roque de Almendralejo. Ven a verlo, anima al equipo y vuelve a casa con los colores puestos.</p>
+      <div class="buy-next" id="shirt-next"><b>En cada partido en casa</b><span>Las fechas de los próximos partidos están en la sección Partidos.</span></div>
+      <p>¿Dudas con la talla o con el precio? Pregúntanos en el pabellón o escríbenos.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=Pabell%C3%B3n+San+Roque+Almendralejo" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn btn-ghost" href="mailto:cvalmendralejo@hotmail.com?subject=Camisetas%20CV%20Almendralejo">Pregúntanos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTIDOS Y CLASIFICACIÓN (se rellena solo) -->
+<section class="tint" id="partidos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">Competición</span>
+      <h2>Partidos y clasificación</h2>
+    </div>
+    <div class="duo" id="duo"><noscript><p class="lead">Activa JavaScript para ver el calendario y la clasificación.</p></noscript></div>
+    <div class="main-spons">
+      <small>Patrocinadores principales</small>
+      <div class="box">
+        <a class="it" href="https://www.juntaex.es" target="_blank" rel="noopener"><img src="assets/logos/junta-extremadura.webp" alt="Junta de Extremadura"></a>
+        <a class="it" href="https://www.almendralejo.es" target="_blank" rel="noopener"><img src="assets/logos/ayuntamiento-almendralejo.webp" alt="Ayuntamiento de Almendralejo"></a>
+        <a class="it" href="#patrocinadores"><img src="assets/logos/transitos-suroeste.webp" alt="Tránsitos Suroeste"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA (solo aparece si hay fotos en assets/galeria.json) -->
+<section id="galeria" hidden>
+  <div class="wrap">
+    <div class="sec-head rv"><span class="kicker">Galería</span><h2>Momentos del club</h2></div>
+    <div class="gal" id="gal"></div>
   </div>
 </section>
 
 <!-- REDES -->
-<section class="alt" id="redes">
+<section id="redes">
   <div class="wrap redes">
     <div class="rv">
-      <div class="eyebrow">Redes sociales</div>
+      <span class="kicker">Redes sociales</span>
       <h2>Lo último del club</h2>
-      <p class="lead">Las publicaciones más recientes del CVA, siempre al día: convocatorias, resultados y mucho vóley.</p>
+      <p class="lead">Sigue el día a día del CV Almendralejo en nuestras redes sociales oficiales. Resultados, fotos, comunicados y toda la pasión por el vóley en directo.</p>
       <div class="social-links">
-        <a class="btn btn-primary" href="https://www.instagram.com/cvalmendralejo" target="_blank" rel="noopener">Instagram →</a>
-        <a class="btn btn-ghost" href="https://www.facebook.com/ClubVoleibolAlmendralejo" target="_blank" rel="noopener">Facebook →</a>
+        <a class="btn btn-primary" href="https://www.instagram.com/cvalmendralejo" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-ghost" href="https://www.facebook.com/ClubVoleibolAlmendralejo" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
-    <div class="rv d1">
+    <div class="rv" style="--d:.1s">
       <div class="posts" id="redes-feed" hidden></div>
       <div class="fb-box" id="redes-fb">
         <iframe title="Publicaciones del Club Voleibol Almendralejo en Facebook" loading="lazy" allow="encrypted-media" scrolling="no"
-          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FClubVoleibolAlmendralejo&tabs=timeline&width=500&height=680&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false"></iframe>
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FClubVoleibolAlmendralejo&tabs=timeline&width=500&height=640&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false"></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ÚNETE -->
-<section class="join" id="unete">
-  <div class="wrap rv">
-    <h2>¿Te unes al equipo?</h2>
-    <p>Inscripciones abiertas para todas las categorías. Ven a probar una sesión gratuita y descubre el voleibol.</p>
-    <a href="#contacto" class="btn btn-primary">Quiero apuntarme →</a>
+<!-- PREGUNTAS FRECUENTES -->
+<section class="tint faq" id="preguntas">
+  <div class="wrap faq-grid">
+    <div class="rv">
+      <span class="kicker">Preguntas frecuentes</span>
+      <h2>Lo que más nos preguntan</h2>
+      <p class="lead">Si no encuentras lo que buscas, escríbenos y te respondemos.</p>
+      <p style="margin-top:1.5rem"><a class="btn btn-primary btn-sm" href="#contacto">Contactar con el club</a></p>
+    </div>
+    <div class="rv" style="--d:.1s">
+      <details><summary>¿Cómo me apunto al club?</summary><p>Escríbenos a <a href="mailto:cvalmendralejo@hotmail.com">cvalmendralejo@hotmail.com</a>, por WhatsApp o llámanos al <a href="tel:+34622796721">622 79 67 21</a>. Puedes probar una sesión gratuita con nuestros entrenadores antes de decidir.</p></details>
+      <details><summary>¿Dónde juega el CV Almendralejo?</summary><p>En el Pabellón Municipal San Roque, en Almendralejo (Badajoz). Tienes el mapa y cómo llegar en la sección de contacto.</p></details>
+      <details><summary>¿Dónde puedo comprar la camiseta del club?</summary><p>En el Pabellón San Roque, en cada partido del SM2 que el equipo masculino juega en casa. Consulta la próxima fecha en la sección Camisetas.</p></details>
+      <details><summary>¿Dónde veo los resultados y la clasificación?</summary><p>En la sección Partidos y clasificación. Se actualiza sola con los datos de la competición y, además, enlazamos siempre el calendario oficial de la RFEVB y de la Federación Extremeña de Voleibol.</p></details>
+      <details><summary>¿Cómo puedo colaborar o patrocinar al club?</summary><p>Escríbenos y te contamos las opciones. Apoyar al CVA es apoyar el deporte base de Almendralejo.</p></details>
+    </div>
   </div>
 </section>
 
 <!-- PATROCINADORES -->
-<div class="spons" id="patrocinadores">
-  <div class="wrap rv">
-    <p>Instituciones</p>
+<section class="spons" id="patrocinadores">
+  <div class="wrap">
+    <div class="spons-top rv">
+      <div>
+        <span class="kicker">Patrocinio</span>
+        <h2 style="margin-bottom:.6rem">Empresas que juegan con nosotros</h2>
+        <p class="lead">Si tu empresa quiere apoyar el deporte base y el voleibol de Almendralejo, estaremos encantados de contarte cómo colaborar.</p>
+      </div>
+      <a class="btn btn-dark" href="mailto:cvalmendralejo@hotmail.com?subject=Patrocinio%20CV%20Almendralejo">Quiero patrocinar</a>
+    </div>
+    <h3>Instituciones de apoyo</h3>
     <div class="logos"><div class="sp"><img src="assets/logos/esvoley.webp" alt="ESVóley" loading="lazy"></div><div class="sp"><img src="assets/logos/fedexvb.webp" alt="Federación Extremeña de Voleibol" loading="lazy"></div><div class="sp"><img src="assets/logos/fundacion-jovenes-y-deporte.webp" alt="Fundación Jóvenes y Deporte · Junta de Extremadura" loading="lazy"></div><div class="sp"><img src="assets/logos/diputacion-badajoz.webp" alt="Diputación de Badajoz" loading="lazy"></div><div class="sp"><img src="assets/logos/junta-extremadura.webp" alt="Junta de Extremadura" loading="lazy"></div><div class="sp"><img src="assets/logos/ayuntamiento-almendralejo.webp" alt="Ayuntamiento de Almendralejo" loading="lazy"></div><div class="sp"><img src="assets/logos/caja-almendralejo.webp" alt="Caja Almendralejo" loading="lazy"></div></div>
-    <p style="margin-top:2.2rem">Patrocinadores</p>
+    <div class="gap"></div>
+    <h3>Patrocinadores y colaboradores</h3>
     <div class="logos"><div class="sp"><img src="assets/logos/transitos-suroeste.webp" alt="Tránsitos Suroeste" loading="lazy"></div><div class="sp"><img src="assets/logos/ondupet.webp" alt="Ondupet" loading="lazy"></div><div class="sp"><img src="assets/logos/ondupack.webp" alt="Ondupack" loading="lazy"></div><div class="sp"><img src="assets/logos/natuyser.webp" alt="Natuyser" loading="lazy"></div><div class="sp"><img src="assets/logos/pevicor.webp" alt="Pevicor PVC" loading="lazy"></div><div class="sp"><img src="assets/logos/nissan.webp" alt="Nissan NS Maven" loading="lazy"></div><div class="sp"><img src="assets/logos/jumapa.webp" alt="Jumapa Carrasco" loading="lazy"></div><div class="sp"><img src="assets/logos/premier.webp" alt="Premier Alquiler de Apartamentos" loading="lazy"></div><div class="sp"><img src="assets/logos/ramacpol.webp" alt="RaMacPol Academia" loading="lazy"></div><div class="sp"><img src="assets/logos/san-roque.webp" alt="San Roque" loading="lazy"></div><div class="sp"><img src="assets/logos/ovb.webp" alt="OVB" loading="lazy"></div><div class="sp"><img src="assets/logos/colaborador.webp" alt="Colaborador" loading="lazy"></div><div class="sp"><img src="assets/logos/lavado.webp" alt="Lavado Correduría" loading="lazy"></div><div class="sp"><img src="assets/logos/telepizza.webp" alt="Telepizza" loading="lazy"></div><div class="sp"><img src="assets/logos/el-jato.webp" alt="El Jato" loading="lazy"></div><div class="sp"><img src="assets/logos/barrios.webp" alt="Barrios" loading="lazy"></div><div class="sp"><img src="assets/logos/balance.webp" alt="Balance" loading="lazy"></div><div class="sp"><img src="assets/logos/epsa.webp" alt="Colaborador" loading="lazy"></div><div class="sp"><img src="assets/logos/diestro.webp" alt="Diestro" loading="lazy"></div><div class="sp"><img src="assets/logos/vehiculos.webp" alt="Vehículos" loading="lazy"></div><div class="sp"><img src="assets/logos/imagina-terapia.webp" alt="Imagina Terapia" loading="lazy"></div><div class="sp"><img src="assets/logos/carrex.webp" alt="Carrex" loading="lazy"></div></div>
   </div>
-</div>
+</section>
 
 <!-- CONTACTO -->
-<section id="contacto">
-  <div class="wrap contact">
-    <div class="rv">
-      <div class="eyebrow">Contacto</div>
-      <h2>Hablemos</h2>
-      <p class="lead">¿Dudas sobre inscripciones, horarios o patrocinios? Escríbenos.</p>
-      <ul class="info">
-        <li><b>Email</b><span><a href="mailto:cvalmendralejo@hotmail.com">cvalmendralejo@hotmail.com</a></span></li>
-        <li><b>Teléfono</b><span><a href="tel:+34622796721">622 79 67 21</a></span></li>
-        <li><b>Pabellón</b><span>Pabellón Municipal San Roque, 06200 Almendralejo (Badajoz)</span></li>
-        <li><b>Redes</b><span><a href="https://www.instagram.com/cvalmendralejo" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/ClubVoleibolAlmendralejo" target="_blank" rel="noopener">Facebook</a></span></li>
-      </ul>
+<section class="tint" id="contacto">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="kicker">Contacto y sede</span><h2>Contáctanos</h2></div>
+    <div class="panel rv">
+      <div class="panel-info">
+        <p class="lead">¿Tienes dudas sobre las inscripciones para la cantera, los horarios de entrenamiento o quieres colaborar como patrocinador? Escríbenos.</p>
+        <ul class="info">
+          <li><b>Email</b><span><a href="mailto:cvalmendralejo@hotmail.com">cvalmendralejo@hotmail.com</a></span></li>
+          <li><b>Teléfono</b><span><a href="tel:+34622796721">622 79 67 21</a></span></li>
+          <li><b>Pabellón</b><span>Pabellón Municipal San Roque<br>06200 Almendralejo (Badajoz)</span></li>
+          <li><b>Redes</b><span><a href="https://www.instagram.com/cvalmendralejo" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/ClubVoleibolAlmendralejo" target="_blank" rel="noopener">Facebook</a></span></li>
+        </ul>
+        <div class="cta">
+          <a class="btn btn-primary" href="tel:+34622796721">Llamar</a>
+          <a class="btn btn-ghost" href="mailto:cvalmendralejo@hotmail.com">Escribir</a>
+          <a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&destination=Pabell%C3%B3n+San+Roque+Almendralejo" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+      </div>
+      <div class="panel-map">
+        <iframe title="Mapa: Pabellón San Roque de Almendralejo" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Pabell%C3%B3n+San+Roque+Almendralejo&output=embed"></iframe>
+        <span class="cap">Pabellón San Roque · Almendralejo</span>
+      </div>
     </div>
-    <div class="map rv d1"><iframe title="Mapa Pabellón San Roque" loading="lazy" style="border:0;width:100%;height:100%;min-height:320px;border-radius:22px" src="https://www.google.com/maps?q=Pabell%C3%B3n+Municipal+San+Roque+Almendralejo&output=embed"></iframe></div>
   </div>
 </section>
 </main>
 
-<div class="ex" aria-hidden="true"></div>
-<footer><div class="wrap"><span>© 2026 CV Almendralejo. Todos los derechos reservados.</span><span>Aviso legal · Privacidad</span></div></footer>
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <a href="#inicio" class="brand"><img src="assets/escudo.png" alt=""><span>CV Almendralejo</span></a>
+      <div class="cols">
+        <div><h4>El club</h4><ul><li><a href="#club">Quiénes somos</a></li><li><a href="#equipos">Equipos</a></li><li><a href="#camisetas">Camisetas</a></li><li><a href="#unete">Inscripción</a></li></ul></div>
+        <div><h4>Competición</h4><ul><li><a href="https://rfevb-web.dataproject.com/CompetitionMatches.aspx?ID=167&PID=203" target="_blank" rel="noopener">Calendario oficial SM2</a></li><li><a href="https://fedexvoleibol.com/calendario-senior-femenino-2" target="_blank" rel="noopener">Calendario oficial Senior Fem.</a></li></ul></div>
+        <div><h4>Síguenos</h4><ul><li><a href="https://www.instagram.com/cvalmendralejo" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/ClubVoleibolAlmendralejo" target="_blank" rel="noopener">Facebook</a></li></ul></div>
+      </div>
+    </div>
+    <div class="bot"><span>© <span data-year>2026</span> CV Almendralejo. Todos los derechos reservados.</span><span>Aviso legal · Privacidad</span></div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada"><button type="button" aria-label="Cerrar">✕</button><img alt=""><p></p></div>
 </div>
 
-<script src="assets/partidos.js?v=3"></script>
 <script>
 (function(){
-  var root=document.getElementById('cva');
-  var nav=document.getElementById('nav');
-  window.addEventListener('scroll',function(){
-    nav.classList.toggle('solid',window.scrollY>40);
-  },{passive:true});
+'use strict';
 
-  var menu=document.getElementById('menu');
-  document.getElementById('burger').onclick=function(){menu.classList.toggle('open')};
-  menu.addEventListener('click',function(e){if(e.target.tagName==='A')menu.classList.remove('open')});
+/* =====================================================================
+   DATOS DEL CLUB — se leen de las webs oficiales (RFEVB y Federación
+   Extremeña). Todo lo demás (próximo partido, cuenta atrás, estados,
+   estadísticas, camisetas, temporada…) se calcula solo a partir de aquí.
+   Si existe assets/partidos.json (lo genera el actualizador), tiene
+   prioridad sobre estos datos.
+   ===================================================================== */
+var SEED={
+ masculino:{club:'CV Almendralejo',corto:'CV Almendralejo',actualizado:'2026-10-30',totalJornadas:22,
+  partidos:[
+   {j:1,f:'2026-10-03',h:'18:00',rival:'Arona Spring In Motion',casa:true, sede:'Pabellón San Roque',res:'G',marc:'3-0'},
+   {j:2,f:'2026-10-10',h:'16:00',rival:'Bus Leader San Roque',  casa:false,sede:'PM El Batán',res:'G',marc:'3-1'},
+   {j:3,f:'2026-10-17',h:'20:00',rival:'Indescar Zaragoza',     casa:false,sede:'CDM Siglo XXI',res:'P',marc:'0-3'},
+   {j:4,f:'2026-10-24',h:'18:00',rival:'Textil Santanderina',   casa:true, sede:'Pabellón San Roque',res:'P',marc:'2-3'},
+   {j:5,f:'2026-10-31',h:'18:00',rival:'Club Vigo Voleibol',    casa:false,sede:'Pabellón Municipal de Coia'},
+   {j:6,f:'2026-11-07',h:'18:00',rival:'Barça Voleibol',        casa:true, sede:'Pabellón San Roque'},
+   {j:7,f:'2026-11-14',h:'17:00',rival:'UBE L´Illa Grau',       casa:false,sede:'Pabellón Ciudad Deportiva'},
+   {j:8,f:'2026-11-21',h:'18:00',rival:'Anaya Mayurqa Vóley Palma',casa:true,sede:'Pabellón San Roque'},
+   {j:9,f:'2026-11-28',h:'19:00',rival:'Rotogal Boiro Voleibol',casa:false,sede:'A Cachada'},
+   {j:10,f:'2026-12-06',h:'12:00',rival:'Asisa Tarragona SPiSP',casa:true, sede:'Pabellón San Roque'},
+   {j:11,f:'2026-12-13',h:'17:00',rival:'Grupo Egido Pinto',    casa:false,sede:'Pab. Príncipe de Asturias'},
+   {j:12,f:'2026-12-19',h:'19:30',rival:'Arona Spring In Motion',casa:false,sede:'Pab. Jesús Domínguez Grillo'},
+   {j:13,f:'2027-01-17',h:'12:00',rival:'Bus Leader San Roque', casa:true, sede:'Pabellón San Roque'},
+   {j:14,f:'2027-01-23',h:'18:00',rival:'Indescar Zaragoza',    casa:true, sede:'Pabellón San Roque'},
+   {j:15,f:'2027-01-30',h:'18:00',rival:'Textil Santanderina',  casa:false,sede:'Pab. Municipal Matilde de la Torre'},
+   {j:16,f:'2027-02-06',h:'18:00',rival:'Club Vigo Voleibol',   casa:true, sede:'Pabellón San Roque'},
+   {j:17,f:'2027-02-14',h:'11:00',rival:'Barça Voleibol',       casa:false,sede:'Pabellón La Salle Bonanova'},
+   {j:18,f:'2027-02-20',h:'18:00',rival:'UBE L´Illa Grau',      casa:true, sede:'Pabellón San Roque'},
+   {j:19,f:'2027-02-27',h:'17:00',rival:'Anaya Mayurqa Vóley Palma',casa:false,sede:'Campus Esport · Univ. Illes Balears'},
+   {j:20,f:'2027-03-06',h:'18:00',rival:'Rotogal Boiro Voleibol',casa:true, sede:'Pabellón San Roque'},
+   {j:21,f:'2027-03-13',h:'19:30',rival:'Asisa Tarragona SPiSP',casa:false,sede:'Pab. Mun. Sant Pere i Sant Pau'},
+   {j:22,f:'2027-03-20',h:'19:30',rival:'Grupo Egido Pinto',    casa:true, sede:'Pabellón San Roque'}
+  ],
+  clasif:[['Indescar Zaragoza',11,4,4],['Grupo Egido Pinto',10,4,3],['Textil Santanderina',9,4,4],['Asisa Tarragona SPiSP',8,3,3],
+          ['CVA Extremadura Tránsitos Suroeste',7,4,2],['Anaya Mayurqa Vóley Palma',7,4,2],['Club Vigo Voleibol',6,3,2],['Arona Spring In Motion',4,4,1],
+          ['Rotogal Boiro Voleibol',3,3,1],['Barça Voleibol',1,3,0],['Bus Leader San Roque',0,4,0],['UBE L´Illa Grau',0,4,0]],
+  clasifNota:'tras 4 jornadas',
+  fuente:'https://rfevb-web.dataproject.com/CompetitionStandings.aspx?ID=167&PID=203',fuenteNombre:'RFEVB',
+  calendarioUrl:'https://rfevb-web.dataproject.com/CompetitionMatches.aspx?ID=167&PID=203'},
+ femenino:{club:'CV Almendralejo',corto:'CV Almendralejo',actualizado:'2026-10-30',
+  partidos:[
+   {j:1,f:'2026-10-18',h:null,   rival:'+Voley Badajoz A',              casa:false,sede:'Pabellón Juancho Pérez',res:'G',marc:'3-0'},
+   {j:2,f:'2026-10-24',h:'19:30',rival:'Club Pacense Voleibol Senior A',casa:true, sede:'Pabellón San Roque',res:'G'},
+   {j:3,f:'2026-11-08',h:null,   rival:'AD Voleibol Ribera A',          casa:false,sede:'Pabellón Municipal (Ribera)'},
+   {j:4,f:'2026-11-14',h:'18:00',rival:'Voleibol A7 A',                 casa:true, sede:'Pabellón San Roque'},
+   {j:5,f:'2026-12-13',h:null,   rival:'Club Pacense Voleibol Senior B',casa:false,sede:'Pabellón Municipal'}
+  ],
+  clasif:[['AD Voleibol Ribera «Thercli Therapias Clínicas» A',6,2,2],['CVA Extremadura Tránsitos Suroeste A',5,2,2],['Club Pacense Voleibol Senior A',4,2,1],
+          ['Voleibol A7 A',3,2,1],['+Voley Badajoz A',0,2,0],['Club Pacense Voleibol Senior B',0,2,0]],
+  clasifNota:'del Senior Femenino Sur',
+  fuente:'https://fedexvoleibol.com/clasificacion-senior-femenino',fuenteNombre:'Federación Extremeña de Voleibol',
+  calendarioUrl:'https://fedexvoleibol.com/calendario-senior-femenino-2'}
+};
 
-  /* Calendarios: datos en assets/partidos.js · horas en horario de España */
-  var MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],DIA=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
-  function lastSun(y,m){var d=new Date(Date.UTC(y,m+1,0));d.setUTCDate(d.getUTCDate()-d.getUTCDay());return d.getTime()}
-  function isDst(t,y){return t>=lastSun(y,2)+36e5&&t<lastSun(y,9)+36e5}
-  function kickoff(f,h){
-    var a=f.split('-').map(Number),t=(h||'12:00').split(':').map(Number),asUTC=Date.UTC(a[0],a[1]-1,a[2],t[0],t[1]),k=asUTC-72e5;
-    return isDst(k,a[0])?k:asUTC-36e5;
-  }
-  function fecha(m){var y=+m.f.slice(0,4),d=new Date(m.t+(isDst(m.t,y)?72e5:36e5));return{dia:DIA[d.getUTCDay()],n:d.getUTCDate(),mes:MES[d.getUTCMonth()]}}
-  var EQ=window.CVA_EQUIPOS||{},KEYS=Object.keys(EQ);
-  KEYS.forEach(function(k){
-    var e=EQ[k];
-    e.partidos.forEach(function(m){m.t=kickoff(m.f,m.h)});
-    e.next=e.partidos.filter(function(m){return !m.res&&m.t+108e5>Date.now()})[0];
-    e.todos=false;
+var TZ='Europe/Madrid';
+var META={
+  masculino:{nombre:'Masculino',liga:'Superliga Masculina 2 · Grupo A',cls:''},
+  femenino:{nombre:'Femenino',liga:'Senior Femenino · Grupo Sur',cls:'fem'}
+};
+var KEYS=Object.keys(META);
+var MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+var DIA=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+var MATCH_MS=3*36e5;      /* un partido se considera "en juego" durante 3 h */
+var STALE_DAYS=14;        /* aviso si los datos tienen más de 2 semanas */
+var EQ=JSON.parse(JSON.stringify(SEED));
+var changeAt=Infinity, now=Date.now();
+
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return [].slice.call((r||document).querySelectorAll(s))}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function p2(n){return String(n).padStart(2,'0')}
+
+/* ---------- Hora de España (con cambio verano/invierno automático) ---------- */
+var dtf=new Intl.DateTimeFormat('en-US',{timeZone:TZ,hourCycle:'h23',year:'numeric',month:'numeric',day:'numeric',hour:'numeric',minute:'numeric',second:'numeric'});
+function offsetAt(ts){
+  var p={};dtf.formatToParts(new Date(ts)).forEach(function(x){p[x.type]=x.value});
+  return Date.UTC(+p.year,+p.month-1,+p.day,(+p.hour)%24,+p.minute,+p.second)-Math.floor(ts/1000)*1000;
+}
+function kickoff(f,h){
+  var a=String(f).split('-').map(Number),t=(h||'12:00').split(':').map(Number);
+  var guess=Date.UTC(a[0],a[1]-1,a[2],t[0]||0,t[1]||0);
+  var ts=guess-offsetAt(guess);
+  return guess-offsetAt(ts);
+}
+function fecha(m){
+  var a=m.f.split('-').map(Number),d=new Date(Date.UTC(a[0],a[1]-1,a[2]));
+  return {dia:DIA[d.getUTCDay()],n:a[2],mes:MES[a[1]-1]};
+}
+function resKind(r){ if(!r) return ''; return /^[GVW]/i.test(r)?'G':(/^[PDL]/i.test(r)?'P':''); }
+
+/* ---------- Análisis automático de cada equipo ---------- */
+function ownIndex(e){
+  var c=e.clasif||[],i=-1;
+  c.forEach(function(r,k){ if(i<0&&/almendralejo/i.test(r[0])) i=k });
+  if(i<0) c.forEach(function(r,k){ if(i<0&&/(cva|extremadura).*(tr[aá]nsitos|suroeste)|^cva\b/i.test(r[0])) i=k });
+  if(i<0) c.forEach(function(r,k){ if(i<0&&/extremadura/i.test(r[0])) i=k });
+  return i;
+}
+function analyse(e){
+  e.club=e.club||'CV Almendralejo'; e.corto=e.corto||e.club;
+  var P=(e.partidos||[]).filter(function(m){return m&&/^\d{4}-\d{2}-\d{2}$/.test(m.f)});
+  P.forEach(function(m){
+    m.t=kickoff(m.f,m.h);
+    m._k=resKind(m.res);
+    m._st=m._k?'jugado':(m.t>now?'proximo':(now<m.t+MATCH_MS?'vivo':'pendiente'));
   });
-  function titulo(e,m){return m.casa?e.club+' vs. '+m.rival:m.rival+' vs. '+e.club}
-  function horaTxt(m){return m.h?m.h+' h':'hora por confirmar'}
+  P.sort(function(a,b){return a.t-b.t});
+  e.P=P;
+  e.next=P.filter(function(m){return m._st==='proximo'||m._st==='vivo'})[0]||null;
+  var jug=P.filter(function(m){return m._st==='jugado'});
+  e.pos=ownIndex(e);
+  e.row=e.pos>=0?e.clasif[e.pos]:null;
+  /* si hay clasificación, es la fuente más completa para PJ y PG */
+  e.jug=e.row?(+e.row[2]||0):jug.length;
+  e.gan=e.row?(+e.row[3]||0):jug.filter(function(m){return m._k==='G'}).length;
+  e.last=jug.length?jug[jug.length-1]:null;
+  e.forma=jug.slice(-5).map(function(m){return m._k});
+  if(e.next){ var c=e.next._st==='vivo'?e.next.t+MATCH_MS:e.next.t; if(c<changeAt) changeAt=c; }
+}
+function titulo(e,m){ return m.casa?('<b>'+esc(e.club)+'</b> vs. '+esc(m.rival)):(esc(m.rival)+' vs. <b>'+esc(e.club)+'</b>'); }
+function tituloCorto(e,m){ return m.casa?(esc(e.corto)+' <em>vs</em> '+esc(m.rival)):(esc(m.rival)+' <em>vs</em> '+esc(e.corto)); }
+function horaTxt(m){ return m.h?(m.h+' h'):'hora por confirmar'; }
+function linkOficial(e,txt){ return e.calendarioUrl?'<a class="btn btn-ghost btn-sm" href="'+esc(e.calendarioUrl)+'" target="_blank" rel="noopener">'+txt+'</a>':''; }
 
-  /* Hero: próximo partido de cada equipo + cuenta atrás */
-  var blocks=[].slice.call(document.querySelectorAll('.nx[data-eq]')).map(function(el){
-    var e=EQ[el.getAttribute('data-eq')],n=e&&e.next;
+/* "Añadir al calendario": archivo .ics generado al momento */
+function icsLink(k,e,m){
+  var z=function(t){return new Date(t).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'')};
+  var tx=function(s){return String(s||'').replace(/([,;\\])/g,'\\$1')};
+  var titulo=m.casa?(e.club+' vs '+m.rival):(m.rival+' vs '+e.club);
+  var s=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//CV Almendralejo//Web//ES','BEGIN:VEVENT','UID:'+m.t+'-'+k+'@cvalmendralejo','DTSTAMP:'+z(Date.now()),
+    'DTSTART:'+z(m.t),'DTEND:'+z(m.t+2*36e5),'SUMMARY:'+tx(titulo),'LOCATION:'+tx(m.sede),'END:VEVENT','END:VCALENDAR'].join('\r\n');
+  return 'data:text/calendar;charset=utf-8,'+encodeURIComponent(s);
+}
+
+/* ---------- Franja "Próximo partido" ---------- */
+function renderStrip(){
+  var box=$('#strip'); if(!box) return;
+  box.innerHTML=KEYS.map(function(k){
+    var e=EQ[k],M=META[k],n=e.next,h;
+    h='<article class="nm '+M.cls+'"><div class="nm-h"><span class="pill">'+M.nombre+'</span>';
     if(n){
       var f=fecha(n);
-      el.querySelector('.vs').innerHTML=n.casa?e.corto+'<br>vs. '+n.rival:n.rival+'<br>vs. '+e.corto;
-      el.querySelector('.where').textContent=f.dia+' '+f.n+' '+f.mes+' · '+horaTxt(n)+' · '+n.sede;
-    }else{el.querySelector('.vs').textContent='Sin partidos próximos';el.querySelector('.where').textContent='';}
-    return {el:el,t:n?n.t:null,u:{d:el.querySelector('[data-u=d]'),h:el.querySelector('[data-u=h]'),m:el.querySelector('[data-u=m]'),s:el.querySelector('[data-u=s]')}};
-  });
-  function tick(){
-    var p=function(n){return String(n).padStart(2,'0')};
-    blocks.forEach(function(b){
-      var d=b.t?Math.max(0,b.t-Date.now()):0;
-      b.u.d.textContent=p(Math.floor(d/864e5));b.u.h.textContent=p(Math.floor(d%864e5/36e5));
-      b.u.m.textContent=p(Math.floor(d%36e5/6e4));b.u.s.textContent=p(Math.floor(d%6e4/1e3));
-    });
-  }
-  tick();setInterval(tick,1000);
+      h+='<span class="jor">'+(n.j?'Jornada '+esc(n.j)+' · ':'')+(n.casa?'En casa':'Fuera')+'</span></div><div class="nm-body"><div>'+
+        '<div class="vs">'+tituloCorto(e,n)+'</div><p class="where">'+f.dia+' '+f.n+' '+f.mes+' · '+horaTxt(n)+(n.sede?' · '+esc(n.sede):'')+'</p></div>';
+      h+= n._st==='vivo'
+        ? '<span class="livebox"><i></i>En juego ahora</span>'
+        : '<div class="count" data-t="'+n.t+'"><div><b data-u="d">00</b><span>Días</span></div><div><b data-u="h">00</b><span>Horas</span></div><div><b data-u="m">00</b><span>Min</span></div><div><b data-u="s">00</b><span>Seg</span></div></div>';
+      if(n.h) h+='<a class="ics" download="partido-cv-almendralejo.ics" href="'+icsLink(k,e,n)+'">Añadir al calendario</a>';
+      h+='</div>';
+    }else{
+      var vacio=e.P.length?'Sin partidos programados':'Calendario en la web oficial';
+      var txt=e.P.length?'Las nuevas jornadas se publican en el calendario oficial.':'Consulta fechas y rivales en la web oficial de la competición.';
+      h+='</div><div class="nm-body"><div><div class="vs">'+vacio+'</div><p class="where">'+txt+'</p></div>'+linkOficial(e,'Ver calendario oficial')+'</div>';
+    }
+    if(e.last){
+      var l=e.last;
+      h+='<p class="last">Último resultado: <b>'+(l._k==='G'?'Victoria':'Derrota')+'</b>'+(l.marc?' ('+esc(l.marc.replace('-',' – '))+')':'')+' ante '+esc(l.rival)+'</p>';
+    }else if(e.row){
+      h+='<p class="last">Clasificación: <b>'+(e.pos+1)+'º</b> con '+esc(e.row[1])+' puntos</p>';
+    }
+    return h+'</article>';
+  }).join('');
+  tick();
+}
 
-  /* Partidos y clasificación (los dos equipos, en paralelo) */
-  function pinta(k){
-    var e=EQ[k],box=document.querySelector('.cat[data-eq='+k+']');if(!e||!box)return;
-    var P=e.partidos,idx=e.next?P.indexOf(e.next):P.length,vis=e.todos?P:P.slice(Math.max(0,idx-1),idx+4);
-    box.querySelector('.matches').innerHTML=vis.map(function(m){
-      var f=fecha(m),r=m.res==='G'?'<div class="r win">Ganado'+(m.marc?'<small>'+m.marc.replace('-',' – ')+'</small>':'')+'</div>':m.res==='P'?'<div class="r lose">Perdido'+(m.marc?'<small>'+m.marc.replace('-',' – ')+'</small>':'')+'</div>':(m===e.next?'<div class="r">Próximo</div>':'<div class="r sede">'+(m.casa?'En casa':'Fuera')+'</div>');
-      return '<div class="match'+(m===e.next?' proximo':'')+'"><div class="d">'+f.n+' '+f.mes.toUpperCase()+'<small>J'+m.j+(m.h?' · '+m.h+' H':'')+'</small></div><div class="t">'+titulo(e,m)+'<small>'+m.sede+(m.h?'':' · hora por confirmar')+'</small></div>'+r+'</div>';
-    }).join('');
-    var btn=box.querySelector('.ver');
-    if(P.length<=5){btn.style.display='none'}
-    else btn.textContent=e.todos?'Ver menos ↑':'Ver calendario completo ('+P.length+' jornadas) →';
-    box.querySelector('.clasif').innerHTML='<thead><tr><th>#</th><th>Equipo</th><th>Pts</th><th>PJ</th><th>PG</th></tr></thead><tbody>'+e.clasif.map(function(r,i){return '<tr'+(/Extremadura/i.test(r[0])?' class="me"':'')+'><td>'+(i+1)+'</td><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td></tr>'}).join('')+'</tbody>';
-    box.querySelector('.fuente').innerHTML='Clasificación '+e.clasifNota+'. Fuente: <a href="'+e.fuente+'" target="_blank" rel="noopener">'+e.fuenteNombre+'</a>.';
-  }
+/* ---------- Cuenta atrás ---------- */
+function tick(){
+  now=Date.now();
+  $$('.count[data-t]').forEach(function(c){
+    var d=Math.max(0,+c.getAttribute('data-t')-now);
+    c.querySelector('[data-u=d]').textContent=p2(Math.floor(d/864e5));
+    c.querySelector('[data-u=h]').textContent=p2(Math.floor(d%864e5/36e5));
+    c.querySelector('[data-u=m]').textContent=p2(Math.floor(d%36e5/6e4));
+    c.querySelector('[data-u=s]').textContent=p2(Math.floor(d%6e4/1e3));
+  });
+  if(now>=changeAt){ render(); }   /* el partido empezó o terminó → todo se recalcula solo */
+}
+
+/* ---------- Partidos + clasificación ---------- */
+function matchHTML(e,m,isNext){
+  var f=fecha(m),r='',st=m._st;
+  if(st==='jugado') r='<div class="r '+(m._k==='G'?'win':'lose')+'">'+(m._k==='G'?'Victoria':'Derrota')+(m.marc?'<small>'+esc(m.marc.replace('-',' – '))+'</small>':'')+'</div>';
+  else if(st==='vivo') r='<div class="r live"><i></i>En juego</div>';
+  else if(st==='pendiente') r='<div class="r sede">Resultado<br>pendiente</div>';
+  else r=isNext?'<div class="r next">Próximo</div>':'<div class="r sede">'+(m.casa?'En casa':'Fuera')+'</div>';
+  return '<div class="match'+(isNext?' proximo':'')+(st==='vivo'?' vivo':'')+'"><div class="d"><b>'+f.n+'</b><span>'+f.mes+'</span><small>'+(m.j?'J'+esc(m.j)+' · ':'')+f.dia+'</small></div>'+
+    '<div class="t">'+titulo(e,m)+'<small>'+(m.sede?esc(m.sede)+' · ':'')+horaTxt(m)+'</small></div>'+r+'</div>';
+}
+function listFor(e){
+  var v=e.vista, P=e.P;
+  if(v==='proximos') return P.filter(function(m){return m._st==='proximo'||m._st==='vivo'});
+  if(v==='resultados') return P.filter(function(m){return m._st==='jugado'||m._st==='pendiente'}).reverse();
+  return P;
+}
+function frescura(e){
+  if(!e.actualizado) return '';
+  var a=e.actualizado.split('-').map(Number), d=Date.UTC(a[0],a[1]-1,a[2]);
+  var txt=' Datos del '+a[2]+' '+MES[a[1]-1]+' '+a[0]+'.';
+  if((now-d)/864e5>STALE_DAYS) txt+=' <b>Pueden faltar partidos o resultados recientes: consulta el calendario oficial.</b>';
+  return txt;
+}
+function renderCat(k){
+  var e=EQ[k],box=$('.cat[data-eq='+k+']'); if(!box) return;
+  if(!e.vista) e.vista=e.next?'proximos':(e.jug&&e.P.length?'resultados':'todo');
+  var L=listFor(e), max=4, shown=e.todos?L:L.slice(0,max);
+  $$('.seg button',box).forEach(function(b){ b.classList.toggle('on',b.getAttribute('data-v')===e.vista) });
+  var oficial=e.calendarioUrl?'<a href="'+esc(e.calendarioUrl)+'" target="_blank" rel="noopener">calendario oficial</a>':'';
+  $('.matches',box).innerHTML= shown.length
+    ? shown.map(function(m){return matchHTML(e,m,m===e.next)}).join('')
+    : '<div class="empty">'+(e.P.length?(e.vista==='proximos'?'No hay partidos próximos programados.':'Todavía no hay resultados.'):'El calendario de este equipo está en la web oficial.')+(oficial?' Consúltalo en el '+oficial+'.':'')+'</div>';
+  var more=$('.more',box);
+  if(L.length>max){ more.hidden=false; more.textContent=e.todos?'Ver menos':'Ver todos ('+L.length+')'; } else more.hidden=true;
+  var C=e.clasif||[],tb=$('.clasif',box),wrap=$('.table-wrap',box),sh=$('.sub-h',box),pie=$('.fuente',box);
+  var fuente=e.fuente?'<a href="'+esc(e.fuente)+'" target="_blank" rel="noopener">'+esc(e.fuenteNombre||'la federación')+'</a>':'';
+  if(C.length){
+    wrap.hidden=false; sh.hidden=false;
+    tb.innerHTML='<thead><tr><th>#</th><th>Equipo</th><th>Pts</th><th>PJ</th><th>PG</th></tr></thead><tbody>'+C.map(function(r,i){
+      return '<tr'+(i===e.pos?' class="me"':'')+'><td>'+(i+1)+'</td><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td><td>'+esc(r[2])+'</td><td>'+esc(r[3])+'</td></tr>';
+    }).join('')+'</tbody>';
+    pie.innerHTML='Clasificación'+(e.clasifNota?' '+esc(e.clasifNota):'')+'.'+(fuente?' Fuente: '+fuente+'.':'')+frescura(e);
+  }else{ wrap.hidden=true; sh.hidden=true; pie.innerHTML=(fuente?'Fuente: '+fuente+'.':'')+frescura(e); }
+}
+function buildCats(){
+  var duo=$('#duo'); if(!duo||duo.getAttribute('data-built')) return;
+  duo.setAttribute('data-built','1');
+  duo.innerHTML=KEYS.map(function(k){
+    return '<div class="cat" data-eq="'+k+'"><div class="cat-top"><h3 class="cat-h">'+META[k].nombre+'<small>'+META[k].liga+'</small></h3>'+
+      '<div class="seg" role="tablist"><button type="button" data-v="proximos">Próximos</button><button type="button" data-v="resultados">Resultados</button><button type="button" data-v="todo">Calendario</button></div></div>'+
+      '<div class="matches"></div><button class="btn btn-ghost btn-sm more" type="button" hidden style="margin-top:.4rem"></button>'+
+      '<h4 class="sub-h">Clasificación</h4><div class="table-wrap"><table class="clasif"></table></div><p class="fuente"></p></div>';
+  }).join('');
+  duo.addEventListener('click',function(ev){
+    var b=ev.target.closest('button'); if(!b) return;
+    var box=b.closest('.cat'); if(!box) return; var e=EQ[box.getAttribute('data-eq')];
+    if(b.hasAttribute('data-v')){ e.vista=b.getAttribute('data-v'); e.todos=false; renderCat(box.getAttribute('data-eq')); }
+    else if(b.classList.contains('more')){ e.todos=!e.todos; renderCat(box.getAttribute('data-eq')); }
+  });
+}
+
+/* ---------- Tarjetas de equipo (cifras automáticas) ---------- */
+function renderTeams(){
   KEYS.forEach(function(k){
-    var box=document.querySelector('.cat[data-eq='+k+']');if(!box)return;
-    box.querySelector('.ver').onclick=function(){EQ[k].todos=!EQ[k].todos;pinta(k)};
-    pinta(k);
+    var e=EQ[k],ul=$('.team[data-eq='+k+'] [data-chips]'); if(!ul) return;
+    var h='';
+    if(e.pos>=0) h+='<li><span>Posición</span><b>'+(e.pos+1)+'º</b></li>';
+    if(e.row) h+='<li><span>Puntos</span><b>'+esc(e.row[1])+'</b></li>';
+    if(e.row) h+='<li><span>Victorias</span><b>'+e.gan+'/'+e.jug+'</b></li>';
+    if(e.totalJornadas&&e.jug) h+='<li><span>Jornada</span><b>'+e.jug+'/'+e.totalJornadas+'</b></li>';
+    if(e.forma.length) h+='<li><span>Forma</span><span class="dots">'+e.forma.map(function(f){return '<i class="'+(f==='G'?'':'l')+'" title="'+(f==='G'?'Victoria':'Derrota')+'"></i>'}).join('')+'</span></li>';
+    ul.innerHTML=h;
   });
+}
 
-  /* Reveal + contadores */
-  function count(el){
-    var to=+el.dataset.to,t0=null;
-    (function step(t){t0=t0||t;var k=Math.min((t-t0)/1400,1);
-      el.textContent=Math.round(to*(1-Math.pow(1-k,3)));
-      if(k<1)requestAnimationFrame(step)})(performance.now());
-  }
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(!e.isIntersecting)return;
-        e.target.classList.add('in');
-        e.target.querySelectorAll('[data-to]').forEach(count);
-        io.unobserve(e.target);
-      });
-    },{threshold:.15});
-    root.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
-  }else{
-    root.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
-    root.querySelectorAll('[data-to]').forEach(function(el){el.textContent=el.dataset.to});
-  }
-  document.documentElement.style.scrollBehavior='smooth';
+/* ---------- Camisetas: próxima ocasión de comprarlas ---------- */
+function renderShirts(){
+  var el=$('#shirt-next'); if(!el) return;
+  var e=EQ.masculino,m=e&&e.P.filter(function(x){return x.casa&&(x._st==='proximo'||x._st==='vivo')})[0];
+  if(m){ var f=fecha(m); el.innerHTML='<b>Próxima ocasión</b><span>'+f.dia+' '+f.n+' '+f.mes+(m.h?' · '+m.h+' h':'')+' · contra '+esc(m.rival)+'</span>'; }
+  else el.innerHTML='<b>En cada partido en casa</b><span>Las fechas de los próximos partidos están en la sección Partidos.</span>';
+}
+
+/* ---------- Estadísticas, temporada, año ---------- */
+var counted={};
+function setStat(id,v){
+  var el=$('#'+id); if(!el) return;
+  if(counted[id]){ el.textContent=v; return; }
+  el.setAttribute('data-to',v);
+  if(!('IntersectionObserver' in window)){ el.textContent=v; counted[id]=1; }
+}
+function animateStat(el){
+  var to=+el.getAttribute('data-to')||0,t0=null; counted[el.id]=1;
+  (function step(t){ t0=t0||t; var k=Math.min((t-t0)/1200,1); el.textContent=Math.round(to*(1-Math.pow(1-k,3))); if(k<1) requestAnimationFrame(step); })(performance.now());
+}
+function renderStats(){
+  var pj=0,pg=0; KEYS.forEach(function(k){pj+=EQ[k].jug;pg+=EQ[k].gan});
+  setStat('st-eq',KEYS.length); setStat('st-pj',pj); setStat('st-pg',pg);
+}
+function renderMeta(){
+  var d=new Date(),y=d.getFullYear(),s=d.getMonth()>=6?y:y-1;
+  $$('[data-temporada]').forEach(function(el){el.textContent=s+'-'+String(s+1).slice(2)});
+  $$('[data-year]').forEach(function(el){el.textContent=y});
+}
+
+/* ---------- SEO: próximos partidos para buscadores ---------- */
+function renderLD(){
+  var ev=[]; KEYS.forEach(function(k){
+    var e=EQ[k],n=e.next; if(!n) return;
+    ev.push({'@type':'SportsEvent',name:(n.casa?e.club+' vs '+n.rival:n.rival+' vs '+e.club),startDate:new Date(n.t).toISOString(),sport:'Volleyball',
+      location:{'@type':'Place',name:n.sede||'Pabellón Municipal San Roque'},homeTeam:{'@type':'SportsTeam',name:n.casa?e.club:n.rival},awayTeam:{'@type':'SportsTeam',name:n.casa?n.rival:e.club}});
+  });
+  var s=$('#ld-events'); if(s) s.textContent=JSON.stringify({'@context':'https://schema.org','@graph':ev});
+}
+
+function render(){
+  now=Date.now(); changeAt=Infinity;
+  KEYS.forEach(function(k){ EQ[k]=EQ[k]||{}; analyse(EQ[k]); });
+  buildCats(); renderStrip(); KEYS.forEach(renderCat); renderTeams(); renderShirts(); renderStats(); renderMeta(); renderLD();
+  observe();
+}
+
+/* ---------- Contadores al hacerse visibles ---------- */
+var io=null;
+function observe(){
+  if(!('IntersectionObserver' in window)) return;
+  if(!io) io=new IntersectionObserver(function(es){
+    es.forEach(function(x){
+      if(!x.isIntersecting) return;
+      var b=x.target.querySelector('[data-to]'); if(b&&!counted[b.id]) animateStat(b);
+      io.unobserve(x.target);
+    });
+  },{threshold:.4});
+  $$('.stat').forEach(function(el){ if(!el.__o){el.__o=1; io.observe(el);} });
+}
+
+/* ---------- Menú / cabecera ---------- */
+var nav=$('#nav'),menu=$('#menu'),burger=$('#burger');
+window.addEventListener('scroll',function(){nav.classList.toggle('solid',window.scrollY>40)},{passive:true});
+nav.classList.toggle('solid',window.scrollY>40);
+burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+menu.addEventListener('click',function(e){if(e.target.tagName==='A'){menu.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+
+/* ---------- Visor de fotos ---------- */
+var lb=$('#lb'),lbImg=$('img',lb),lbTx=$('p',lb);
+document.addEventListener('click',function(e){
+  var f=e.target.closest('[data-zoom]');
+  if(f&&!f.classList.contains('noimg')){ var im=f.querySelector('img'),c=f.querySelector('figcaption'); lbImg.src=im.currentSrc||im.src; lbImg.alt=im.alt; lbTx.textContent=c?c.textContent:''; lb.classList.add('open'); return; }
+  if(lb.classList.contains('open')&&(e.target===lb||e.target.closest('#lb button')||e.target===lbImg)) lb.classList.remove('open');
+});
+document.addEventListener('keydown',function(e){ if(e.key==='Escape') lb.classList.remove('open') });
+
+/* ---------- Imágenes que fallan: nunca se ve un hueco roto ---------- */
+function broken(t){
+  var fb=t.getAttribute('data-fallback');
+  if(fb&&t.getAttribute('src')!==fb){ t.src=fb; return; }
+  var ph=t.closest('.ph'); if(ph){ ph.classList.add('noimg'); return; }
+  var sp=t.closest('.sp,.it'); if(sp){ sp.style.display='none'; return; }
+  t.style.visibility='hidden';
+}
+document.addEventListener('error',function(e){ var t=e.target; if(t&&t.tagName==='IMG') broken(t); },true);
+function scanImgs(){ $$('img').forEach(function(t){ if(t.getAttribute('src')&&t.complete&&t.naturalWidth===0) broken(t); }); }
+scanImgs(); window.addEventListener('load',scanImgs);
+
+
+/* ---------- Aparición suave al hacer scroll ---------- */
+(function(){
+  var root=document.getElementById('cva'); if(!root) return;
+  root.classList.add('js');
+  var els=$$('.rv');
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in')}); return; }
+  var ro=new IntersectionObserver(function(es){ es.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); ro.unobserve(x.target); } }); },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){ ro.observe(e); });
+  setTimeout(function(){ els.forEach(function(e){ var r=e.getBoundingClientRect(); if(r.top<innerHeight) e.classList.add('in'); }); },1200);
+})();
+
+/* ---------- Menú: sección activa ---------- */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var links=$$('#menu a[href^="#"]:not(.btn)'), map={};
+  links.forEach(function(a){ var s=$(a.getAttribute('href')); if(s) map[s.id]=a; });
+  var so=new IntersectionObserver(function(es){ es.forEach(function(x){ if(x.isIntersecting){ links.forEach(function(a){a.classList.remove('on')}); var a=map[x.target.id]; if(a) a.classList.add('on'); } }); },{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(map).forEach(function(id){ so.observe($('#'+id)); });
+})();
+
+/* ---------- Galería: aparece sola si existe assets/galeria.json ---------- */
+(function(){
+  if(!window.fetch||location.protocol.indexOf('http')!==0) return;
+  fetch('assets/galeria.json?v='+Math.floor(Date.now()/3e5),{cache:'no-cache'}).then(function(r){return r.ok?r.json():null}).then(function(j){
+    j=j&&(j.fotos||j); if(!Array.isArray(j)||!j.length) return;
+    var box=$('#gal'),sec=$('#galeria'); if(!box||!sec) return;
+    box.innerHTML=j.slice(0,18).map(function(f){
+      var s=typeof f==='string'?{src:f}:f; if(!s||typeof s.src!=='string'||!/^[\w\-\/.]+\.(webp|jpe?g|png)$/i.test(s.src)) return '';
+      return '<figure class="ph rv" data-zoom><img src="'+esc(s.src)+'" alt="'+esc(s.alt||'Foto del CV Almendralejo')+'" loading="lazy" decoding="async"><span class="zoom">Ampliar</span>'+(s.pie?'<figcaption>'+esc(s.pie)+'</figcaption>':'')+'</figure>';
+    }).join('');
+    if(!box.children.length) return;
+    sec.hidden=false; $$('#gal .rv').forEach(function(e){e.classList.add('in')});
+    if(!$('a[href="#galeria"]',$('#menu'))){} 
+  }).catch(function(){});
+})();
+
+/* ---------- Arranque ---------- */
+render();
+setInterval(tick,1000);
+document.addEventListener('visibilitychange',function(){ if(!document.hidden){ now=Date.now(); render(); } });
+
+/* Si existe assets/partidos.json (lo genera el actualizador automático), tiene prioridad */
+if(window.fetch&&location.protocol.indexOf('http')===0){
+  fetch('assets/partidos.json?v='+Math.floor(Date.now()/3e5),{cache:'no-cache'})
+    .then(function(r){return r.ok?r.json():null})
+    .then(function(j){
+      j=j&&(j.equipos||j); if(!j||typeof j!=='object') return;
+      var hay=false; KEYS.forEach(function(k){ if(j[k]&&typeof j[k]==='object'){ EQ[k]=j[k]; hay=true; } });
+      if(hay){ $('#duo').removeAttribute('data-built'); render(); }
+    })
+    .catch(function(){});
+}
 })();
 </script>
 <script src="assets/mascota.js?v=5"></script>
 <script src="assets/redes.js?v=1"></script>
+
 </body>
 </html>
