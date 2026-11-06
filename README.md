@@ -11,3 +11,10 @@ Landing del Club de Voleibol Almendralejo (HTML + CSS + JS, sin build). Equipos 
 - `img/` — fotos de los equipos.
 
 Probar en local: `python -m http.server 8000` y abrir http://localhost:8000
+
+## Actualización automática de partidos
+
+`.github/workflows/actualizar-partidos.yml` ejecuta `scripts/actualizar.py` cada día (mañana y noche) y cada 2 horas los fines de semana.
+Lee la RFEVB (Superliga 2 · Grupo A) y la Federación Extremeña (Senior Femenino Sur) y reescribe `assets/partidos.json`, que la web usa en lugar de los datos de `index.html`.
+Se puede lanzar a mano en GitHub → Actions → «Actualizar partidos y clasificación» → Run workflow.
+Si una fuente falla, ese equipo se queda como estaba y la web avisa cuando los datos tienen más de 2 semanas.

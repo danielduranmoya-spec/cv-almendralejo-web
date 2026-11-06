@@ -1,0 +1,48 @@
+name: Actualizar partidos y clasificación
+
+# Lee la RFEVB (masculino) y la Federación Extremeña (femenino) y guarda
+# assets/partidos.json. Si algo cambia, lo sube y GitHub Pages se republica.
+on:
+  schedule:
+    - cron: '15 5 * * *'            # todos los días, 06:15/07:15 en España
+    - cron: '30 21 * * *'           # todas las noches (partidos entre semana)
+    - cron: '0 10-23/2 * * 6,0'     # sábados y domingos cada 2 horas
+  workflow_dispatch:                # botón «Run workflow» para lanzarlo a mano
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: actualizar-partidos
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Leer las webs oficiales
+        run: python3 scripts/actualizar.py
+
+      - name: Subir los cambios (si los hay)
+        id: subir
+        run: |
+          if git diff --quiet -- assets/partidos.json; then
+            echo "Sin cambios."; echo "cambios=no" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          git config user.name "Actualizador CVA"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/partidos.json
+          git commit -m "Actualiza partidos y clasificación ($(TZ=Europe/Madrid date '+%d/%m/%Y %H:%M'))"
+          git pull --rebase -q origin "${GITHUB_REF_NAME}"
+          git push
+          echo "cambios=si" >> "$GITHUB_OUTPUT"
+
+      - name: Republicar GitHub Pages
+        if: steps.subir.outputs.cambios == 'si'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || echo "Pages se republicará por el push."
