@@ -343,12 +343,19 @@ body{margin:0;background:#fff}
 /* Mascota apoyada en «¡Apúntate!»: aparece al pasar la portada */
 .cva .masc-fab{position:absolute;right:calc(100% - 22px);bottom:-6px;height:150px;aspect-ratio:383/420;pointer-events:none;
   opacity:0;transform:translateY(24px);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 6px 10px rgba(0,0,0,.18))}
-.cva .masc-fab img{position:absolute;inset:0;width:100%;height:100%;max-width:none}
+.cva .masc-fab img,.cva .masc-fab .lean{position:absolute;inset:0;width:100%;height:100%;max-width:none}
+.cva .masc-fab .lean{opacity:0}
+.cva .masc-fab .pose-a,.cva .masc-fab .lean{transform-origin:55% 100%}
 .cva .masc-fab .mano{transform-origin:17.75% 38.6%}
 .cva.ver-masc .masc-fab{opacity:1;transform:none}
-.cva.ver-masc .masc-fab .mano{animation:saludo 3.2s ease-in-out .6s infinite}
+.cva.ver-masc .masc-fab .pose-a{animation:poseA 1.5s ease forwards}
+.cva.ver-masc .masc-fab .lean{animation:apoyo 1.5s ease forwards}
+.cva.ver-masc .masc-fab .mano{animation:saludo 3.2s ease-in-out 1.7s infinite}
+/* 1) llega de pie en «A», da un saltito  2) se inclina hacia el botón y queda apoyada */
+@keyframes poseA{0%{opacity:1;transform:none}22%{transform:translateY(-7%) scaleY(1.03)}38%{transform:translateY(0) scaleY(.96)}55%{opacity:1;transform:rotate(0)}72%{opacity:0;transform:rotate(7deg)}100%{opacity:0;transform:rotate(7deg)}}
+@keyframes apoyo{0%,55%{opacity:0;transform:rotate(-6deg) scale(.97)}72%{opacity:1;transform:rotate(2deg)}86%{transform:rotate(-1deg)}100%{opacity:1;transform:none}}
 @keyframes saludo{0%,55%,100%{transform:rotate(0)}8%{transform:rotate(-16deg)}16%{transform:rotate(12deg)}24%{transform:rotate(-16deg)}32%{transform:rotate(12deg)}42%{transform:rotate(-6deg)}}
-@media(prefers-reduced-motion:reduce){.cva.ver-masc .masc-fab .mano{animation:none}}
+@media(prefers-reduced-motion:reduce){.cva.ver-masc .masc-fab .mano,.cva.ver-masc .masc-fab .pose-a,.cva.ver-masc .masc-fab .lean{animation:none}.cva .masc-fab .pose-a{opacity:0}.cva .masc-fab .lean{opacity:1}}
 .cva .fab .lg{width:68px;height:68px;border-radius:50%;background:#fff;box-shadow:0 6px 22px rgba(0,0,0,.25);border:2px solid var(--green);display:grid;place-items:center;overflow:hidden;animation:bob 2.4s ease-in-out infinite}
 .cva .fab .lg img{width:100%;height:100%;object-fit:contain;padding:5px}
 .cva .fab .tx{background:var(--green);color:#fff;font-weight:800;font-size:1.1rem;padding:.7rem 1.2rem;border-radius:999px;box-shadow:0 6px 22px rgba(0,0,0,.22);transition:background .2s}
@@ -409,7 +416,7 @@ body{margin:0;background:#fff}
 <a href="#unete" class="fab" aria-label="Apúntate: ir a inscripción">
   <span class="lg"><img src="assets/escudo.png" alt=""></span>
   <span class="tx">¡Apúntate!</span>
-  <span class="masc-fab" aria-hidden="true"><img src="assets/mascota-apuntate.webp" alt="" width="383" height="420" decoding="async"><img class="mano" src="assets/mascota-mano.webp" alt="" width="383" height="420" decoding="async"></span>
+  <span class="masc-fab" aria-hidden="true"><img class="pose-a" src="assets/mascota-pose-a.webp" alt="" width="383" height="420" decoding="async"><span class="lean"><img src="assets/mascota-apuntate.webp" alt="" width="383" height="420" decoding="async"><img class="mano" src="assets/mascota-mano.webp" alt="" width="383" height="420" decoding="async"></span></span>
 </a>
 
 <header class="nav" id="nav">
