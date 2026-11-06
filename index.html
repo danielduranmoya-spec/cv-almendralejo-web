@@ -341,9 +341,14 @@ body{margin:0;background:#fff}
 .cva .fab{position:fixed;right:1.1rem;bottom:1.1rem;z-index:70;display:flex;align-items:center;gap:.6rem;flex-direction:row-reverse;transition:transform .25s}
 .cva .fab:hover{transform:translateY(-3px)}
 /* Mascota apoyada en «¡Apúntate!»: aparece al pasar la portada */
-.cva .masc-fab{position:absolute;right:calc(100% - 22px);bottom:-6px;width:auto;height:150px;max-width:none;pointer-events:none;
+.cva .masc-fab{position:absolute;right:calc(100% - 22px);bottom:-6px;height:150px;aspect-ratio:383/420;pointer-events:none;
   opacity:0;transform:translateY(24px);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 6px 10px rgba(0,0,0,.18))}
-.cva.past-hero .masc-fab{opacity:1;transform:none}
+.cva .masc-fab img{position:absolute;inset:0;width:100%;height:100%;max-width:none}
+.cva .masc-fab .mano{transform-origin:17.75% 38.6%}
+.cva.ver-masc .masc-fab{opacity:1;transform:none}
+.cva.ver-masc .masc-fab .mano{animation:saludo 3.2s ease-in-out .6s infinite}
+@keyframes saludo{0%,55%,100%{transform:rotate(0)}8%{transform:rotate(-16deg)}16%{transform:rotate(12deg)}24%{transform:rotate(-16deg)}32%{transform:rotate(12deg)}42%{transform:rotate(-6deg)}}
+@media(prefers-reduced-motion:reduce){.cva.ver-masc .masc-fab .mano{animation:none}}
 .cva .fab .lg{width:68px;height:68px;border-radius:50%;background:#fff;box-shadow:0 6px 22px rgba(0,0,0,.25);border:2px solid var(--green);display:grid;place-items:center;overflow:hidden;animation:bob 2.4s ease-in-out infinite}
 .cva .fab .lg img{width:100%;height:100%;object-fit:contain;padding:5px}
 .cva .fab .tx{background:var(--green);color:#fff;font-weight:800;font-size:1.1rem;padding:.7rem 1.2rem;border-radius:999px;box-shadow:0 6px 22px rgba(0,0,0,.22);transition:background .2s}
@@ -404,7 +409,7 @@ body{margin:0;background:#fff}
 <a href="#unete" class="fab" aria-label="Apúntate: ir a inscripción">
   <span class="lg"><img src="assets/escudo.png" alt=""></span>
   <span class="tx">¡Apúntate!</span>
-  <img class="masc-fab" src="assets/mascota-apuntate.webp" alt="" aria-hidden="true" width="383" height="420" decoding="async">
+  <span class="masc-fab" aria-hidden="true"><img src="assets/mascota-apuntate.webp" alt="" width="383" height="420" decoding="async"><img class="mano" src="assets/mascota-mano.webp" alt="" width="383" height="420" decoding="async"></span>
 </a>
 
 <header class="nav" id="nav">
@@ -752,7 +757,7 @@ var SEED={
    {j:2,f:'2026-10-10',h:'16:00',rival:'Bus Leader San Roque',  casa:false,sede:'PM El Batán',res:'G',marc:'3-1'},
    {j:3,f:'2026-10-17',h:'20:00',rival:'Indescar Zaragoza',     casa:false,sede:'CDM Siglo XXI',res:'P',marc:'0-3'},
    {j:4,f:'2026-10-24',h:'18:00',rival:'Textil Santanderina',   casa:true, sede:'Pabellón San Roque',res:'P',marc:'2-3'},
-   {j:5,f:'2026-10-31',h:'18:00',rival:'Club Vigo Voleibol',    casa:false,sede:'Pabellón Municipal de Coia'},
+   {j:5,f:'2026-10-31',h:'18:00',rival:'Club Vigo Voleibol',    casa:false,sede:'Pabellón Municipal de Coia',res:'P',marc:'2-3'},
    {j:6,f:'2026-11-07',h:'18:00',rival:'Barça Voleibol',        casa:true, sede:'Pabellón San Roque'},
    {j:7,f:'2026-11-14',h:'17:00',rival:'UBE L´Illa Grau',       casa:false,sede:'Pabellón Ciudad Deportiva'},
    {j:8,f:'2026-11-21',h:'18:00',rival:'Anaya Mayurqa Vóley Palma',casa:true,sede:'Pabellón San Roque'},
@@ -1083,11 +1088,11 @@ function scanImgs(){ $$('img').forEach(function(t){ if(t.getAttribute('src')&&t.
 scanImgs(); window.addEventListener('load',scanImgs);
 
 
-/* ---------- Mascota del botón «¡Apúntate!»: solo después de la portada ---------- */
+/* ---------- Mascota del botón «¡Apúntate!»: aparece al llegar a «Inscripciones abiertas» ---------- */
 (function(){
-  var root=document.getElementById('cva'),hero=document.getElementById('inicio'); if(!root||!hero) return;
-  if(!('IntersectionObserver' in window)){ root.classList.add('past-hero'); return; }
-  new IntersectionObserver(function(es){ es.forEach(function(x){ root.classList.toggle('past-hero',!x.isIntersecting); }); },{threshold:0}).observe(hero);
+  var root=document.getElementById('cva'),sec=document.getElementById('unete'); if(!root||!sec) return;
+  function check(){ root.classList.toggle('ver-masc',sec.getBoundingClientRect().top<innerHeight*.65); }
+  addEventListener('scroll',check,{passive:true}); addEventListener('resize',check); check();
 })();
 
 /* ---------- Aparición suave al hacer scroll ---------- */
