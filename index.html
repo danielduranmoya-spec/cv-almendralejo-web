@@ -8,7 +8,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d120d" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CV Almendralejo · Club de Voleibol">
 <meta property="og:description" content="Salta. Remata. Vive el vóley. Inscripciones, partidos y clasificación del Club de Voleibol Almendralejo.">
@@ -30,12 +32,26 @@
 .cva{
   --green:#3b823e; --green-deep:#14421d; --green-hi:#66c76d;
   --ink:#0b0f0b; --grey:#586058; --tint:#f2f7f2; --line:#dde5dd;
+  --bg:#fff; --surface:#fff; --dark:#0b0f0b; --ink-soft:#2a312a; --nav:rgba(255,255,255,.96);
+  --hover:#e3ede3; --lose:#eceeec; --accent-text:var(--green);
   --r:16px; --sh:0 1px 2px rgba(0,0,0,.05),0 10px 30px rgba(0,0,0,.08);
   --f:'Archivo','Helvetica Neue',Arial,sans-serif;
-  background:#fff;color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  background:var(--bg);color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;
 }
 html{scroll-behavior:smooth}
 body{margin:0;background:#fff}
+:root{color-scheme:light dark}
+/* ---------- Modo oscuro (si el móvil u ordenador lo tiene activado) ----------
+   Los recuadros de logos se quedan en blanco para que se vean bien. */
+@media (prefers-color-scheme:dark){
+  body{background:#0d120d}
+  .cva{--ink:#eef3ee; --grey:#a9b3a9; --tint:#121912; --line:#263026;
+    --bg:#0d120d; --surface:#161e16; --dark:#050805; --ink-soft:#d3dad3; --nav:rgba(13,18,13,.94);
+    --hover:#223022; --lose:#263026; --accent-text:var(--green-hi);
+    --sh:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.45)}
+  .cva .kicker,.cva .hero h1 em{color:var(--green-hi)}
+  .cva .nm,.cva .join,.cva footer{border:1px solid var(--line)}
+}
 .cva *,.cva *::before,.cva *::after{box-sizing:border-box}
 .cva a{color:inherit;text-decoration:none}
 .cva img{max-width:100%;display:block}
@@ -59,10 +75,10 @@ body{margin:0;background:#fff}
 .cva .btn:active{transform:none}
 .cva .btn-primary{background:var(--green);color:#fff}
 .cva .btn-primary:hover{background:#2f6d32}
-.cva .btn-ghost{background:#fff;color:var(--ink);border-color:var(--ink)}
-.cva .btn-ghost:hover{background:var(--ink);color:#fff}
-.cva .btn-dark{background:var(--ink);color:#fff}
-.cva .btn-light{background:#fff;color:var(--ink)}
+.cva .btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--ink)}
+.cva .btn-ghost:hover{background:var(--ink);color:var(--bg)}
+.cva .btn-dark{background:var(--ink);color:var(--bg)}
+.cva .btn-light{background:#fff;color:#0b0f0b}
 .cva .btn-sm{padding:.65rem 1.15rem;font-size:.92rem}
 .cva .btn svg{width:18px;height:18px;fill:currentColor;flex:none}
 
@@ -72,7 +88,7 @@ body{margin:0;background:#fff}
 
 /* ---------- Cabecera ---------- */
 .cva .nav{position:fixed;inset:0 0 auto 0;z-index:60;padding:.9rem 0;transition:background .3s,padding .3s,box-shadow .3s}
-.cva .nav.solid{background:rgba(255,255,255,.96);backdrop-filter:blur(8px);padding:.5rem 0;box-shadow:0 1px 0 var(--line),0 6px 20px rgba(0,0,0,.05)}
+.cva .nav.solid{background:var(--nav);backdrop-filter:blur(8px);padding:.5rem 0;box-shadow:0 1px 0 var(--line),0 6px 20px rgba(0,0,0,.05)}
 .cva .nav .wrap{display:flex;align-items:center;gap:1.4rem;width:min(1320px,100% - 2rem)}
 .cva .brand{display:flex;align-items:center;gap:.65rem;font-weight:800;font-size:1.2rem;letter-spacing:-.02em;line-height:1.1;white-space:nowrap}
 .cva .brand img{width:44px;height:44px;object-fit:contain}
@@ -80,17 +96,17 @@ body{margin:0;background:#fff}
 .cva .nav-logos a{display:block;line-height:0}
 .cva .nav-logos img{height:30px;width:auto;mix-blend-mode:multiply}
 .cva .menu{margin-left:auto;display:flex;gap:1.5rem;align-items:center;font-weight:600;font-size:.97rem}
-.cva .menu a:not(.btn){position:relative;padding:.25rem 0;white-space:nowrap;color:#2a312a}
+.cva .menu a:not(.btn){position:relative;padding:.25rem 0;white-space:nowrap;color:var(--ink-soft)}
 .cva .menu a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .25s}
 .cva .menu a:not(.btn):hover::after,.cva .menu a.on::after{transform:scaleX(1)}
-.cva .burger{display:none;margin-left:auto;background:#fff;border:1px solid var(--line);border-radius:12px;width:46px;height:46px;font-size:1.35rem;cursor:pointer}
+.cva .burger{display:none;margin-left:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;width:46px;height:46px;font-size:1.35rem;cursor:pointer}
 
 /* ---------- Portada ---------- */
 .cva .hero{padding:8.2rem 0 6rem;background:
   radial-gradient(900px 500px at 90% 0%,rgba(59,130,62,.12),transparent 60%),
-  radial-gradient(600px 400px at 0% 100%,rgba(59,130,62,.07),transparent 60%),#fff;overflow:hidden}
+  radial-gradient(600px 400px at 0% 100%,rgba(59,130,62,.07),transparent 60%),var(--bg);overflow:hidden}
 .cva .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:4rem;align-items:center}
-.cva .badge{display:inline-flex;align-items:center;gap:.6rem;padding:.4rem 1rem;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:.92rem;font-weight:600;margin-bottom:1.5rem;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.cva .badge{display:inline-flex;align-items:center;gap:.6rem;padding:.4rem 1rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.92rem;font-weight:600;margin-bottom:1.5rem;box-shadow:0 1px 2px rgba(0,0,0,.04)}
 .cva .badge i{width:9px;height:9px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(59,130,62,.55)}70%,100%{box-shadow:0 0 0 10px rgba(59,130,62,0)}}
 .cva .hero h1{font-size:clamp(2.7rem,6.2vw,5rem);line-height:1.02;letter-spacing:-.035em}
@@ -100,7 +116,7 @@ body{margin:0;background:#fff}
 @keyframes up{to{opacity:1;transform:none}}
 .cva .hero .sub{margin:1.5rem 0 2rem;font-size:clamp(1.05rem,1.8vw,1.25rem);color:var(--grey);max-width:46ch;opacity:0;animation:fade .8s .4s forwards}
 .cva .hero .cta{display:flex;flex-wrap:wrap;gap:.9rem;opacity:0;animation:fade .8s .55s forwards}
-.cva .facts{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin-top:2.2rem;padding-top:1.4rem;border-top:1px solid var(--line);opacity:0;animation:fade .8s .7s forwards;font-weight:600;font-size:.95rem;color:#2a312a}
+.cva .facts{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin-top:2.2rem;padding-top:1.4rem;border-top:1px solid var(--line);opacity:0;animation:fade .8s .7s forwards;font-weight:600;font-size:.95rem;color:var(--ink-soft)}
 .cva .facts span{display:inline-flex;align-items:center;gap:.5rem}
 .cva .facts span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
 @keyframes fade{to{opacity:1}}
@@ -111,12 +127,12 @@ body{margin:0;background:#fff}
 .cva .ph img{width:100%;height:auto;transition:transform .7s ease}
 .cva .ph:hover img{transform:scale(1.035)}
 .cva .ph figcaption{position:absolute;left:.8rem;bottom:.8rem;background:rgba(0,0,0,.78);backdrop-filter:blur(4px);color:#fff;font-weight:600;font-size:.85rem;padding:.4rem .85rem;border-radius:999px;pointer-events:none}
-.cva .ph .zoom{position:absolute;top:.8rem;right:.8rem;background:#fff;color:var(--ink);font-size:.8rem;font-weight:700;padding:.25rem .7rem;border-radius:999px;opacity:0;transition:opacity .25s;pointer-events:none}
+.cva .ph .zoom{position:absolute;top:.8rem;right:.8rem;background:#fff;color:#0b0f0b;font-size:.8rem;font-weight:700;padding:.25rem .7rem;border-radius:999px;opacity:0;transition:opacity .25s;pointer-events:none}
 .cva .ph:hover .zoom{opacity:1}
 .cva .ph.noimg{aspect-ratio:3/2}
 .cva .ph.noimg img{display:none}
 .cva .ph.noimg::before{content:"";position:absolute;inset:0;background:url(assets/escudo.png) center/34% no-repeat;opacity:.45}
-.cva .hm.b{position:absolute;left:0;bottom:0;width:58%;border:5px solid #fff;animation:float 7s ease-in-out infinite}
+.cva .hm.b{position:absolute;left:0;bottom:0;width:58%;border:5px solid var(--bg);animation:float 7s ease-in-out infinite}
 .cva .hm.a{width:100%}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .cva .seal{position:absolute;right:-.6rem;top:-1.2rem;width:84px;height:84px;border-radius:50%;background:#fff;box-shadow:var(--sh);display:grid;place-items:center;z-index:3}
@@ -125,7 +141,7 @@ body{margin:0;background:#fff}
 /* ---------- Próximos partidos ---------- */
 .cva .strip{margin-top:-3.2rem;padding:0;z-index:6}
 .cva .strip-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
-.cva .nm{background:var(--ink);color:#fff;border-radius:var(--r);padding:1.5rem 1.7rem;box-shadow:0 14px 40px rgba(0,0,0,.18);transition:transform .25s}
+.cva .nm{background:var(--dark);color:#fff;border-radius:var(--r);padding:1.5rem 1.7rem;box-shadow:0 14px 40px rgba(0,0,0,.18);transition:transform .25s}
 .cva .nm:hover{transform:translateY(-3px)}
 .cva .nm-h{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.9rem}
 .cva .pill{background:var(--green);color:#fff;font-weight:700;font-size:.88rem;padding:.25rem .85rem;border-radius:999px}
@@ -143,9 +159,9 @@ body{margin:0;background:#fff}
 @keyframes pulse2{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}70%,100%{box-shadow:0 0 0 10px rgba(255,255,255,0)}}
 .cva .nm .last{margin-top:1.1rem;padding-top:.85rem;border-top:1px solid rgba(255,255,255,.16);font-size:.9rem;color:#c3c8c3}
 .cva .nm .last b{color:#fff}
-.cva .nm .btn{background:#fff;color:var(--ink);width:fit-content}
+.cva .nm .btn{background:#fff;color:#0b0f0b;width:fit-content}
 .cva .ics{display:inline-block;margin-top:.9rem;color:var(--green-hi);font-weight:700;text-decoration:underline;font-size:.92rem}
-.cva .nm a.oficial{display:inline-flex;width:fit-content;padding:.6rem 1.1rem;border-radius:999px;background:#fff;color:var(--ink);font-weight:700;font-size:.92rem}
+.cva .nm a.oficial{display:inline-flex;width:fit-content;padding:.6rem 1.1rem;border-radius:999px;background:#fff;color:#0b0f0b;font-weight:700;font-size:.92rem}
 
 /* ---------- El club ---------- */
 .cva .about{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
@@ -154,7 +170,7 @@ body{margin:0;background:#fff}
 .cva .stat b{display:block;font-weight:800;font-size:2.9rem;line-height:1;color:var(--green);letter-spacing:-.03em}
 .cva .stat span{font-size:.92rem;font-weight:600;color:var(--grey)}
 .cva .values{display:grid;gap:1rem}
-.cva .value{display:grid;grid-template-columns:52px 1fr;gap:1rem;padding:1.3rem 1.4rem;border:1px solid var(--line);border-radius:var(--r);background:#fff;transition:transform .25s,box-shadow .25s,border-color .25s}
+.cva .value{display:grid;grid-template-columns:52px 1fr;gap:1rem;padding:1.3rem 1.4rem;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);transition:transform .25s,box-shadow .25s,border-color .25s}
 .cva .value:hover{transform:translateY(-3px);box-shadow:var(--sh);border-color:transparent}
 .cva .value .ic{width:52px;height:52px;border-radius:14px;background:var(--green);display:grid;place-items:center}
 .cva .value .ic svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
@@ -163,7 +179,7 @@ body{margin:0;background:#fff}
 
 /* ---------- Equipos ---------- */
 .cva .teams{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-.cva .team{background:#fff;border-radius:20px;box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.cva .team{background:var(--surface);border-radius:20px;box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
 .cva .team:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(0,0,0,.05),0 18px 44px rgba(0,0,0,.12)}
 .cva .team .ph{border-radius:0;box-shadow:none}
 .cva .tb{padding:1.6rem 1.7rem 0;display:flex;flex-direction:column;gap:.5rem;flex:1}
@@ -181,7 +197,7 @@ body{margin:0;background:#fff}
 .cva .dots i.l{background:#c9cfc9}
 
 /* ---------- Inscripción ---------- */
-.cva .join{background:var(--ink);color:#fff;overflow:hidden}
+.cva .join{background:var(--dark);color:#fff;overflow:hidden}
 .cva .join::before{content:"";position:absolute;right:-12%;top:-30%;width:620px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(59,130,62,.55),transparent 65%)}
 .cva .join .grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .cva .join h2{color:#fff}
@@ -189,7 +205,7 @@ body{margin:0;background:#fff}
 .cva .join .kicker{color:var(--green-hi)}
 .cva .join .cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
 .cva .join .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
-.cva .join .btn-ghost:hover{background:#fff;color:var(--ink)}
+.cva .join .btn-ghost:hover{background:#fff;color:#0b0f0b}
 .cva .steps{list-style:none;padding:0;margin:0;display:grid;gap:1rem}
 .cva .steps li{display:grid;grid-template-columns:48px 1fr;gap:1.1rem;align-items:start;padding:1.2rem 1.3rem;border-radius:var(--r);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);transition:background .25s,transform .25s}
 .cva .steps li:hover{background:rgba(255,255,255,.12);transform:translateX(4px)}
@@ -200,9 +216,9 @@ body{margin:0;background:#fff}
 /* ---------- Camisetas ---------- */
 .cva .shirts-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
 .cva .shirt-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
-.cva .shirt{margin:0;background:#fff;border-radius:20px;box-shadow:var(--sh);overflow:hidden;transition:transform .3s,box-shadow .3s}
+.cva .shirt{margin:0;background:var(--surface);border-radius:20px;box-shadow:var(--sh);overflow:hidden;transition:transform .3s,box-shadow .3s}
 .cva .shirt:hover{transform:translateY(-5px) rotate(-.6deg);box-shadow:0 18px 44px rgba(0,0,0,.14)}
-.cva .shirt .art{padding:1.4rem 1rem .6rem;background:radial-gradient(circle at 50% 45%,var(--tint) 0 58%,#fff 59%)}
+.cva .shirt .art{padding:1.4rem 1rem .6rem;background:radial-gradient(circle at 50% 45%,var(--tint) 0 58%,var(--surface) 59%)}
 .cva .shirt svg{width:100%;height:auto;display:block}
 .cva .shirt .real{width:100%;height:auto;display:block}
 .cva .shirt.hasimg svg{display:none}
@@ -222,10 +238,10 @@ body{margin:0;background:#fff}
 .cva .cat-h small{display:block;font-weight:600;font-size:.95rem;color:var(--green);margin-top:.3rem;letter-spacing:0}
 .cva .seg{display:inline-flex;background:var(--tint);border-radius:999px;padding:4px}
 .cva .seg button{font:600 .88rem var(--f);border:0;background:transparent;color:var(--ink);padding:.5rem .95rem;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
-.cva .seg button:hover{background:#e3ede3}
-.cva .seg button.on{background:var(--ink);color:#fff}
+.cva .seg button:hover{background:var(--hover)}
+.cva .seg button.on{background:var(--ink);color:var(--bg)}
 .cva .matches{margin-top:1.4rem;display:grid;gap:.8rem}
-.cva .match{display:grid;grid-template-columns:72px 1fr auto;align-items:stretch;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .25s,transform .25s}
+.cva .match{display:grid;grid-template-columns:72px 1fr auto;align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .25s,transform .25s}
 .cva .match:hover{box-shadow:var(--sh);transform:translateY(-2px)}
 .cva .match .d{background:var(--green-deep);color:#fff;text-align:center;padding:.6rem .3rem;display:flex;flex-direction:column;justify-content:center;line-height:1}
 .cva .match .d b{font-weight:800;font-size:1.8rem}
@@ -237,8 +253,8 @@ body{margin:0;background:#fff}
 .cva .match .r{min-width:104px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:.5rem .7rem;font-weight:800;font-size:1rem;line-height:1.15}
 .cva .match .r small{font-weight:600;font-size:.9rem;margin-top:.15rem}
 .cva .match .r.win{background:var(--green);color:#fff}
-.cva .match .r.lose{background:#eceeec;color:var(--ink)}
-.cva .match .r.live{background:var(--ink);color:#fff;flex-direction:row;gap:.5rem}
+.cva .match .r.lose{background:var(--lose);color:var(--ink)}
+.cva .match .r.live{background:var(--dark);color:#fff;flex-direction:row;gap:.5rem}
 .cva .match .r.sede{font-weight:600;font-size:.88rem;color:var(--grey)}
 .cva .match .r.next{background:var(--tint);color:var(--green-deep);font-size:.92rem}
 .cva .match.proximo{border-color:var(--green);box-shadow:0 0 0 3px rgba(59,130,62,.14)}
@@ -246,7 +262,7 @@ body{margin:0;background:#fff}
 .cva .empty{background:var(--tint);border-radius:14px;padding:1.4rem;color:var(--grey)}
 .cva .empty a{color:var(--green-deep);font-weight:700;text-decoration:underline}
 .cva .sub-h{font-size:1.4rem;margin:2.4rem 0 .9rem}
-.cva .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+.cva .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
 .cva .clasif{width:100%;border-collapse:collapse;font-size:.96rem;min-width:400px}
 .cva .clasif th,.cva .clasif td{padding:.65rem .9rem;text-align:center;border-bottom:1px solid var(--line)}
 .cva .clasif th{background:var(--tint);font-size:.82rem;font-weight:700;color:var(--grey)}
@@ -271,7 +287,7 @@ body{margin:0;background:#fff}
 .cva .social-links{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
 /* Últimas publicaciones (assets/redes.js; si no hay feed se queda el plugin de Facebook) */
 .cva .posts{display:grid;gap:1rem}
-.cva .post{display:grid;grid-template-columns:120px 1fr;gap:1rem;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;transition:border-color .25s,transform .25s}
+.cva .post{display:grid;grid-template-columns:120px 1fr;gap:1rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;transition:border-color .25s,transform .25s}
 .cva .post:hover{border-color:var(--green);transform:translateX(6px)}
 .cva .post .th{background:var(--tint)}.cva .post .th img{width:100%;height:100%;object-fit:cover}
 .cva .post .bd{padding:1rem 1rem 1rem 0}
@@ -307,7 +323,7 @@ body{margin:0;background:#fff}
 .cva .spons .gap{height:2.4rem}
 
 /* ---------- Contacto ---------- */
-.cva .panel{display:grid;grid-template-columns:.95fr 1.05fr;background:#fff;border-radius:22px;box-shadow:0 2px 4px rgba(0,0,0,.05),0 20px 50px rgba(0,0,0,.1);overflow:hidden}
+.cva .panel{display:grid;grid-template-columns:.95fr 1.05fr;background:var(--surface);border-radius:22px;box-shadow:0 2px 4px rgba(0,0,0,.05),0 20px 50px rgba(0,0,0,.1);overflow:hidden}
 .cva .panel-info{padding:2.3rem 2.3rem 2.5rem}
 .cva .info{list-style:none;padding:0;margin:1.6rem 0 0}
 .cva .info li{padding:.9rem 0;border-bottom:1px solid var(--line);display:flex;gap:1.2rem;align-items:center}
@@ -320,7 +336,7 @@ body{margin:0;background:#fff}
 .cva .panel-map .cap{position:absolute;left:.9rem;bottom:.9rem;z-index:2;background:rgba(0,0,0,.8);color:#fff;font-weight:600;font-size:.88rem;padding:.45rem .95rem;border-radius:999px;pointer-events:none}
 
 /* ---------- Pie ---------- */
-.cva footer{background:var(--ink);color:#cfd4cf;font-size:.92rem;padding:3rem 0 2.2rem}
+.cva footer{background:var(--dark);color:#cfd4cf;font-size:.92rem;padding:3rem 0 2.2rem}
 .cva footer .top{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;padding-bottom:1.8rem;border-bottom:1px solid rgba(255,255,255,.14);margin-bottom:1.4rem}
 .cva footer .brand{color:#fff}
 .cva footer .cols{display:flex;gap:3rem;flex-wrap:wrap}
@@ -335,7 +351,7 @@ body{margin:0;background:#fff}
 .cva .fab .lg{width:68px;height:68px;border-radius:50%;background:#fff;box-shadow:0 6px 22px rgba(0,0,0,.25);border:2px solid var(--green);display:grid;place-items:center;overflow:hidden;animation:bob 2.4s ease-in-out infinite}
 .cva .fab .lg img{width:100%;height:100%;object-fit:contain;padding:5px}
 .cva .fab .tx{background:var(--green);color:#fff;font-weight:800;font-size:1.1rem;padding:.7rem 1.2rem;border-radius:999px;box-shadow:0 6px 22px rgba(0,0,0,.22);transition:background .2s}
-.cva .fab:hover .tx{background:var(--ink)}
+.cva .fab:hover .tx{background:var(--dark)}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 
 /* ---------- Visor de fotos ---------- */
@@ -344,13 +360,14 @@ body{margin:0;background:#fff}
 @keyframes fade2{from{opacity:0}}
 .cva .lb img{max-width:min(1200px,100%);max-height:80vh;width:auto;height:auto;border-radius:10px}
 .cva .lb p{color:#fff;font-weight:600}
-.cva .lb button{position:absolute;top:1rem;right:1rem;background:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:1.2rem;cursor:pointer}
+.cva .lb button{position:absolute;top:1rem;right:1rem;background:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:1.2rem;cursor:pointer;color:#0b0f0b}
 
 /* ---------- Adaptación ---------- */
+@media(max-width:1420px){.cva .brand span{display:none}}
 @media(max-width:1320px){.cva .nav-logos img{height:26px}.cva .menu{gap:1.2rem;font-size:.92rem}}
 @media(max-width:1180px){
   .cva .burger{display:block}
-  .cva .menu{position:fixed;inset:0 0 0 auto;width:min(82vw,330px);background:#fff;flex-direction:column;justify-content:center;align-items:flex-start;padding:2rem;gap:1.5rem;font-size:1.2rem;transform:translateX(100%);transition:transform .3s;box-shadow:-20px 0 50px rgba(0,0,0,.15);margin:0}
+  .cva .menu{position:fixed;inset:0 0 0 auto;width:min(82vw,330px);background:var(--surface);flex-direction:column;justify-content:center;align-items:flex-start;padding:2rem;gap:1.5rem;font-size:1.2rem;transform:translateX(100%);transition:transform .3s;box-shadow:-20px 0 50px rgba(0,0,0,.15);margin:0}
   .cva .menu.open{transform:none}
 }
 @media(max-width:1000px){
@@ -401,6 +418,7 @@ body{margin:0;background:#fff}
     <div class="nav-logos">
       <a href="https://www.juntaex.es" target="_blank" rel="noopener" aria-label="Junta de Extremadura"><img src="assets/logos/junta-extremadura.webp?v=2" alt="Junta de Extremadura"></a>
       <a href="https://www.almendralejo.es" target="_blank" rel="noopener" aria-label="Ayuntamiento de Almendralejo"><img src="assets/logos/ayuntamiento-almendralejo.webp?v=2" alt="Ayuntamiento de Almendralejo"></a>
+      <a href="https://www.dip-badajoz.es" target="_blank" rel="noopener" aria-label="Diputación de Badajoz"><img src="assets/logos/diputacion-badajoz.webp?v=2" alt="Diputación de Badajoz"></a>
       <a href="#patrocinadores" aria-label="Tránsitos Suroeste"><img src="assets/logos/transitos-suroeste.webp?v=2" alt="Tránsitos Suroeste"></a>
     </div>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">☰</button>
@@ -409,7 +427,9 @@ body{margin:0;background:#fff}
       <a href="#equipos">Equipos</a>
       <a href="#partidos">Partidos</a>
       <a href="#camisetas">Camisetas</a>
+      <a href="#redes">Redes</a>
       <a href="#preguntas">Preguntas</a>
+      <a href="#patrocinadores">Patrocinadores</a>
       <a href="#contacto">Contacto</a>
       <a href="#unete" class="btn btn-primary btn-sm">Inscríbete</a>
     </nav>
@@ -537,8 +557,27 @@ body{margin:0;background:#fff}
   </div>
 </section>
 
+<!-- PARTIDOS Y CLASIFICACIÓN (se rellena solo) -->
+<section id="partidos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">Competición</span>
+      <h2>Partidos y clasificación</h2>
+    </div>
+    <div class="duo" id="duo"><noscript><p class="lead">Activa JavaScript para ver el calendario y la clasificación.</p></noscript></div>
+    <div class="main-spons">
+      <small>Patrocinadores principales</small>
+      <div class="box">
+        <a class="it" href="https://www.juntaex.es" target="_blank" rel="noopener"><img src="assets/logos/junta-extremadura.webp?v=2" alt="Junta de Extremadura"></a>
+        <a class="it" href="https://www.almendralejo.es" target="_blank" rel="noopener"><img src="assets/logos/ayuntamiento-almendralejo.webp?v=2" alt="Ayuntamiento de Almendralejo"></a>
+        <a class="it" href="https://www.dip-badajoz.es" target="_blank" rel="noopener"><img src="assets/logos/diputacion-badajoz.webp?v=2" alt="Diputación de Badajoz"></a>
+        <a class="it" href="#patrocinadores"><img src="assets/logos/transitos-suroeste.webp?v=2" alt="Tránsitos Suroeste"></a>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- CAMISETAS -->
-<section id="camisetas">
+<section class="tint" id="camisetas">
   <div class="wrap shirts-grid">
     <div class="shirt-pair">
       <figure class="shirt rv">
@@ -586,24 +625,6 @@ body{margin:0;background:#fff}
   </div>
 </section>
 
-<!-- PARTIDOS Y CLASIFICACIÓN (se rellena solo) -->
-<section class="tint" id="partidos">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">Competición</span>
-      <h2>Partidos y clasificación</h2>
-    </div>
-    <div class="duo" id="duo"><noscript><p class="lead">Activa JavaScript para ver el calendario y la clasificación.</p></noscript></div>
-    <div class="main-spons">
-      <small>Patrocinadores principales</small>
-      <div class="box">
-        <a class="it" href="https://www.juntaex.es" target="_blank" rel="noopener"><img src="assets/logos/junta-extremadura.webp?v=2" alt="Junta de Extremadura"></a>
-        <a class="it" href="https://www.almendralejo.es" target="_blank" rel="noopener"><img src="assets/logos/ayuntamiento-almendralejo.webp?v=2" alt="Ayuntamiento de Almendralejo"></a>
-        <a class="it" href="#patrocinadores"><img src="assets/logos/transitos-suroeste.webp?v=2" alt="Tránsitos Suroeste"></a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- GALERÍA (solo aparece si hay fotos en assets/galeria.json) -->
 <section id="galeria" hidden>
@@ -706,7 +727,7 @@ body{margin:0;background:#fff}
     <div class="top">
       <a href="#inicio" class="brand"><img src="assets/escudo.png" alt=""><span>CV Almendralejo</span></a>
       <div class="cols">
-        <div><h4>El club</h4><ul><li><a href="#club">Quiénes somos</a></li><li><a href="#equipos">Equipos</a></li><li><a href="#camisetas">Camisetas</a></li><li><a href="#unete">Inscripción</a></li></ul></div>
+        <div><h4>El club</h4><ul><li><a href="#club">Quiénes somos</a></li><li><a href="#equipos">Equipos</a></li><li><a href="#unete">Inscripción</a></li><li><a href="#partidos">Partidos y clasificación</a></li><li><a href="#camisetas">Camisetas</a></li></ul></div>
         <div><h4>Competición</h4><ul><li><a href="https://rfevb-web.dataproject.com/CompetitionMatches.aspx?ID=167&PID=203" target="_blank" rel="noopener">Calendario oficial SM2</a></li><li><a href="https://fedexvoleibol.com/calendario-senior-femenino-2" target="_blank" rel="noopener">Calendario oficial Senior Fem.</a></li></ul></div>
         <div><h4>Síguenos</h4><ul><li><a href="https://www.instagram.com/cvalmendralejo" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/ClubVoleibolAlmendralejo" target="_blank" rel="noopener">Facebook</a></li></ul></div>
       </div>
