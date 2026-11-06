@@ -341,7 +341,7 @@ body{margin:0;background:#fff}
 .cva .fab{position:fixed;right:1.1rem;bottom:1.1rem;z-index:70;display:flex;align-items:center;gap:.6rem;flex-direction:row-reverse;transition:transform .25s}
 .cva .fab:hover{transform:translateY(-3px)}
 /* Mascota apoyada en «¡Apúntate!»: aparece al pasar la portada */
-.cva .masc-fab{position:absolute;right:calc(100% - 22px);bottom:-6px;height:150px;aspect-ratio:383/420;pointer-events:none;
+.cva .masc-fab{--mh:clamp(84px,14vh,118px);position:absolute;right:calc(100% - .15*var(--mh));bottom:calc(57px - .42*var(--mh));height:var(--mh);aspect-ratio:383/420;pointer-events:none;
   opacity:0;transform:translateY(24px);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 6px 10px rgba(0,0,0,.18))}
 .cva .masc-fab img,.cva .masc-fab .lean{position:absolute;inset:0;width:100%;height:100%;max-width:none}
 .cva .masc-fab .lean{opacity:0}
@@ -385,7 +385,7 @@ body{margin:0;background:#fff}
   .cva .clasif{min-width:0;font-size:.88rem}.cva .clasif th,.cva .clasif td{padding:.55rem .4rem}.cva .clasif td:first-child,.cva .clasif th:first-child{padding-left:.7rem}
   .cva .seg button{padding:.5rem .7rem;font-size:.84rem}
   .cva .nav .wrap{justify-content:flex-start;padding-right:56px}
-  .cva .masc-fab{height:116px;bottom:6px;right:calc(100% - 18px)}
+  .cva .masc-fab{--mh:clamp(70px,11vh,92px);bottom:calc(50px - .38*var(--mh));right:calc(100% - .15*var(--mh))}
   .cva{font-size:16px}
   .cva .hero{padding:7rem 0 5rem}
   .cva .brand span{display:none}.cva .nav-logos img{height:25px}.cva .nav-logos{gap:.5rem;padding:.3rem .55rem}
