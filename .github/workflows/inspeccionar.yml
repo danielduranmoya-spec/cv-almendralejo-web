@@ -13,5 +13,6 @@ jobs:
           curl -sSL -A "$UA" "https://rfevb-web.dataproject.com/CompetitionStandings.aspx?ID=167&PID=203" -o rfevb-clasif.html || true
           curl -sSL -A "$UA" "https://fedexvoleibol.com/calendario-senior-femenino-2" -o fedex-calendario.html || true
           curl -sSL -A "$UA" "https://fedexvoleibol.com/clasificacion-senior-femenino" -o fedex-clasif.html || true
+          for u in "calendar.php?grupo=155" "clasificacion.php?grupo=155" "standings.php?grupo=155" "" ; do f=$(echo "fedexres-$u" | tr '?=/.' '____'); curl -sSL -A "$UA" "https://resultados.fedexvoleibol.com/$u" -o "$f.html" || true; done
           git init -q -b inspeccion && git add . && git -c user.name=bot -c user.email=bot@example.com commit -qm dump
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" inspeccion
