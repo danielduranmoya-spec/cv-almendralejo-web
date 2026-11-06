@@ -8,9 +8,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d120d" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#ffffff">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CV Almendralejo · Club de Voleibol">
 <meta property="og:description" content="Salta. Remata. Vive el vóley. Inscripciones, partidos y clasificación del Club de Voleibol Almendralejo.">
@@ -40,18 +39,7 @@
 }
 html{scroll-behavior:smooth}
 body{margin:0;background:#fff}
-:root{color-scheme:light dark}
-/* ---------- Modo oscuro (si el móvil u ordenador lo tiene activado) ----------
-   Los recuadros de logos se quedan en blanco para que se vean bien. */
-@media (prefers-color-scheme:dark){
-  body{background:#0d120d}
-  .cva{--ink:#eef3ee; --grey:#a9b3a9; --tint:#121912; --line:#263026;
-    --bg:#0d120d; --surface:#161e16; --dark:#050805; --ink-soft:#d3dad3; --nav:rgba(13,18,13,.94);
-    --hover:#223022; --lose:#263026; --accent-text:var(--green-hi);
-    --sh:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.45)}
-  .cva .kicker,.cva .hero h1 em{color:var(--green-hi)}
-  .cva .nm,.cva .join,.cva footer{border:1px solid var(--line)}
-}
+:root{color-scheme:only light}  /* la web es siempre clara: evita que el móvil la oscurezca */
 .cva *,.cva *::before,.cva *::after{box-sizing:border-box}
 .cva a{color:inherit;text-decoration:none}
 .cva img{max-width:100%;display:block}
@@ -94,12 +82,14 @@ body{margin:0;background:#fff}
 .cva .brand img{width:44px;height:44px;object-fit:contain}
 .cva .nav-logos{display:flex;align-items:center;gap:.9rem;padding:.35rem .8rem;border:1px solid var(--line);border-radius:12px;background:#fff;min-width:0}
 .cva .nav-logos a{display:block;line-height:0}
-.cva .nav-logos img{height:30px;width:auto;mix-blend-mode:multiply}
-.cva .menu{margin-left:auto;display:flex;gap:1.5rem;align-items:center;font-weight:600;font-size:.97rem}
+.cva .nav-logos img{height:38px;width:auto;mix-blend-mode:multiply}
+.cva .menu{position:fixed;inset:0 0 0 auto;z-index:1;width:min(84vw,340px);background:var(--surface);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:5rem 2.2rem 2rem;gap:1.25rem;font-weight:600;font-size:1.2rem;transform:translateX(100%);visibility:hidden;transition:transform .3s,visibility .3s;box-shadow:-20px 0 50px rgba(0,0,0,.15);margin:0;overflow-y:auto}
+.cva .menu.open{transform:none;visibility:visible}
+.cva.menu-open .fab{opacity:0;pointer-events:none}
 .cva .menu a:not(.btn){position:relative;padding:.25rem 0;white-space:nowrap;color:var(--ink-soft)}
 .cva .menu a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .25s}
 .cva .menu a:not(.btn):hover::after,.cva .menu a.on::after{transform:scaleX(1)}
-.cva .burger{display:none;margin-left:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;width:46px;height:46px;font-size:1.35rem;cursor:pointer}
+.cva .burger{display:grid;place-items:center;flex:none;position:relative;z-index:2;margin-left:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;width:46px;height:46px;font-size:1.35rem;cursor:pointer}
 
 /* ---------- Portada ---------- */
 .cva .hero{padding:8.2rem 0 6rem;background:
@@ -363,13 +353,7 @@ body{margin:0;background:#fff}
 .cva .lb button{position:absolute;top:1rem;right:1rem;background:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:1.2rem;cursor:pointer;color:#0b0f0b}
 
 /* ---------- Adaptación ---------- */
-@media(max-width:1420px){.cva .brand span{display:none}}
-@media(max-width:1320px){.cva .nav-logos img{height:26px}.cva .menu{gap:1.2rem;font-size:.92rem}}
-@media(max-width:1180px){
-  .cva .burger{display:block}
-  .cva .menu{position:fixed;inset:0 0 0 auto;width:min(82vw,330px);background:var(--surface);flex-direction:column;justify-content:center;align-items:flex-start;padding:2rem;gap:1.5rem;font-size:1.2rem;transform:translateX(100%);transition:transform .3s;box-shadow:-20px 0 50px rgba(0,0,0,.15);margin:0}
-  .cva .menu.open{transform:none}
-}
+@media(max-width:1000px){.cva .nav-logos img{height:30px}}
 @media(max-width:1000px){
   .cva .hero-grid,.cva .about,.cva .teams,.cva .strip-grid,.cva .shirts-grid,.cva .duo,.cva .redes,.cva .faq-grid,.cva .panel,.cva .join .grid{grid-template-columns:1fr}
   .cva .hero-grid{gap:2.5rem}
@@ -382,7 +366,7 @@ body{margin:0;background:#fff}
 @media(max-width:600px){
   .cva{font-size:16px}
   .cva .hero{padding:7rem 0 5rem}
-  .cva .brand span{display:none}.cva .nav-logos img{height:22px}.cva .nav-logos{gap:.5rem;padding:.3rem .55rem}
+  .cva .brand span{display:none}.cva .nav-logos img{height:25px}.cva .nav-logos{gap:.5rem;padding:.3rem .55rem}
   .cva .stats{grid-template-columns:1fr 1fr 1fr;gap:.6rem}.cva .stat{padding:.8rem .7rem}.cva .stat b{font-size:2.1rem}
   .cva .match{grid-template-columns:64px 1fr}.cva .match .r{grid-column:1/-1;flex-direction:row;gap:.6rem;min-width:0;padding:.55rem}
   .cva .fab .lg{width:58px;height:58px}.cva .fab .tx{font-size:1rem;padding:.6rem 1rem}
@@ -1060,8 +1044,11 @@ function observe(){
 var nav=$('#nav'),menu=$('#menu'),burger=$('#burger');
 window.addEventListener('scroll',function(){nav.classList.toggle('solid',window.scrollY>40)},{passive:true});
 nav.classList.toggle('solid',window.scrollY>40);
-burger.addEventListener('click',function(){var o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
-menu.addEventListener('click',function(e){if(e.target.tagName==='A'){menu.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+function setMenu(o){menu.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);burger.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');burger.textContent=o?'✕':'☰';document.getElementById('cva').classList.toggle('menu-open',o);}
+burger.addEventListener('click',function(e){e.stopPropagation();setMenu(!menu.classList.contains('open'))});
+document.addEventListener('click',function(e){if(menu.classList.contains('open')&&!menu.contains(e.target))setMenu(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+menu.addEventListener('click',function(e){if(e.target.tagName==='A')setMenu(false)});
 
 /* ---------- Visor de fotos ---------- */
 var lb=$('#lb'),lbImg=$('img',lb),lbTx=$('p',lb);
