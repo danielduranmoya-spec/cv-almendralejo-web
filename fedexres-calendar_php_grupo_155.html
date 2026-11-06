@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">  
+	<head>
+			<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<link rel="icon" href="https://fedexvoleibol.com/wp-content/uploads/2024/10/Escudo-FedExVB-01-1-936x1024.png" sizes="32x32" />
+	
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+	
+	<!-- Bootstrap 5 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	
+	<!-- FontAwesome 6 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	
+	<!-- Bootstrap Icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	
+	<!-- DataTables BS5 CSS -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+	
+    <title>Intranet FedEx</title>
+	<style>
+		:root {
+			--fedex-green: #3aaa35;
+			--fedex-black: #1d1d1b;
+			--fedex-gray: #9c9d9c;
+		}
+		@font-face {
+			font-family: 'Bariol Bold';
+			src: local('Bariol Bold'), local('Bariol-Bold'), local('Bariol_Bold');
+			font-weight: 700;
+			font-style: normal;
+		}
+		html, body {
+		  font-family: 'Nunito', sans-serif;
+		  font-size: 14px;		
+		}
+		h1, h2, h3, h4, h5, h6, .brand-font {
+		  font-family: 'Bariol Bold', 'Bariol', 'Nunito', sans-serif;
+		  font-weight: 700;
+		}
+		@media (min-width: 768px) {
+		  html {
+			font-size: 16px;
+		  }
+		}
+
+		.container {
+		  max-width: 95%;
+		}
+		
+		.container-xl {
+		  max-width: 1320px;
+		}	
+		
+		.container-l {
+		  max-width: 1080px;
+		}	
+				
+		.container-m {
+		  max-width: 720px;
+		}
+		
+		.container-s {
+		  max-width: 480px;
+		}
+
+		.pricing-header {
+		  max-width: 700px;
+		}
+
+		.card-deck .card {
+		  min-width: 220px;	
+		}
+
+		.border-top { 
+			border-top: 1px solid #e5e5e5; 
+		}
+		
+		.responsive-cards {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1.5rem;
+		}
+		.responsive-cards > * {
+			flex: 1 1 280px;
+			max-width: 100%;
+		}
+		.border-bottom { 
+			border-bottom: 1px solid #e5e5e5;
+		}
+
+		.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+		.sticky-header {
+			position: -webkit-sticky;
+			position: sticky;
+			top: 0;
+			z-index: 1030;
+			background-color: #fff !important;
+		}
+
+		.modal-header {
+			cursor: move;
+			user-select: none;
+		}
+		.modal-header .btn-close,
+		.modal-header button,
+		.modal-header a,
+		.modal-header input {
+			cursor: pointer;
+		}
+
+	</style>		<style>
+			html, body {
+				width: 100% !important;
+				max-width: 100% !important;
+				margin: 0 !important;
+				padding: 0 !important;
+				box-sizing: border-box;
+				overflow-x: hidden;
+			}
+			.calendar-container {
+				width: 100% !important;
+				max-width: 100% !important;
+				margin: 0 !important;
+				padding: 0.5rem !important;
+				box-sizing: border-box;
+			}
+			.calendar-grid {
+				display: grid !important;
+				grid-template-columns: repeat(2, 1fr) !important;
+				gap: 1rem !important;
+				width: 100% !important;
+				margin: 0 !important;
+				padding: 0 !important;
+				box-sizing: border-box;
+			}
+			@media (max-width: 768px) {
+				.calendar-grid {
+					grid-template-columns: 1fr !important;
+				}
+			}
+			.calendar-col {
+				width: 100% !important;
+				min-width: 0 !important;
+			}
+			.calendar-grid > .calendar-col:only-child {
+				grid-column: 1 / -1 !important;
+			}
+			.calendar-col .card {
+				width: 100% !important;
+				height: 100% !important;
+				margin: 0 !important;
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+			}
+			table.borderless td, table.borderless th {
+				border: none !important;
+			}
+			.text-right {
+				text-align: right !important;
+			}
+			.text-left {
+				text-align: left !important;
+			}
+			.table td, .table th {
+				vertical-align: middle;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="calendar-container">
+			<div class="calendar-grid text-center">
+			<div class="calendar-col">
+										<div class="card">
+											<div class="card-header bg-success text-white py-2">
+												<h4 class="my-0 fw-bold fs-5">JORNADA 1</h4>
+											</div>
+											<div class="card-body p-2">
+												<table style="width:100%" class="table table-hover table-sm borderless mb-0">
+													<tbody><tr class="table-light"><td class="text-center"><strong>2026/10/18</strong></td><td class="text-end text-right"><strong>+Voley Badajoz A</strong></td><td class="text-center" width="50"><strong>0 - 3</strong></td><td class="text-start text-left"><strong>CVA Extremadura Transitos Suroeste A</strong></td></tr><tr class="table-light"><td class="text-center">Domingo</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/MarcadorFEDEX.png" width="20" >&nbsp; (14-25/23-25/23-25)&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;P. Juancho Pérez</td></tr><tr class="table-active"><td class="text-center"><strong>2026/10/18</strong></td><td class="text-end text-right"><strong>AD VOLEIBOL RIBERA "THERCLI THERAPIAS CLÍNICAS"  A</strong></td><td class="text-center" width="50"><strong>3 - 0</strong></td><td class="text-start text-left"><strong>VOLEIBOL A7 A</strong></td></tr><tr class="table-active"><td class="text-center">Domingo</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/MarcadorFEDEX.png" width="20" >&nbsp; (25-21/28-26/25-20)&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;P. Municipal</td></tr><tr class="table-light"><td class="text-center"><strong>2026/10/18</strong></td><td class="text-end text-right"><strong>CLUB PACENSE VOLEIBOL SENIOR A</strong></td><td class="text-center" width="50"><strong>3 - 0</strong></td><td class="text-start text-left"><strong>CLUB PACENSE VOLEIBOL SENIOR B</strong></td></tr><tr class="table-light"><td class="text-center">Domingo</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/MarcadorFEDEX.png" width="20" >&nbsp; (25-8/25-18/25-10)&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;Pabellón Juancho Pérez</td></tr></tbody></table></div></div></div><div class="calendar-col">
+										<div class="card">
+											<div class="card-header bg-success text-white py-2">
+												<h4 class="my-0 fw-bold fs-5">JORNADA 2</h4>
+											</div>
+											<div class="card-body p-2">
+												<table style="width:100%" class="table table-hover table-sm borderless mb-0">
+													<tbody><tr class="table-warning"><td class="text-center"><strong>2026/10/22</strong></td><td class="text-end text-right"><strong>VOLEIBOL A7 A</strong></td><td class="text-center" width="50"><strong>3 - 1</strong></td><td class="text-start text-left"><strong>+Voley Badajoz A</strong></td></tr><tr class="table-warning"><td class="text-center">Jueves</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/MarcadorFEDEX.png" width="20" >&nbsp; (25-22/19-25/27-25/25-21)&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;Pabellón Juancho Pérez</td></tr><tr class="table-light"><td class="text-center"><strong>2026/10/24</strong></td><td class="text-end text-right"><strong>CVA Extremadura Transitos Suroeste A</strong></td><td class="text-center" width="50"><strong>3 - 2</strong></td><td class="text-start text-left"><strong>CLUB PACENSE VOLEIBOL SENIOR A</strong></td></tr><tr class="table-light"><td class="text-center">Sabado</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/MarcadorFEDEX.png" width="20" >&nbsp; (25-19/27-25/21-25/22-25/15-12)&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;Pabellón San Roque</td></tr><tr class="table-active"><td class="text-center"><strong>2026/10/25</strong></td><td class="text-end text-right"><strong>CLUB PACENSE VOLEIBOL SENIOR B</strong></td><td class="text-center" width="50"><strong>0 - 3</strong></td><td class="text-start text-left"><strong>AD VOLEIBOL RIBERA "THERCLI THERAPIAS CLÍNICAS"  A</strong></td></tr><tr class="table-active"><td class="text-center">Domingo</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/MarcadorFEDEX.png" width="20" >&nbsp; (15-25/6-25/14-25)&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;Pabellón Las Palmeras</td></tr></tbody></table></div></div></div><div class="calendar-col">
+										<div class="card">
+											<div class="card-header bg-success text-white py-2">
+												<h4 class="my-0 fw-bold fs-5">JORNADA 3</h4>
+											</div>
+											<div class="card-body p-2">
+												<table style="width:100%" class="table table-hover table-sm borderless mb-0">
+													<tbody><tr class="table-warning"><td class="text-center"><strong>2026/11/05</strong></td><td class="text-end text-right"><strong>VOLEIBOL A7 A</strong></td><td class="text-center" width="50"><strong>3 - 0</strong></td><td class="text-start text-left"><strong>CLUB PACENSE VOLEIBOL SENIOR B</strong></td></tr><tr class="table-warning"><td class="text-center">Jueves</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/MarcadorFEDEX.png" width="20" >&nbsp; (25-8/25-15/25-16)&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;P. Juancho Pérez (P. Lateral)</td></tr><tr class="table-light"><td class="text-center"><strong>2026/11/07</strong></td><td class="text-end text-right"><strong>+Voley Badajoz A</strong></td><td class="text-center" width="50"><strong> vs </strong></td><td class="text-start text-left"><strong>CLUB PACENSE VOLEIBOL SENIOR A</strong></td></tr><tr class="table-light"><td class="text-center">Sabado</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/RelojFEDEX.png" width="15" >&nbsp;17:00     &nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;P. Juancho Pérez</td></tr><tr class="table-active"><td class="text-center"><strong>2026/11/08</strong></td><td class="text-end text-right"><strong>AD VOLEIBOL RIBERA "THERCLI THERAPIAS CLÍNICAS"  A</strong></td><td class="text-center" width="50"><strong> vs </strong></td><td class="text-start text-left"><strong>CVA Extremadura Transitos Suroeste A</strong></td></tr><tr class="table-active"><td class="text-center">Domingo</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/RelojFEDEX.png" width="15" >&nbsp;18:00     &nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;P. Municipal</td></tr></tbody></table></div></div></div><div class="calendar-col">
+										<div class="card">
+											<div class="card-header bg-success text-white py-2">
+												<h4 class="my-0 fw-bold fs-5">JORNADA 4</h4>
+											</div>
+											<div class="card-body p-2">
+												<table style="width:100%" class="table table-hover table-sm borderless mb-0">
+													<tbody><tr class="table-warning"><td class="text-center"><strong>2026/11/14</strong></td><td class="text-end text-right"><strong>CVA Extremadura Transitos Suroeste A</strong></td><td class="text-center" width="50"><strong> vs </strong></td><td class="text-start text-left"><strong>VOLEIBOL A7 A</strong></td></tr><tr class="table-warning"><td class="text-center">Sabado</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/RelojFEDEX.png" width="15" >&nbsp;18:00     &nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;Pabellón San Roque</td></tr><tr class="table-light"><td class="text-center"><strong>2026/11/22</strong></td><td class="text-end text-right"><strong>+Voley Badajoz A</strong></td><td class="text-center" width="50"><strong> vs </strong></td><td class="text-start text-left"><strong>CLUB PACENSE VOLEIBOL SENIOR B</strong></td></tr><tr class="table-light"><td class="text-center">Domingo</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/RelojFEDEX.png" width="15" >&nbsp;Pdte-local&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;P. Municipal</td></tr><tr class="table-active"><td class="text-center"><strong>2026/11/22</strong></td><td class="text-end text-right"><strong>CLUB PACENSE VOLEIBOL SENIOR A</strong></td><td class="text-center" width="50"><strong> vs </strong></td><td class="text-start text-left"><strong>AD VOLEIBOL RIBERA "THERCLI THERAPIAS CLÍNICAS"  A</strong></td></tr><tr class="table-active"><td class="text-center">Domingo</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/RelojFEDEX.png" width="15" >&nbsp;Pdte-local&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;P. Municipal</td></tr></tbody></table></div></div></div><div class="calendar-col">
+										<div class="card">
+											<div class="card-header bg-success text-white py-2">
+												<h4 class="my-0 fw-bold fs-5">JORNADA 5</h4>
+											</div>
+											<div class="card-body p-2">
+												<table style="width:100%" class="table table-hover table-sm borderless mb-0">
+													<tbody><tr class="table-light"><td class="text-center"><strong>2026/12/13</strong></td><td class="text-end text-right"><strong>AD VOLEIBOL RIBERA "THERCLI THERAPIAS CLÍNICAS"  A</strong></td><td class="text-center" width="50"><strong> vs </strong></td><td class="text-start text-left"><strong>+Voley Badajoz A</strong></td></tr><tr class="table-light"><td class="text-center">Domingo</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/RelojFEDEX.png" width="15" >&nbsp;Pdte-local&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;P. Municipal</td></tr><tr class="table-active"><td class="text-center"><strong>2026/12/13</strong></td><td class="text-end text-right"><strong>CLUB PACENSE VOLEIBOL SENIOR B</strong></td><td class="text-center" width="50"><strong> vs </strong></td><td class="text-start text-left"><strong>CVA Extremadura Transitos Suroeste A</strong></td></tr><tr class="table-active"><td class="text-center">Domingo</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/RelojFEDEX.png" width="15" >&nbsp;Pdte-local&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;P. Municipal</td></tr><tr class="table-light"><td class="text-center"><strong>2026/12/13</strong></td><td class="text-end text-right"><strong>VOLEIBOL A7 A</strong></td><td class="text-center" width="50"><strong> vs </strong></td><td class="text-start text-left"><strong>CLUB PACENSE VOLEIBOL SENIOR A</strong></td></tr><tr class="table-light"><td class="text-center">Domingo</td><td colspan="3" class="text-center">SENIOR&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/RelojFEDEX.png" width="15" >&nbsp;Pdte-local&nbsp;&nbsp;&nbsp;&nbsp;<img src="./widget/PingFEDEX.png" width="15" >&nbsp;P. Municipal</td></tr></tbody></table></div></div></div>			</div>
+		</div>
+	</body>
+</html>
