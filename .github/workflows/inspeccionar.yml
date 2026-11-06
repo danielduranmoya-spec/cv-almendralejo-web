@@ -1,0 +1,16 @@
+name: Inspeccionar fuentes (temporal)
+on: workflow_dispatch
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          mkdir out
+          UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
+          curl -sSL -A "$UA" "https://rfevb-web.dataproject.com/CompetitionMatches.aspx?ID=167&PID=203" -o out/rfevb-partidos.html || true
+          curl -sSL -A "$UA" "https://rfevb-web.dataproject.com/CompetitionStandings.aspx?ID=167&PID=203" -o out/rfevb-clasif.html || true
+          curl -sSL -A "$UA" "https://fedexvoleibol.com/calendario-senior-femenino-2" -o out/fedex-calendario.html || true
+          curl -sSL -A "$UA" "https://fedexvoleibol.com/clasificacion-senior-femenino" -o out/fedex-clasif.html || true
+          ls -la out
+      - uses: actions/upload-artifact@v4
+        with: { name: fuentes, path: out }
