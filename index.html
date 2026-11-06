@@ -76,16 +76,17 @@ body{margin:0;background:#fff}
 
 /* ---------- Cabecera ---------- */
 .cva .nav{position:fixed;inset:0 0 auto 0;z-index:60;padding:.9rem 0;transition:background .3s,padding .3s,box-shadow .3s}
-.cva .nav.solid{background:var(--nav);backdrop-filter:blur(8px);padding:.5rem 0;box-shadow:0 1px 0 var(--line),0 6px 20px rgba(0,0,0,.05)}
+.cva .nav.solid{background:var(--nav);padding:.5rem 0;box-shadow:0 1px 0 var(--line),0 6px 20px rgba(0,0,0,.05)}
 .cva .nav .wrap{display:flex;align-items:center;justify-content:center;gap:1.4rem;width:min(1320px,100% - 2rem);min-height:52px}
 .cva .brand{display:flex;align-items:center;gap:.65rem;font-weight:800;font-size:1.2rem;letter-spacing:-.02em;line-height:1.1;white-space:nowrap}
 .cva .brand img{width:44px;height:44px;object-fit:contain}
 .cva .nav-logos{display:flex;align-items:center;gap:.9rem;padding:.35rem .8rem;border:1px solid var(--line);border-radius:12px;background:#fff;min-width:0}
 .cva .nav-logos a{display:block;line-height:0}
 .cva .nav-logos img{height:38px;width:auto;mix-blend-mode:multiply}
-.cva .menu{position:fixed;inset:0 0 0 auto;z-index:1;width:min(84vw,340px);background:var(--surface);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:5rem 2.2rem 2rem;gap:1.25rem;font-weight:600;font-size:1.2rem;transform:translateX(100%);visibility:hidden;transition:transform .3s,visibility .3s;box-shadow:-20px 0 50px rgba(0,0,0,.15);margin:0;overflow-y:auto}
+.cva .menu{position:fixed;inset:0 0 0 auto;z-index:1;width:min(84vw,340px);background:var(--surface);display:flex;flex-direction:column;justify-content:safe center;align-items:flex-start;padding:5rem 2.2rem 2rem;gap:1.25rem;font-weight:600;font-size:1.2rem;transform:translateX(100%);visibility:hidden;transition:transform .3s,visibility .3s;box-shadow:-20px 0 50px rgba(0,0,0,.15);margin:0;overflow-y:auto}
 .cva .menu.open{transform:none;visibility:visible}
 .cva.menu-open .fab{opacity:0;pointer-events:none}
+@media(max-height:640px){.cva .menu{gap:.75rem;padding-top:4.6rem;font-size:1.05rem}}
 .cva .menu a:not(.btn){position:relative;padding:.25rem 0;white-space:nowrap;color:var(--ink-soft)}
 .cva .menu a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .25s}
 .cva .menu a:not(.btn):hover::after,.cva .menu a.on::after{transform:scaleX(1)}
@@ -223,10 +224,11 @@ body{margin:0;background:#fff}
 
 /* ---------- Partidos ---------- */
 .cva .duo{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.cva .duo>*{min-width:0}
 .cva .cat-top{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap}
 .cva .cat-h{font-size:2rem}
 .cva .cat-h small{display:block;font-weight:600;font-size:.95rem;color:var(--green);margin-top:.3rem;letter-spacing:0}
-.cva .seg{display:inline-flex;background:var(--tint);border-radius:999px;padding:4px}
+.cva .seg{display:inline-flex;max-width:100%;background:var(--tint);border-radius:999px;padding:4px}
 .cva .seg button{font:600 .88rem var(--f);border:0;background:transparent;color:var(--ink);padding:.5rem .95rem;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
 .cva .seg button:hover{background:var(--hover)}
 .cva .seg button.on{background:var(--ink);color:var(--bg)}
@@ -368,6 +370,8 @@ body{margin:0;background:#fff}
   .cva .main-spons{align-items:flex-start}.cva .main-spons .box{justify-content:flex-start}
 }
 @media(max-width:600px){
+  .cva .clasif{min-width:0;font-size:.88rem}.cva .clasif th,.cva .clasif td{padding:.55rem .4rem}.cva .clasif td:first-child,.cva .clasif th:first-child{padding-left:.7rem}
+  .cva .seg button{padding:.5rem .7rem;font-size:.84rem}
   .cva .nav .wrap{justify-content:flex-start;padding-right:56px}
   .cva .masc-fab{height:116px;bottom:6px;right:calc(100% - 18px)}
   .cva{font-size:16px}
