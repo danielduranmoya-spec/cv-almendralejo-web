@@ -2,7 +2,7 @@
  "masculino": {
   "club": "CV Almendralejo",
   "corto": "CV Almendralejo",
-  "actualizado": "2026-10-30",
+  "actualizado": "2026-11-06",
   "totalJornadas": 22,
   "partidos": [
    {
@@ -195,78 +195,78 @@
   "clasif": [
    [
     "Indescar Zaragoza",
+    12,
+    5,
+    4
+   ],
+   [
+    "Textil Santanderina",
     11,
-    4,
+    5,
+    5
+   ],
+   [
+    "Asisa Tarragona SPiSP",
+    11,
+    5,
     4
    ],
    [
     "Grupo Egido Pinto",
-    10,
-    4,
+    11,
+    5,
     3
    ],
    [
-    "Textil Santanderina",
+    "Rotogal Boiro Voleibol",
     9,
-    4,
-    4
+    5,
+    3
    ],
    [
-    "Asisa Tarragona SPiSP",
+    "Anaya Mayurqa Vóley Palma",
+    9,
+    5,
+    3
+   ],
+   [
+    "Club Vigo Voleibol",
     8,
-    3,
+    5,
     3
    ],
    [
     "CVA Extremadura Tránsitos Suroeste",
-    7,
-    4,
-    2
-   ],
-   [
-    "Anaya Mayurqa Vóley Palma",
-    7,
-    4,
-    2
-   ],
-   [
-    "Club Vigo Voleibol",
-    6,
-    3,
+    8,
+    5,
     2
    ],
    [
     "Arona Spring In Motion",
-    4,
-    4,
-    1
+    6,
+    5,
+    2
    ],
    [
-    "Rotogal Boiro Voleibol",
-    3,
-    3,
+    "Bus Leader San Roque",
+    2,
+    5,
     1
    ],
    [
     "Barça Voleibol",
-    1,
-    3,
-    0
-   ],
-   [
-    "Bus Leader San Roque",
-    0,
-    4,
+    2,
+    5,
     0
    ],
    [
     "UBE L´Illa Grau",
-    0,
-    4,
+    1,
+    5,
     0
    ]
   ],
-  "clasifNota": "tras 4 jornadas",
+  "clasifNota": "tras 5 jornadas",
   "fuente": "https://rfevb-web.dataproject.com/CompetitionStandings.aspx?ID=167&PID=203",
   "fuenteNombre": "RFEVB",
   "calendarioUrl": "https://rfevb-web.dataproject.com/CompetitionMatches.aspx?ID=167&PID=203"
@@ -274,7 +274,7 @@
  "femenino": {
   "club": "CV Almendralejo",
   "corto": "CV Almendralejo",
-  "actualizado": "2026-10-30",
+  "actualizado": "2026-11-06",
   "partidos": [
    {
     "j": 1,
@@ -282,7 +282,7 @@
     "h": null,
     "rival": "+Voley Badajoz A",
     "casa": false,
-    "sede": "Pabellón Juancho Pérez",
+    "sede": "P. Juancho Pérez",
     "res": "G",
     "marc": "3-0"
    },
@@ -293,15 +293,16 @@
     "rival": "Club Pacense Voleibol Senior A",
     "casa": true,
     "sede": "Pabellón San Roque",
-    "res": "G"
+    "res": "G",
+    "marc": "3-2"
    },
    {
     "j": 3,
     "f": "2026-11-08",
-    "h": null,
-    "rival": "AD Voleibol Ribera A",
+    "h": "18:00",
+    "rival": "AD Voleibol Ribera «Thercli Therapias Clínicas» A",
     "casa": false,
-    "sede": "Pabellón Municipal (Ribera)"
+    "sede": "P. Municipal"
    },
    {
     "j": 4,
@@ -317,7 +318,7 @@
     "h": null,
     "rival": "Club Pacense Voleibol Senior B",
     "casa": false,
-    "sede": "Pabellón Municipal"
+    "sede": "P. Municipal"
    }
   ],
   "clasif": [
@@ -328,7 +329,13 @@
     2
    ],
    [
-    "CVA Extremadura Tránsitos Suroeste A",
+    "Voleibol A7 A",
+    6,
+    3,
+    2
+   ],
+   [
+    "CVA Extremadura Transitos Suroeste A",
     5,
     2,
     2
@@ -336,12 +343,6 @@
    [
     "Club Pacense Voleibol Senior A",
     4,
-    2,
-    1
-   ],
-   [
-    "Voleibol A7 A",
-    3,
     2,
     1
    ],
@@ -354,11 +355,11 @@
    [
     "Club Pacense Voleibol Senior B",
     0,
-    2,
+    3,
     0
    ]
   ],
-  "clasifNota": "del Senior Femenino Sur",
+  "clasifNota": "del Senior Femenino Sur (calculada con los resultados oficiales)",
   "fuente": "https://fedexvoleibol.com/clasificacion-senior-femenino",
   "fuenteNombre": "Federación Extremeña de Voleibol",
   "calendarioUrl": "https://fedexvoleibol.com/calendario-senior-femenino-2"
