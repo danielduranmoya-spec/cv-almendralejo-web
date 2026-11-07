@@ -61,7 +61,9 @@
     "h": "18:00",
     "rival": "Barça Voleibol",
     "casa": true,
-    "sede": "Pabellón San Roque"
+    "sede": "Pabellón San Roque",
+    "res": "G",
+    "marc": "3-0"
    },
    {
     "j": 7,
@@ -194,16 +196,16 @@
   ],
   "clasif": [
    [
+    "Textil Santanderina",
+    14,
+    6,
+    6
+   ],
+   [
     "Indescar Zaragoza",
     12,
     5,
     4
-   ],
-   [
-    "Textil Santanderina",
-    11,
-    5,
-    5
    ],
    [
     "Asisa Tarragona SPiSP",
@@ -215,6 +217,12 @@
     "Grupo Egido Pinto",
     11,
     5,
+    3
+   ],
+   [
+    "CVA Extremadura Tránsitos Suroeste",
+    11,
+    6,
     3
    ],
    [
@@ -232,14 +240,8 @@
    [
     "Club Vigo Voleibol",
     8,
-    5,
+    6,
     3
-   ],
-   [
-    "CVA Extremadura Tránsitos Suroeste",
-    8,
-    5,
-    2
    ],
    [
     "Arona Spring In Motion",
@@ -256,7 +258,7 @@
    [
     "Barça Voleibol",
     2,
-    5,
+    6,
     0
    ],
    [
@@ -266,7 +268,7 @@
     0
    ]
   ],
-  "clasifNota": "tras 5 jornadas",
+  "clasifNota": "tras 6 jornadas",
   "fuente": "https://rfevb-web.dataproject.com/CompetitionStandings.aspx?ID=167&PID=203",
   "fuenteNombre": "RFEVB",
   "calendarioUrl": "https://rfevb-web.dataproject.com/CompetitionMatches.aspx?ID=167&PID=203"
@@ -323,6 +325,12 @@
   ],
   "clasif": [
    [
+    "Club Pacense Voleibol Senior A",
+    7,
+    3,
+    2
+   ],
+   [
     "AD Voleibol Ribera «Thercli Therapias Clínicas» A",
     6,
     2,
@@ -341,15 +349,9 @@
     2
    ],
    [
-    "Club Pacense Voleibol Senior A",
-    4,
-    2,
-    1
-   ],
-   [
     "+Voley Badajoz A",
     0,
-    2,
+    3,
     0
    ],
    [
