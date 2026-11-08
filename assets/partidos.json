@@ -2,7 +2,7 @@
  "masculino": {
   "club": "CV Almendralejo",
   "corto": "CV Almendralejo",
-  "actualizado": "2026-11-07",
+  "actualizado": "2026-11-08",
   "totalJornadas": 22,
   "partidos": [
    {
@@ -202,15 +202,21 @@
     6
    ],
    [
+    "Asisa Tarragona SPiSP",
+    13,
+    6,
+    5
+   ],
+   [
     "Indescar Zaragoza",
-    12,
-    5,
+    13,
+    6,
     4
    ],
    [
-    "Asisa Tarragona SPiSP",
-    11,
-    5,
+    "Anaya Mayurqa Vóley Palma",
+    12,
+    6,
     4
    ],
    [
@@ -232,12 +238,6 @@
     3
    ],
    [
-    "Anaya Mayurqa Vóley Palma",
-    9,
-    5,
-    3
-   ],
-   [
     "Club Vigo Voleibol",
     8,
     6,
@@ -246,14 +246,14 @@
    [
     "Arona Spring In Motion",
     6,
-    5,
+    6,
     2
    ],
    [
     "Bus Leader San Roque",
-    2,
     5,
-    1
+    6,
+    2
    ],
    [
     "Barça Voleibol",
@@ -264,7 +264,7 @@
    [
     "UBE L´Illa Grau",
     1,
-    5,
+    6,
     0
    ]
   ],
@@ -276,7 +276,7 @@
  "femenino": {
   "club": "CV Almendralejo",
   "corto": "CV Almendralejo",
-  "actualizado": "2026-11-07",
+  "actualizado": "2026-11-08",
   "partidos": [
    {
     "j": 1,
