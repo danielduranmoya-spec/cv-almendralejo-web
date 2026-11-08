@@ -202,6 +202,12 @@
     6
    ],
    [
+    "Grupo Egido Pinto",
+    14,
+    6,
+    4
+   ],
+   [
     "Asisa Tarragona SPiSP",
     13,
     6,
@@ -220,12 +226,6 @@
     4
    ],
    [
-    "Grupo Egido Pinto",
-    11,
-    5,
-    3
-   ],
-   [
     "CVA Extremadura Tránsitos Suroeste",
     11,
     6,
@@ -234,7 +234,7 @@
    [
     "Rotogal Boiro Voleibol",
     9,
-    5,
+    6,
     3
    ],
    [
@@ -304,7 +304,9 @@
     "h": "18:00",
     "rival": "AD Voleibol Ribera «Thercli Therapias Clínicas» A",
     "casa": false,
-    "sede": "P. Municipal"
+    "sede": "P. Municipal",
+    "res": "G",
+    "marc": "3-1"
    },
    {
     "j": 4,
@@ -325,6 +327,12 @@
   ],
   "clasif": [
    [
+    "CVA Extremadura Transitos Suroeste A",
+    8,
+    3,
+    3
+   ],
+   [
     "Club Pacense Voleibol Senior A",
     7,
     3,
@@ -333,19 +341,13 @@
    [
     "AD Voleibol Ribera «Thercli Therapias Clínicas» A",
     6,
-    2,
+    3,
     2
    ],
    [
     "Voleibol A7 A",
     6,
     3,
-    2
-   ],
-   [
-    "CVA Extremadura Transitos Suroeste A",
-    5,
-    2,
     2
    ],
    [
