@@ -466,7 +466,7 @@ body{margin:0;background:#fff}
           <figcaption>Equipo masculino</figcaption>
         </figure>
         <figure class="ph hm b" data-zoom>
-          <img src="img/equipo-femenino.webp" alt="Plantilla femenina del CV Almendralejo" decoding="async">
+          <img src="img/equipo-femenino.webp?v=2" alt="Plantilla femenina del CV Almendralejo" decoding="async">
           <span class="zoom">Ampliar</span>
           <figcaption>Equipo femenino</figcaption>
         </figure>
@@ -528,7 +528,7 @@ body{margin:0;background:#fff}
       </article>
       <article class="team rv" style="--d:.1s" data-eq="femenino">
         <figure class="ph" data-zoom>
-          <img src="img/equipo-femenino.webp" alt="Plantilla femenina del CV Almendralejo" decoding="async">
+          <img src="img/equipo-femenino.webp?v=2" alt="Plantilla femenina del CV Almendralejo" decoding="async">
           <span class="zoom">Ampliar</span>
           <figcaption>Equipo femenino</figcaption>
         </figure>
@@ -981,11 +981,13 @@ function buildCats(){
       '<div class="matches"></div><button class="btn btn-ghost btn-sm more" type="button" hidden style="margin-top:.4rem"></button>'+
       '<h4 class="sub-h">Clasificación</h4><div class="table-wrap"><table class="clasif"></table></div><p class="fuente"></p></div>';
   }).join('');
+  if(duo.getAttribute('data-click')) return;   /* al recargar los datos se reconstruye: el clic se engancha una sola vez */
+  duo.setAttribute('data-click','1');
   duo.addEventListener('click',function(ev){
     var b=ev.target.closest('button'); if(!b) return;
     var box=b.closest('.cat'); if(!box) return; var e=EQ[box.getAttribute('data-eq')];
     if(b.hasAttribute('data-v')){ e.vista=b.getAttribute('data-v'); e.todos=false; renderCat(box.getAttribute('data-eq')); }
-    else if(b.classList.contains('more')){ e.todos=!e.todos; renderCat(box.getAttribute('data-eq')); }
+    else if(b.classList.contains('more')){ var abrir=!e.todos; e.todos=abrir; renderCat(box.getAttribute('data-eq')); if(!abrir) box.scrollIntoView({block:'start'}); }
   });
 }
 
