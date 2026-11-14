@@ -71,7 +71,9 @@
     "h": "17:00",
     "rival": "UBE L´Illa Grau",
     "casa": false,
-    "sede": "Ciutat Esportiva"
+    "sede": "Ciutat Esportiva",
+    "res": "G",
+    "marc": "3-2"
    },
    {
     "j": 8,
@@ -196,6 +198,12 @@
   ],
   "clasif": [
    [
+    "Indescar Zaragoza",
+    16,
+    7,
+    5
+   ],
+   [
     "Textil Santanderina",
     14,
     6,
@@ -214,22 +222,16 @@
     5
    ],
    [
-    "Indescar Zaragoza",
+    "CVA Extremadura Tránsitos Suroeste",
     13,
-    6,
+    7,
     4
    ],
    [
     "Anaya Mayurqa Vóley Palma",
-    12,
-    6,
+    13,
+    7,
     4
-   ],
-   [
-    "CVA Extremadura Tránsitos Suroeste",
-    11,
-    6,
-    3
    ],
    [
     "Rotogal Boiro Voleibol",
@@ -240,18 +242,18 @@
    [
     "Club Vigo Voleibol",
     8,
-    6,
+    7,
+    3
+   ],
+   [
+    "Bus Leader San Roque",
+    7,
+    7,
     3
    ],
    [
     "Arona Spring In Motion",
     6,
-    6,
-    2
-   ],
-   [
-    "Bus Leader San Roque",
-    5,
     6,
     2
    ],
@@ -263,12 +265,12 @@
    ],
    [
     "UBE L´Illa Grau",
-    1,
-    6,
+    2,
+    7,
     0
    ]
   ],
-  "clasifNota": "tras 6 jornadas",
+  "clasifNota": "tras 7 jornadas",
   "fuente": "https://rfevb-web.dataproject.com/CompetitionStandings.aspx?ID=167&PID=203",
   "fuenteNombre": "RFEVB",
   "calendarioUrl": "https://rfevb-web.dataproject.com/CompetitionMatches.aspx?ID=167&PID=203"
@@ -314,7 +316,9 @@
     "h": "18:00",
     "rival": "Voleibol A7 A",
     "casa": true,
-    "sede": "Pabellón San Roque"
+    "sede": "Pabellón San Roque",
+    "res": "G",
+    "marc": "3-0"
    },
    {
     "j": 5,
@@ -328,9 +332,9 @@
   "clasif": [
    [
     "CVA Extremadura Transitos Suroeste A",
-    8,
-    3,
-    3
+    11,
+    4,
+    4
    ],
    [
     "Club Pacense Voleibol Senior A",
@@ -347,7 +351,7 @@
    [
     "Voleibol A7 A",
     6,
-    3,
+    4,
     2
    ],
    [
