@@ -2,7 +2,7 @@
  "masculino": {
   "club": "CV Almendralejo",
   "corto": "CV Almendralejo",
-  "actualizado": "2026-11-14",
+  "actualizado": "2026-11-15",
   "totalJornadas": 22,
   "partidos": [
    {
@@ -198,6 +198,12 @@
   ],
   "clasif": [
    [
+    "Asisa Tarragona SPiSP",
+    16,
+    7,
+    6
+   ],
+   [
     "Indescar Zaragoza",
     16,
     7,
@@ -212,14 +218,8 @@
    [
     "Grupo Egido Pinto",
     14,
-    6,
+    7,
     4
-   ],
-   [
-    "Asisa Tarragona SPiSP",
-    13,
-    6,
-    5
    ],
    [
     "CVA Extremadura Tránsitos Suroeste",
@@ -235,9 +235,9 @@
    ],
    [
     "Rotogal Boiro Voleibol",
-    9,
-    6,
-    3
+    11,
+    7,
+    4
    ],
    [
     "Club Vigo Voleibol",
@@ -253,8 +253,8 @@
    ],
    [
     "Arona Spring In Motion",
-    6,
-    6,
+    7,
+    7,
     2
    ],
    [
@@ -278,7 +278,7 @@
  "femenino": {
   "club": "CV Almendralejo",
   "corto": "CV Almendralejo",
-  "actualizado": "2026-11-14",
+  "actualizado": "2026-11-15",
   "partidos": [
    {
     "j": 1,
