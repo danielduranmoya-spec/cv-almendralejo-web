@@ -10,6 +10,10 @@ Landing del Club de Voleibol Almendralejo (HTML + CSS + JS, sin build). Equipos 
 - `assets/escudo.png`, `favicon-*.png`, `apple-touch-icon.png` — escudo sin fondo.
 - `img/` — fotos de los equipos.
 
+## Autoría
+
+Daniel Durán Moya y Jaime Motos Guijarro.
+
 Probar en local: `python -m http.server 8000` y abrir http://localhost:8000
 
 ## Actualización automática de partidos

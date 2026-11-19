@@ -33,8 +33,8 @@ jobs:
           if git diff --quiet -- assets/partidos.json; then
             echo "Sin cambios."; echo "cambios=no" >> "$GITHUB_OUTPUT"; exit 0
           fi
-          git config user.name "Actualizador CVA"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "Daniel Durán Moya"
+          git config user.email "danielduranmoya@gmail.com"
           git add assets/partidos.json
           git commit -m "Actualiza partidos y clasificación ($(TZ=Europe/Madrid date '+%d/%m/%Y %H:%M'))"
           git pull --rebase -q origin "${GITHUB_REF_NAME}"
