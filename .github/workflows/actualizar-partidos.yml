@@ -36,7 +36,7 @@ jobs:
           git config user.name "Daniel Durán Moya"
           git config user.email "danielduranmoya@gmail.com"
           git add assets/partidos.json
-          git commit -m "Actualiza partidos y clasificación ($(TZ=Europe/Madrid date '+%d/%m/%Y %H:%M'))"
+          git commit -m "Actualiza partidos y clasificación ($(TZ=Europe/Madrid date '+%d/%m/%Y %H:%M'))" -m "Co-authored-by: Jaime Motos Guijarro <jaimemotosguijarro@gmail.com>"
           git pull --rebase -q origin "${GITHUB_REF_NAME}"
           git push
           echo "cambios=si" >> "$GITHUB_OUTPUT"
