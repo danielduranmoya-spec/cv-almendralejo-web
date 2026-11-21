@@ -2,7 +2,7 @@
  "masculino": {
   "club": "CV Almendralejo",
   "corto": "CV Almendralejo",
-  "actualizado": "2026-11-21",
+  "actualizado": "2026-11-22",
   "totalJornadas": 22,
   "partidos": [
    {
@@ -81,7 +81,9 @@
     "h": "18:00",
     "rival": "Anaya Mayurqa Vóley Palma",
     "casa": true,
-    "sede": "Pabellón San Roque"
+    "sede": "Pabellón San Roque",
+    "res": "P",
+    "marc": "2-3"
    },
    {
     "j": 9,
@@ -198,21 +200,27 @@
   ],
   "clasif": [
    [
-    "Textil Santanderina",
-    17,
-    7,
+    "Asisa Tarragona SPiSP",
+    18,
+    8,
     7
    ],
    [
-    "Asisa Tarragona SPiSP",
-    16,
-    7,
-    6
+    "Textil Santanderina",
+    18,
+    8,
+    7
    ],
    [
     "Indescar Zaragoza",
     16,
     7,
+    5
+   ],
+   [
+    "Anaya Mayurqa Vóley Palma",
+    15,
+    8,
     5
    ],
    [
@@ -223,54 +231,48 @@
    ],
    [
     "CVA Extremadura Tránsitos Suroeste",
-    13,
-    7,
-    4
-   ],
-   [
-    "Anaya Mayurqa Vóley Palma",
-    13,
-    7,
+    14,
+    8,
     4
    ],
    [
     "Rotogal Boiro Voleibol",
-    11,
-    7,
+    12,
+    8,
     4
    ],
    [
     "Club Vigo Voleibol",
+    11,
     8,
-    7,
-    3
+    4
    ],
    [
     "Bus Leader San Roque",
-    7,
-    7,
-    3
+    9,
+    8,
+    4
    ],
    [
     "Arona Spring In Motion",
-    7,
-    7,
+    8,
+    8,
     2
+   ],
+   [
+    "UBE L´Illa Grau",
+    4,
+    8,
+    1
    ],
    [
     "Barça Voleibol",
     2,
-    7,
-    0
-   ],
-   [
-    "UBE L´Illa Grau",
-    2,
-    7,
+    8,
     0
    ]
   ],
-  "clasifNota": "tras 7 jornadas",
+  "clasifNota": "tras 8 jornadas",
   "fuente": "https://rfevb-web.dataproject.com/CompetitionStandings.aspx?ID=167&PID=203",
   "fuenteNombre": "RFEVB",
   "calendarioUrl": "https://rfevb-web.dataproject.com/CompetitionMatches.aspx?ID=167&PID=203"
@@ -278,7 +280,7 @@
  "femenino": {
   "club": "CV Almendralejo",
   "corto": "CV Almendralejo",
-  "actualizado": "2026-11-21",
+  "actualizado": "2026-11-22",
   "partidos": [
    {
     "j": 1,
@@ -337,15 +339,15 @@
     4
    ],
    [
-    "Club Pacense Voleibol Senior A",
-    7,
-    3,
-    2
+    "AD Voleibol Ribera «Thercli Therapias Clínicas» A",
+    8,
+    4,
+    3
    ],
    [
-    "AD Voleibol Ribera «Thercli Therapias Clínicas» A",
-    6,
-    3,
+    "Club Pacense Voleibol Senior A",
+    8,
+    4,
     2
    ],
    [
@@ -356,14 +358,14 @@
    ],
    [
     "+Voley Badajoz A",
-    0,
     3,
-    0
+    4,
+    1
    ],
    [
     "Club Pacense Voleibol Senior B",
     0,
-    3,
+    4,
     0
    ]
   ],
