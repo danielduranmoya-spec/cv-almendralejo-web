@@ -1148,12 +1148,22 @@ document.addEventListener('visibilitychange',function(){ if(!document.hidden){ n
 
 /* Si existe assets/partidos.json (lo genera el actualizador automático), tiene prioridad */
 if(window.fetch&&location.protocol.indexOf('http')===0){
+  var usaDatos=function(j){
+    j=j&&(j.equipos||j); if(!j||typeof j!=='object') return;
+    var hay=false; KEYS.forEach(function(k){ if(j[k]&&typeof j[k]==='object'){ EQ[k]=j[k]; hay=true; } });
+    if(hay){ $('#duo').removeAttribute('data-built'); render(); }
+  };
   fetch('assets/partidos.json?v='+Math.floor(Date.now()/3e5),{cache:'no-cache'})
     .then(function(r){return r.ok?r.json():null})
-    .then(function(j){
-      j=j&&(j.equipos||j); if(!j||typeof j!=='object') return;
-      var hay=false; KEYS.forEach(function(k){ if(j[k]&&typeof j[k]==='object'){ EQ[k]=j[k]; hay=true; } });
-      if(hay){ $('#duo').removeAttribute('data-built'); render(); }
+    .then(usaDatos)
+    .catch(function(){})
+    .then(function(){
+      /* En un hosting con PHP, actualizar.php lee las webs oficiales cada pocas horas y devuelve los datos al día.
+         En GitHub Pages no hay PHP: la respuesta no es JSON y se ignora (allí actualiza GitHub Actions). */
+      if(/github\.io$/.test(location.hostname)) return;
+      return fetch('actualizar.php',{cache:'no-store'})
+        .then(function(r){return r.ok&&/json/.test(r.headers.get('content-type')||'')?r.json():null})
+        .then(usaDatos);
     })
     .catch(function(){});
 }
